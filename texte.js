@@ -107,9 +107,9 @@ L'approche linéaire s'explique plus facilement en utilisant des harmonisations 
 Les deux premières, A et A1, sont écrites dans un style assez classique ressemblant à celui des arrangeurs Neal Hefti et Sammy Nestico.
 
 [version A (position fermée)](1.mp3)
-[version A (position ouverte)](2A.mp3?start=5)
-[version A1 (position fermée)](2A1o.mp3?start=5)
-[version A1 (position ouverte)](2A1c.mp3?start=5)
+[version A (position ouverte)](2a.mp3?start=5)
+[version A1 (position fermée)](2a1o.mp3?start=5)
+[version A1 (position ouverte)](2a1c.mp3?start=5)
 
 La version B utilise des éléments de style que l'on associe à Duke Ellington et Billy Strayhorn.
 
@@ -132,12 +132,12 @@ Toutes ces différentes harmonisations mettent clairement en lumière l'ensemble
 La version A emploie la technique de base du parallélisme diatonique. Les quatre voix se déplacent parallèlement dans la gamme de l'accord. Les deux notes fondamentales de l'accord de la mélodie (La et Do) sont harmonisées avec les degrés 1-3-5-7 et 3-5-7-9 de l'accord de Ré mineur dorien (Dm dorian), la note de passage Sib est harmonisée avec les degrés 1-3-5-7 de Mi mineur, l'accord diatonique voisin dans la gamme de Ré dorien (D dorian).
 
 [version A (position fermée)](1.mp3)
-[version A (position ouverte)](2A.mp3?start=5)
+[version A (position ouverte)](2a.mp3?start=5)
 
 La version A1 emploie la technique de la tonicisation. L'accord du moment est traité comme un accord de tonique temporaire. Une progression d'accord est alors construite qui arrive à cet accord de tonique temporaire. Dans cet exemple, on utilise la forme de tonicisation la plus élémentaire. La note de passage Sib est harmonisée avec les degrés 3-5-7-9 de l'accord de dominante de Rém7 (l'accord du moment). Cela aboutit à la progression Rém7-La7-Rém7.
 
-[version A1 (position fermée)](2A1c.mp3?start=5)
-[version A1 (position ouverte)](2A1o.mp3?start=5)
+[version A1 (position fermée)](2a1c.mp3?start=5)
+[version A1 (position ouverte)](2a1o.mp3?start=5)
 
 La version B emploie la technique fondamentale du parallélisme chromatique. Quand la mélodie se déplace par demi-ton (de Sib à Do), on emploie les degrés 3-5-7-9 des accords Do m7 et Rém7. En conséquence, les quatre voix se déplacent d'une manière chromatiquement parallèle. La note de passage descendante est cependant harmonisée en se servant du parallélisme diatonique comme dans la version A. Étant donné que la note de passage descendante se résout sur la note suivante avec un intervalle de un ton, la technique du parallélisme diatonique entraîne une progression harmonique beaucoup plus convaincante. Cela donne aussi des lignes mélodiques plus puissantes dans la deuxième et la quatrième voix.
 
@@ -162,12 +162,12 @@ Dans les trois premières mesures de Minor D, les notes La et Do sont des notes 
 La version A utilise la technique d'harmonisation la plus évidente: le parallélisme chromatique. Premièrement, la note Sib est harmonisée avec les degrés 3-5-7-9 altérés de Ré7. Les quatre voix se déplacent ensuite chromatiquement et parallèlement à la mélodie.
 
 [version A (position fermée)](1.mp3?start=6)
-[version A (position ouverte)](2A.mp3?start=11)
+[version A (position ouverte)](2a.mp3?start=11)
 
 La version A1 utilise la même technique, mais avec une harmonisation différente de Ré7. Écoutez attentivement les subtiles différences de son entre les deux harmonisations de Ré7. Il est extrêmement important d'avoir conscience de ces différences de sons créées par les plus petites modifications harmoniques.
 
-[version A1 (position fermée)](2A1c.mp3?start=11)
-[version A1 (position ouverte)](2A1o.mp3?start=11)
+[version A1 (position fermée)](2a1c.mp3?start=11)
+[version A1 (position ouverte)](2a1o.mp3?start=11)
 
 La version B emploie la technique de la tonicisation (La7 est l'accord de dominante de Ré7). Remarquons que la deuxième et la quatrième voix se déplacent vers le bas par ton, pendant que la première et la troisième voix se déplacent vers le haut par ton également. Le mouvement contraire peut être employé avec efficacité pour mettre l'accent sur une phrase particulière ou sur un fragment mélodique.
 
@@ -190,12 +190,12 @@ Un traitement légèrement plus conventionnel est montré [ici](1p12.jpg).
 La version A emploie la technique la plus fondamentale : le parallélisme diatonique.
 
 [version A (position fermée)](1.mp3?start=8)
-[version A (position ouverte)](2A.mp3?start=13)
+[version A (position ouverte)](2a.mp3?start=13)
 
 La version A1 emploie la tonicisation. Fa#07 est l'accord de septième diminuée qui se résout normalement avec Solm7.
 
-[version A1 (position fermée)](2A1c.mp3?start=13)
-[version A1 (position ouverte)](2A1o.mp3?start=13)
+[version A1 (position fermée)](2a1c.mp3?start=13)
+[version A1 (position ouverte)](2a1o.mp3?start=13)
 
 La version B emploie une combinaison des méthodes de tonicisation et de parallélisme chromatique. Les trois voix sous la mélodie donnent des accords parallèles diminués de trois sons (triads) qui aboutissent à l'accord Fa#07. De cette manière, les notes Ré formant la mélodie sont traitées comme une pédale mélodique. L'accord de Fa#07 se résout comme dans la version A1 dans l'accord de Sol mineur. Dans la version B, cependant, Solm6 est employé à la place de Solm7. L'utilisation des accords de sixte mineure est d'un emploi fréquent chaque fois que ceux-ci fonctionnent comme des accords de tonique (1). Dans Minor D, les deux accords Ré mineur et Sol mineur sont des accords de tonique (1). Ré mineur est la tonalité du morceau et l'accord de Sol mineur est préparé par la modulation à la tonalité de Sol mineur (Ré7alt-Solm6). Les accords mineurs qui fonctionnent comme des accords du second degré (Il) dans une progression de type II-V doivent, cependant, contenir la septième ; autrement, ils sonnent comme une harmonisation des degrés 3-5-7-9 de l'accord de dominante (V). [voir l'image](2p12.jpg).
 
@@ -217,12 +217,12 @@ La version D ajoute la quarte à l'accord de Sol mineur. La quarte est parfois u
 La version A emploie les techniques les plus fondamentales. Le parallélisme diatonique est employé pour harmoniser les deux premières notes de la mélodie. Le parallélisme chromatique est employé pour harmoniser le reste de la phrase.
 
 [version A (position fermée)](1.mp3?start=13)
-[version A (position ouverte)](2A.mp3?start=18)
+[version A (position ouverte)](2a.mp3?start=18)
 
 La version A1 emploie la combinaison de la technique de tonicisation et de parallélisme chromatique. L'accord de Mib7, qui présente une relation de triton avec l'accord de La7, est employé comme un accord de substitution se dirigeant vers Ré mineur. La substitution du triton est la substitution la plus employée en jazz. L'accord de Mib7 est lui-même approché chromatiquement par Mi7. Par conséquent, au lieu d'avoir la progression fondamentale Mi7-La7-Rém, nous avons la progression Mi7-Mib7-Rém. Une fois encore, un accord mineur tonique (Rém6,9) est employé à la place de Rém7.
 
-[version A1 (position fermée)](2A1c.mp3?start=18)
-[version A1 (position ouverte)](2A1o.mp3?start=18)
+[version A1 (position fermée)](2a1c.mp3?start=18)
+[version A1 (position ouverte)](2a1o.mp3?start=18)
 
 La version B emploie le parallélisme chromatique utilisé précédemment dans les mesures 5 et 6 d'une manière similaire. Ceci contribue à donner à la version B une unité de son.
 
@@ -244,12 +244,12 @@ La version D emploie le parallélisme chromatique, mais il y a plus d'indépenda
 La version A suggère une autre technique fondamentale: l'emploi des renversements des quatre mêmes degrés de l'harmonisation (3-7-9-11# est la même chose que 3-1,5-7-9 puisque la 11# et la 5b représentent la même note). Dans ce cas cependant, la seconde harmonisation a été légèrement changée pour éviter le son inopportun de la gamme par ton. L'emploi des renversements sera étudié plus en détail au chapitre V.
 
 [version A (position fermée)](1.mp3?start=16)
-[version A (position ouverte)](2A.mp3?start=21)
+[version A (position ouverte)](2a.mp3?start=21)
 
 La version A1 emploie la tonicisation, étant donné que l'enchaînement des voix (voice leading) de Si7 à Sib7 n'est pas chromatiquement parallèle. Si7 est la substitution du triton de Fa7, l'accord de dominante normal de Sib7.
 
-[version A1 (position fermée)](2A1c.mp3?start=21)
-[version A1 (position ouverte)](2A1o.mp3?start=21)
+[version A1 (position fermée)](2a1c.mp3?start=21)
+[version A1 (position ouverte)](2a1o.mp3?start=21)
 
 La version B emploie la tonicisation d'une manière plus élargie, allant de Do7 (l'accord de dominante de Fa) à Fa7 (l'accord de dominante de Sib), et ensuite à Sib7.
 
@@ -270,12 +270,12 @@ La version D ne peut être expliquée qu'en termes d'approche linéaire. L'harmo
 La version A emploie le parallélisme chromatique (Sib7-La7).
 
 [version A (position fermée)](1.mp3?start=19)
-[version A (position ouverte)](2A.mp3?start=24)
+[version A (position ouverte)](2a.mp3?start=24)
 
 La version A1 emploie aussi le parallélisme chromatique, mais avec des harmonisations différentes des accords de Sib7 et de La7.
 
-[version A1 (position fermée)](2A1c.mp3?start=24)
-[version A1 (position ouverte)](2A1o.mp3?start=24)
+[version A1 (position fermée)](2a1c.mp3?start=24)
+[version A1 (position ouverte)](2a1o.mp3?start=24)
 
 La version B emploie la technique de tonicisation (Fa7-Sib7), et celle du parallélisme chromatique (Sib7-La7).
 
@@ -298,12 +298,12 @@ Les cinq versions harmonisent toutes la dernière note de la mesure 10 avec l'ac
 La version A emploie la technique du parallélisme chromatique pour harmoniser les trois premières croches.
 
 [version A (position fermée)](1.mp3?start=21)
-[version A (position ouverte)](2A.mp3?start=26)
+[version A (position ouverte)](2a.mp3?start=26)
 
 La version A1 emploie la technique du parallélisme chromatique, mais Rém6 est employé à la place de Rém7.
 
-[version A1 (position fermée)](2A1c.mp3?start=26)
-[version A1 (position ouverte)](2A1o.mp3?start=26)
+[version A1 (position fermée)](2a1c.mp3?start=26)
+[version A1 (position ouverte)](2a1o.mp3?start=26)
 
 La version B emploie la technique de parallélisme chromatique (Ré07-Do#07) et la technique de tonicisation (Do#07-Rém6). Notez l'emploi de l'accord de Mi augmenté (Mi+) à la place de Em7b5. Quand les accords mineurs ou les accords mineurs de quinte diminuée fonctionnent comme des accords de second degré (II) dans la progression d'accord II-V, ils peuvent être changés en accord de dominante si la mélodie le permet.
 
