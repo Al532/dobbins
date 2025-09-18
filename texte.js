@@ -113,7 +113,7 @@ Les deux premières, A et A1, sont écrites dans un style assez classique ressem
 
 La version B utilise des éléments de style que l'on associe à Duke Ellington et Billy Strayhorn.
 
-[version B (position fermée)](2bo.mp3?start=5)
+[version B (position fermée)](2bo.mp3?start=4)
 [version B (position ouverte)](2bc.mp3?start=5)
 
 La version C est écrite dans un style semblable à l'écriture à quatre voix employée par Oliver Nelson.
@@ -183,7 +183,7 @@ La version D emploie une pure approche linéaire. Le premier accord (voicing : v
 
 [version D](2d.mp3?start=10)
 
-Un traitement légèrement plus conventionnel est montré [ici](1p12.jpg).
+Un traitement légèrement plus conventionnel est montré [ici](1p12.jpg) (comparé à (.
 
 **[Mesures 5 et 6:](2-2.jpg)** La mélodie est formée d'un fragment de la gamme de Sol dorien. Je dis Sol dorien puisque la sixte majeure (Mi naturel) est sous-entendue par l'armure, à la clé du morceau, et qu'il n'y a pas de Mi, à proximité, dans la ligne mélodique.
 
@@ -202,7 +202,7 @@ La version B emploie une combinaison des méthodes de tonicisation et de parall�
 [version B (position fermée)](2bc.mp3?start=13)
 [version B (position ouverte)](2bo.mp3?start=13)
 
-La version C emploie la technique du parallélisme chromatique pour harmoniser l'intervalle d'un ton entre Ré et Do. L'emploi d'un intervalle de demi-ton entre la mélodie et la seconde voix, comme on peut le voir sur le quatrième temps de la cinquième mesure, est extrêmement rare. L'emploi d'intervalles plus petits qu'une tierce entre la mélodie et la seconde voix peut aisément empiéter sur la mélodie, l'obscurcir. Dans ce cas pourtant, l'intervalle de demi-ton est approché et abandonné par mouvement contraire. En se servant de l'approche linéaire, le demi-ton n'empiète pas sur la mélodie. De plus, l'emploi fréquent des intervalles de demi-ton dans l'harmonisation des voix permet de donner à la version C une unité de son. Comme pour les mesures 1 à 3, la ligne mélodique dans la seconde voix (Bb, Ab, A, Ab, Bb) est quelque peu malaisée à jouer. Le croisement de la deuxième et de la troisième voix ((voir l'image)[p13.jpg]) apportera une ligne plus mélodique à la seconde voix.
+La version C emploie la technique du parallélisme chromatique pour harmoniser l'intervalle d'un ton entre Ré et Do. L'emploi d'un intervalle de demi-ton entre la mélodie et la seconde voix, comme on peut le voir sur le quatrième temps de la cinquième mesure, est extrêmement rare. L'emploi d'intervalles plus petits qu'une tierce entre la mélodie et la seconde voix peut aisément empiéter sur la mélodie, l'obscurcir. Dans ce cas pourtant, l'intervalle de demi-ton est approché et abandonné par mouvement contraire. En se servant de l'approche linéaire, le demi-ton n'empiète pas sur la mélodie. De plus, l'emploi fréquent des intervalles de demi-ton dans l'harmonisation des voix permet de donner à la version C une unité de son. Comme pour les mesures 1 à 3, la ligne mélodique dans la seconde voix (Bb, Ab, A, Ab, Bb) est quelque peu malaisée à jouer. Le croisement de la deuxième et de la troisième voix ([voir l'image](p13.jpg)) apportera une ligne plus mélodique à la seconde voix.
 
 [version C (position fermée)](2cc.mp3?start=13)
 [version C (position ouverte)](2co.mp3?start=13)

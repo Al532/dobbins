@@ -77,7 +77,8 @@ body {
 /* Zone texte */
 .content {
   flex: 1;
-  min-width: 300px;        /* largeur minimale du texte */
+  min-width: 200px;        /* largeur minimale du texte */
+  max-width: 600px;
   overflow-y: auto;
   padding: 20px;
   background: #f4f4f4;
@@ -85,10 +86,27 @@ body {
 
 /* Zone image */
 .sidebar {
-  flex: 1;
-  min-width: 300px;        /* largeur minimale de l’image */
+  flex: 1.3;
+  min-width: 400px;        /* largeur minimale de l’image */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
+  background-color: #fff;
+}
+
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;  /* empile le contenu */
+  }
+
+  .content {
+    max-width: none;         /* supprime la limite de largeur */
+    width: 100%;             /* prend toute la largeur */
+    min-height: 40vh;        /* garde un minimum de hauteur pour lire confortablement */
+  }
+
+  .sidebar {
+    width: 100%;             /* prend toute la largeur */
+    min-height: 40vh;        /* réserve un espace correct pour l’image */
+  }
 }
