@@ -288,7 +288,7 @@ La version D emploie le *parallélisme chromatique*, mais il y a plus d'indépen
 
 La mélodie se compose d'un fragment de la gamme lydienne et mixolydienne de Si♭.
 
-La version A suggère une autre technique fondamentale: l'emploi des renversements des quatre mêmes degrés de l'harmonisation (3-7-9-11♯ est la même chose que 3-1,5-7-9 puisque la 11♯ et la 5b représentent la même note). Dans ce cas cependant, la seconde harmonisation a été légèrement changée pour éviter le son inopportun de la gamme par ton. L'emploi des renversements sera étudié plus en détail au chapitre V.
+La version A suggère une autre technique fondamentale : l'emploi des renversements des quatre mêmes degrés de l'harmonisation (3-7-9-♯11 est la même chose que 3-5♭-7-9 puisque la ♯11 et la ♭5 représentent la même note). Dans ce cas cependant, la seconde harmonisation a été légèrement changée pour éviter le son inopportun de la gamme par ton. L'emploi des renversements sera étudié plus en détail au chapitre V.
 
 [version A (position fermée)](2ac.mp3?start=17)
 [version A (position ouverte)](2ao.mp3?start=21.8)
@@ -352,11 +352,11 @@ La version C emploie la technique de *tonicisation*, étant donné que les harmo
 
 ---
 
-La version D emploie une fois de plus les accords de trois sons (triads) pour les voix supérieures, et un mouvement chromatique à la voix la plus basse. L'harmonisation de l'accord de Mi♭9 (avec la 11ème augmentée à la mélodie) est une autre variation de la substitution du triton (Mi est l'accord de triton de La, l'accord de dominante de Ré mineur).
+La version D emploie une fois de plus les accords de trois sons (triads) pour les voix supérieures, et un mouvement chromatique à la voix la plus basse. L'harmonisation de l'accord de Mi♭9 (avec la 11ème augmentée à la mélodie) est une autre variation de la substitution du triton (Mi♭ est l'accord de triton de La, l'accord de dominante de Ré mineur).
 
 [version D](2d.mp3?start=23.2)
 
-Les cinq versions harmonisent toutes la dernière note de la mesure 10 avec l'accord de la mesure 11: Rém. En règle générale, chaque fois que la mélodie anticipe le son de l'accord suivant, cette anticipation doit être harmonisée avec un étagement vertical des voix (voicing) de l'accord suivant. Ceci se produit habituellement quand la mélodie anticipe le premier ou le troisième temps de la mesure, juste avant un changement d'accord.
+Les cinq versions harmonisent toutes la dernière note de la mesure 10 avec l'accord de la mesure 11 : Rém. En règle générale, chaque fois que la mélodie anticipe le son de l'accord suivant, cette anticipation doit être harmonisée avec un étagement vertical des voix (voicing) de l'accord suivant. Ceci se produit habituellement quand la mélodie anticipe le premier ou le troisième temps de la mesure, juste avant un changement d'accord.
 
 ### [Mesures 11 et 12](2-4.jpg)
 
