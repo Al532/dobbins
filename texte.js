@@ -568,5 +568,143 @@ Tous les exemples de ce chapitre doivent être soigneusement analysés par rappo
 
 
 
+
+
+
+## L'écriture de la section rythmique
+
+Une bonne section rythmique est essentielle pour une exécution convaincante de la musique de jazz. Puisque la plus grande partie de l'accompagnement de la section rythmique est improvisée, chaque membre de cette section doit connaître l'histoire et la tradition de son instrument. Une bonne section rythmique est capable de réaliser un accompagnement très efficace avec une notation appropriée peu importante. Une section rythmique médiocre, d'un autre côté, ne sera pas aidée par une notation soignée de toutes les harmonisations des accords de piano, et de tous les coups de cymbale. Le compositeur ou l'arrangeur doit donner à la section rythmique juste assez d'informations pour faire converger sa créativité naturelle.
+
+Avant d'étudier la section rythmique en tant qu'unité, nous examinerons chaque instrument de cette section.
+
+La basse est le fondement de la section rythmique. Bien que la basse électrique fonctionne fort bien dans les styles modernes de "fusion", la contrebasse est essentielle pour obtenir un son "jazz" authentique. Il y a deux sortes de notation courantes utilisées pour la contrebasse dans la composition et l'arrangement de la musique de jazz.
+
+La première n'est pas différente de la notation conventionnelle. Dans la musique de jazz, la contrebasse est généralement jouée pizzicato, à moins que l'indication arco (avec l'archet) soit donnée. En jazz, la contrebasse est rarement jouée à l'archet, sauf exceptionnellement dans des sections rubato ou dans des solos occasionnels. 
+
+![](p35-1.jpg)
+
+Une ligne de basse strictement écrite comme celle ci-dessus est employée par le compositeur ou l'arrangeur uniquement quand celui-ci désire une ligne de basse particulière pour accompagner une mélodie ou un passage harmonisé. Une notation précise est aussi employée quand la contrebasse joue un unisson rythmique avec d'autres instruments, et aussi dans des solos écrits ou dans des passages à l'unisson.
+
+La seconde sorte de notation pour la contrebasse consiste en des symboles d'accord et des lignes inclinées. Chaque ligne inclinée représente un temps de la mesure, et ces lignes indiquent donc le nombre de temps qu'un accord doit être joué. 
+
+![](p35-2.jpg)
+
+Dans l'exemple ci-dessus, la basse jouera une ligne de noires qui dessine le contour de l'accord de DoMaj7 pour six battements (temps), et La7 pour deux battements (temps).
+
+La contrebasse joue normalement la fondamentale de l'accord sur le premier temps d'un changement d'accord et les fondamentales, tierces, quintes, sur les temps forts de chaque mesure (temps 1 et 3 pour une mesure à 4/4). Les notes au-dessus de la quinte et les notes étrangères à l'accord sont rarement jouées, sauf comme des notes de passage sur les temps faibles. Pour cette raison, les symboles des accords dans la partie de contrebasse n'ont pas besoin de montrer les extensions, ni les notes altérées, sauf si la quinte est altérée (5♭ ou 5♯).
+
+Dans le contexte de jazz, la contrebasse joue habituellement des noires, sauf si une des indications suivantes est donnée:
+
+1.  **_Dédoubler_** (2-beat feel): la contrebasse joue principalement des blanches, avec quelques ornements de temps à autre.
+
+![](p35-3.jpg)
+
+2.  **_Doubler_** (double time feel): la contrebasse joue des ornements occasionnels autour des noires pendant que la batterie joue ou implique un tempo qui est deux fois plus rapide que le tempo original. 
+
+![](p35-4.jpg)
+
+[les double-croches doivent être "swinguées", les croches jouées comme des croches classiques]
+3.  **_Jouer ouvert_** (open feel): la contrebasse joue des notes d'une durée irrégulière ou des rythmes croisés qui se prolongent au travers des barres de mesure d'une manière imprévisible. La progression harmonique est cependant suivie en jouant les fondamentales sur ou près de chaque changement d'accord. 
+
+![](p36-1.jpg)
+
+Dans les styles de musique autre que le jazz, comme le rock ou la musique latine, la basse, généralement, a des rythmes spécifiques ou des rôles rythmiques qui caractérisent chaque style particulier. Une étude de tous ces styles dépasserait de loin les limites de cet ouvrage. En général, si la partie de basse contient le style et le tempo du morceau (Bebop modérément rapide par exemple), et des symboles d'accords clairs et corrects, il ne devrait pas y avoir de problème. Les arrangements de _Minor D_ et de _Blues for Barry_ qui seront étudiés plus tard montreront des manières appropriées de se servir de la basse en relation avec les instruments à vent et le reste de la section rythmique.
+
+Il y a quatre sortes de notation pour le piano qui sont généralement employées dans la composition et l'arrangement de la musique de jazz.
+
+La première sorte de notation est identique à la notation conventionnelle.
+
+![](p36-2.jpg)
+
+Une telle notation est employée pour les solos écrits de piano ou les mélodies. Elle peut être aussi employée quand le compositeur ou l'arrangeur désire des harmonisations particulières d'un accord, ou un accompagnement particulier.
+
+La seconde notation pour le piano consiste à employer le symbole des accords. Dans ce cas, le pianiste improvisera un accompagnement qui sera formé des harmonisations des différents accords combinés avec des rythmes appropriés.
+
+![](p36-3.jpg)
+
+La troisième sorte de notation pour le piano comprend les symboles des accords et des rythmes écrits. Dans ce cas, le pianiste jouera des harmonisations des accords tout en se servant des rythmes indiqués.
+
+![](p36-4.jpg)
+
+La quatrième sorte de notation pour le piano comprend le symbole des accords, le rythme, et la note supérieure de chacune des harmonisations des accords. Dans ce cas, le pianiste harmonisera les accords avec les notes données à la partie supérieure.
+
+![](p36-5.jpg)
+
+Si _dédoubler, doubler le tempo,_ ou _ouvert_ sont indiqués sur les parties de basse, ces indications doivent aussi figurer sur les parties de piano. Le pianiste joue généralement d'une façon plus espacée, moins fournie, dans les parties _dédoublés_ ou _doublées_ qu'il ne le fait dans un tempo classique à quatre temps ayant une pulsation régulière (straight ahead: voir glossaire). Dans un morceau _ouvert_ les accords sont formulés avec des rythmes irréguliers ou avec des rythmes croisés.
+
+La guitare et le vibraphone fonctionnent exactement comme un piano lorsqu'il n'y a qu'un instrument harmonique dans la section rythmique. Quand deux ou plusieurs instruments sont employés dans un contexte "jazzistique", le piano est normalement l'instrument d'accompagnement principal. La guitare et le vibraphone opèrent alors comme instruments de la section des instruments à vent. Le vibraphone double souvent l'instrument à vent jouant la ligne principale, pendant que la guitare double la première voix et le vibraphone un octave plus bas. Dans les arrangements pour deux instruments à vent, le vibraphone double le premier instrument à vent et la guitare le second. Le piano généralement accompagne les solos des instruments à vent, à moins que la guitare, dans un style de "guitare rythmique", joue des accords étouffés sur les quatre temps de la mesure dans le style "swing" (à la Basie). Bien sûr, la guitare ou le vibraphone peuvent accompagner les solos si l'arrangeur désire cette instrumentation particulière.
+
+Il y a plusieurs sortes de notation pour la batterie bien qu'une notation spécifique soit rare. La batterie est un instrument tellement complexe que même les meilleurs arrangeurs et compositeurs écrivent seulement une ébauche, une esquisse, pour la partie de cet instrument. Dans un morceau avec une pulsation régulière et continue (straight ahead style), le rythme conventionnel de swing marqué à la cymbale est généralement donné en début de morceau, bien que cela ne soit pas absolument nécessaire. Notez que les croches "swinguées" sont représentées par des croches ordinaires plutôt que par des triolets. Si l'indication du tempo est noté "jazz", "swing", "shuffle", "groove" ou "bebop", les musiciens joueront les croches comme des croches "swinguées", à moins que cela ne soit indiqué autrement.
+
+![](p37-1.jpg)
+
+Si la batterie doit jouer certains rythmes avec la section d'instruments à vent ou avec le pianiste, ces rythmes doivent être écrits sur la partition de batterie. Si le batteur doit continuer à jouer le tempo pendant le même temps, ces rythmes doivent être écrits sur la ligne supérieure de la mesure.
+
+![](p37-2.jpg)
+
+Si le batteur doit jouer uniquement les rythmes d'ensemble, la notation suivante peut être utilisée.
+
+![](p37-3.jpg)
+
+Si les indications _doubler, dédoubler_ ou _ouvert_ sont indiquées sur les partitions de contrebasse, elles doivent figurer aussi sur les partitions de batterie. Les groupes dirigés par Ahmad Jamal et Miles Davis à la fin des années cinquante et au début des années soixante sont les meilleurs modèles que l'on puisse trouver pour jouer en donnant l'impression d'un rythme doublé ou dédoublé (2-beat ou double time feel). Les trios de Bill Evans et les quintets de Miles Davis du milieu des années soixante sont les meilleurs modèles pour jouer dans un style ouvert (open feel). La plupart des groupes importants des années soixante-dix et quatre-vingt ont été influencés par ces sections rythmiques.
+
+Il y a peu de notations spécifiques à la batterie qui sont communes à certains styles. Elle doivent être les seules employées, cependant, si elles sont réellement appropriées au style du morceau. La ligne rythmique suivante jouée sur la cymbale Charleston (avec les baguettes ou les balais) est employée pour créer un style "swing" authentique. Ce style est associé à la section rythmique de Count Basie.
+
+![](p37-4.jpg)
+
+[Baguette sur la cymbale Charleston; o= ouverte, +=fermée]
+
+Parfois, un coup donné sur le cercle métallique de la caisse claire (rim shot) est joué sur le quatrième temps de la mesure dans un esprit et avec un style swingués, puissants. Sam Woodyard a employé souvent cet effet avec l'orchestre de Duke Ellington dans les années cinquante.
+
+![](p38-1.jpg)
+
+Si l'arrangeur débutant écoute avec plus de soins les arrangements classiques de jazz, il ou elle deviendra familier avec un nombre plus important de manières spécifiques d'utiliser les instruments de la section rythmique. L'aspirant arrangeur, cependant, devra essayer d'écrire des partitions pour la section rythmique qui sont élémentaires mais claires. Les versions suivantes de _Minor D_ et de _Blues for Barry_ montreront quelques façons fondamentales mais efficaces d'employer la section rythmique dans un arrangement.
+
+**L'exemple 10** ([début](10.jpg), [fin](10-2.jpg)) est une version de _Minor D_ où la section rythmique joue un accompagnement écrit d'une manière simple, fondamentale. Les deux instruments à vent sont harmonisés la plupart du temps avec des intervalles de dixième, ce qui est une façon d'écrire très efficace pour la trompette et le saxo ténor. Les aspects suivants des partitions de la section rythmique doivent être notés.
+
+[exemple 10](10.mp3?start=3)
+
+**Piano:** D'une façon générale, seuls les symboles des accords sont donnés. Les points rythmiques les plus marquants dans les partitions des instruments à vent sont indiqués (mesures 4 à 7 et mesure 10). Quand le piano joue ces rythmes, il y a un très fort sentiment d'ensemble, même si la plus grande partie de la partition est improvisée.
+
+**Basse:** Les symboles des accords sont plus fondamentaux que ceux qui sont indiqués sur la partition de piano, mais toutes les quintes altérées sont clairement indiquées. La contrebasse ne joue pas les anticipations des mesures 4 à 7 et de la mesure 10. De telles anticipations sont souvent plus efficaces quand la contrebasse joue sur le tempo. Ceci crée en effet une légère tension rythmique qui se relache sur le début de la phrase suivante. Notez que les accords d'embellissement de la partie de piano dans les mesures 5 et 7 ne sont pas inclus dans la partie de basse. Généralement, la partie de basse n'a pas besoin d'inclure les accords d'embellissement ou les accords de passage, à moins qu'ils ne soient joués plus d'un temps. Quand on interrogeait Duke Ellington sur le nombre d'informations qu'il mettait dans ses partitions de contrebasse, on dit qu'il répondait: "aussi peu que possible". Les parties de basse dans les conducteurs de chapitre 7 contiennent toutes les informations essentielles.
+
+**Batterie:** La batterie met clairement l'accent sur deux rythmes (mesures 4 et 10). Elle joue des "remplissages" (fills: voir glossaire) pour connecter la fin de chaque quatre mesures avec le début de la phrase suivante. Ceci est particulièrement efficace, d'autant plus que les instruments à vent sont inactifs pendant ces mesures. Si le batteur a un bon tempo, une partie simple mais claire est ce dont il a besoin.
+
+**L'exemple 11** ([début](11.jpg), [fin](11-2.jpg)) est une version de _Minor D_ qui commence dans un style homophonique simple. Un tempo plus rapide est employé, et le morceau est joué avec un rythme "shuffle". Dans ce style homophonique, la trompette expose la mélodie pendant que le saxo ténor est une partie de l'accompagnement de la section rythmique. Les quatre mesures d'accompagnement qui ouvrent le morceau étendent la forme de douze à seize mesures. Le changement du rythme "shuffle" en un tempo jazz "straight ahead" à la mesure 9 est une façon efficace d'employer la tension et la détente à l'intérieur de la structure formelle du morceau. Dans la neuvième mesure, le saxo ténor se joint à la trompette pour le reste du thème. Les aspects suivants des partitions respectives de la section rythmique doivent être notés.
+
+[exemple 11](11.mp3)
+
+**Piano:** Les harmonisations des accords sont parfois complètement écrites de manière à donner à l'arrangement un son harmonique particulier. La main gauche double la ligne de basse, pour accentuer l'impression de style "shuffle". Les rythmes écrits dans les mesures 13 et 14 paraphrasent les rythmes des instrument à vent (pour les souligner). Les harmonisations des mesures 13 et 14 sont notées d'une façon complète de manière à créer un son unifié avec les instruments à vent et la ligne de basse.
+
+**Basse:** La ligne de basse écrite amène l'esprit du style "shuffle". De nouveau, la contrebasse joue sur les temps durant les anticipations dans les mesures 9, 13 et 14. La ligne de basse écrite dans les mesures 15 et 16 fait une résolution retardée de La7 à Si♭6/9 qui se résout sur Ré♭m7 sur le deuxième temps de la mesure 16.
+
+**Batterie:** Le rythme de "shuffle" consiste habituellement en deux éléments fondamentaux. Premièrement, le batteur joue sur la cymbale des croches swinguées d'une façon continue. (Exemple 1, page 40). Deuxièmement, les temps 2 et 4 sont joués d'une manière plus appuyée. La batterie joue les anticipations avec le piano dans la mesure 8 afin d'augmenter la tension juste avant de changer, dans la mesure 9, le rythme "shuffle" en un tempo jazz "straight ahead". Le "remplissage" (fill) de batterie dans la mesure 12 prépare les rythmes des mesures 13 et 14. L'accent sur le quatrième temps de la mesure 16 avec le piano et la basse prépare le retour du rythme "shuffle".
+
+A cause des changements dans les styles rythmiques et les fréquents ensembles rythmiques, cette version "sonne" plus arrangée que l'exemple 10. Le vibraphone et la guitare peuvent être ajoutés de deux façons différentes. Premièrement, le vibraphone peut doubler la trompette pendant que la guitare double le saxo ténor. Deuxièmement, le vibraphone et la guitare peuvent devenir une partie de l'accompagnement de la section rythmique, du fait même que l'accompagnement original est constitué de plusieurs parties qui sont écrites plutôt qu'improvisées.
+
+**L'exemple 12** ([début](12.jpg), [fin](12-2.jpg)) montre comment utiliser le vibraphone et la guitare dans la version "shuffle" de _Minor D._ On donne à la guitare le symbole des accords et les rythmes de la partie de piano. En général, un compositeur ou un arrangeur qui n'est pas guitariste ne doit pas essayer d'écrire des accords spécifiques pour la guitare. Comme la guitare a moins de possibilités pour harmoniser les accords que le piano, seuls les symboles des accords ou les lignes formées d'une seule note à la fois seront employés jusqu'à ce que l'arrangeur devienne familier avec le manche de la guitare. Le vibraphone double généralement les deux notes supérieures des harmonisations des accords de piano. En principe, ce n'est pas une très bonne idée d'écrire des harmonisations de trois ou quatre notes pour le vibraphone, à moins que le tempo soit lent et que le musicien soit à l'aise avec trois ou quatre maillets.
+
+Comme le vibraphone et la guitare forment une grande section rythmique, le saxo ténor joue avec la trompette tout au long du morceau. Autrement, la section rythmique dominerait la mélodie. Notez que le vibraphone et la guitare ne jouent pas dans les mesures 9 à 12 (le commencement du tempo "straight ahead"): ces four mesures de silence rendent leur prochaine entrée à la mesure 13 très efficace, en changeant l'orchestration.
+
+**[L'exemple 13](13.jpg)** montre un accompagnement de section rythmique simple des quatre premières mesures de _Blues for Barry._ La section rythmique principalement accompagne et joue le tempo, bien que la réponse rythmique à la mélodie dans la mesure 3 soit extrêmement efficace. Le saxo ténor joue la mélodie de la trompette un octave au-dessous d'elle, créant un style homophonique simple.
+
+[exemple 13](13.mp3)
+
+**L'exemple 14** ([début](14.jpg), [fin](14-2.jpg)) est un arrangement plus élaboré de _Blues for Barry._ Les quatre premières mesures utilisent un effet de "tempo arrêté" (stop time). Le saxo ténor joue avec la section rythmique, utilisant une simple ligne guide qui met l'accent sur les notes importantes de la progression harmonique. Le saxo ténor se joint à la trompette quand la section rythmique commence à jouer le tempo à la mesure 5. Cet arrangement est encore simple et homophonique, mais il se sert de la section rythmique pour donner au morceau une personnalité plus vibrante et plus colorée. Notez que la batterie ne joue pas les rythmes du piano dans les mesures 5 et 8. La batterie et le piano sont une équipe importante dans un petit ensemble de jazz. Pourtant, si la batterie met l'accent sur tous les rythmes fixés dans l'accompagnement, elle peut aisément obscurcir la mélodie et faire perdre le sentiment du tempo.
+
+[exemple 14](14.mp3)
+
+**[L'exemple 15](15.jpg)** montre une harmonisation spécifique du piano dans les quatre premières mesures de _Blues for Barry._ Des accords particuliers peuvent être écrits dans la partie de piano s'ils complètent l'harmonisation des instruments à vent et la ligne de basse. Cependant, s'il n'y a aucun doute en ce qui concerne les harmonisations particulières à employer, le symbole des accords et les rythmes sont parfaitement suffisants.
+
+Tout aspirant compositeur ou arrangeur doit essayer de devenir de plus en plus familier avec chaque instrument de la section rythmique et avec leurs relations les uns par rapport aux autres. Une écoute consciencieuse des enregistrements énumérés dans ce livre sera à ce sujet d'un grand secours. Quand il y a une connaissance plus profonde du vocabulaire de chaque instrument, plus de détails peuvent être écrits dans chaque partition. Quand il y a une plus profonde compréhension des interactions entre la section rythmique et les instruments à vent, cette dimension de conversation (entre les différents instruments) peut devenir une partie de l'arrangement.
+
+Il est aussi utile de connaître les musiciens de la section rythmique et leur attitude par rapport aux arrangements écrits. Ceci peut être très important pour déterminer ce qu'il faut écrire ou ce que le musicien doit interpréter. On accordera plus d'attention à la section rythmique dans le chapitre 7. Pour l'instant, nous retournerons à la section des instruments à vent, pour étudier l'écriture pour trois, quatre ou cinq instruments de cette section.
+
+*Voir Discographie - texte en anglais - page 49*
+
+
+
+
+
 `;
 
