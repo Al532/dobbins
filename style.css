@@ -94,6 +94,14 @@ body {
   background-color: #fff;
 }
 
+.content img {
+  width: 100%;      /* prend toute la largeur de la zone texte */
+  height: auto;     /* conserve les proportions */
+  display: block;   /* évite les petits espaces autour */
+  margin: 10px 0;   /* un petit espace avant/après */
+}
+
+
 @media (max-width: 600px) {
   body {
     flex-direction: column;  /* empile le contenu */
