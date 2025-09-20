@@ -1,38 +1,40 @@
-
-/* Audio player minimaliste */
-.audio-player {
+/* ---- Layout global ---- */
+body {
+  margin: 0;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+/* ---- Zone texte ---- */
+.content {
+  flex: 1;
+  min-width: 200px;        /* largeur minimale du texte */
+  max-width: 600px;        /* largeur maximale */
+  overflow-y: auto;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+/* ---- Zone image (sidebar) ---- */
+.sidebar {
+  flex: 1.3;
+  min-width: 400px;        /* largeur minimale */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+}
+
+/* ---- Images dans le contenu ---- */
+.content img {
+  width: 100%;      /* prend toute la largeur du texte */
+  height: auto;     /* conserve les proportions */
+  display: block;
   margin: 10px 0;
 }
 
-.play-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  height: 1.2em;        /* hauteur fixe */
-  line-height: 1;        /* empêche le texte de repousser */
-  display: flex;
-  align-items: center;   /* centre le symbole verticalement */
-  justify-content: center;
-}
-
-.progress {
-  flex: 1;
-  height: 5px;
-  background: #ccc;
-  cursor: pointer;
-  position: relative;
-}
-
-.progress-filled {
-  height: 100%;
-  width: 0;
-  background: #007BFF;
-}
-
+/* ---- Lecteur audio ---- */
 .audio-player {
   display: flex;
   align-items: center;
@@ -41,16 +43,28 @@
 }
 
 .audio-label {
-  flex: 1;            /* prend l’espace disponible à gauche */
-  font-weight: normal; /* enlever le gras */
-  font-size: 0.9em;   /* un cran plus petit */
-  font-style: italic;  /* italique */
+  flex: 1;
+  font-size: 0.9em;
+  font-style: italic;
+  font-weight: normal;
 }
 
 .audio-controls {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.play-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  height: 1.2em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .progress {
@@ -67,67 +81,20 @@
   background: #007BFF;
 }
 
-/* Zone texte */
-.content {
-  flex: 1;
-  min-width: 200px;        /* largeur minimale du texte */
-  max-width: 600px;
-  overflow-y: auto;
-  padding: 20px;
-  background: #fff;
-}
-
-/* Zone image */
-.sidebar {
-  flex: 1.3;
-  min-width: 400px;        /* largeur minimale de l’image */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #fff;
-}
-
-.content img {
-  width: 100%;      /* prend toute la largeur de la zone texte */
-  height: auto;     /* conserve les proportions */
-  display: block;   /* évite les petits espaces autour */
-  margin: 10px 0;   /* un petit espace avant/après */
-}
-
-
+/* ---- Responsive ---- */
 @media (max-width: 600px) {
   body {
     flex-direction: column;  /* empile le contenu */
   }
 
   .content {
-    max-width: none;         /* supprime la limite de largeur */
-    width: 100%;             /* prend toute la largeur */
-    min-height: 40vh;        /* garde un minimum de hauteur pour lire confortablement */
+    max-width: none;
+    width: 100%;
+    min-height: 40vh;
   }
 
   .sidebar {
-    width: 100%;             /* prend toute la largeur */
-    min-height: 40vh;        /* réserve un espace correct pour l’image */
+    width: 100%;
+    min-height: 40vh;
   }
-}
-
-body {
-  margin: 0;
-  display: flex;
-  height: 100vh;
-  font-family: sans-serif;
-  color: #222222; /* texte principal */
-}
-
-
-h2 { margin-top: 80px; font-size: 2.2em; color:#5A1F1F;}
-h3 { margin-top: 50px; }
-
-a {
-  color: #A64B3C;            /* liens */
-}
-
-a:hover {
-  color: #733022;            /* liens au survol */
 }
