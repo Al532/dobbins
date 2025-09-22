@@ -1,8 +1,8 @@
-// Import de la librairie PDF.js (display layer) depuis le dossier build
-import * as pdfjsLib from './build/pdf.mjs';
+// Import de la librairie PDF.js (display layer) depuis la racine
+import * as pdfjsLib from './pdf.mjs';
 
-// Configure le chemin du worker (core layer)
-pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.mjs';
+// Configure le chemin du worker (core layer) dans la racine aussi
+pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.mjs';
 
 /* =========================================================
    1. Cache des PDF déjà ouverts
