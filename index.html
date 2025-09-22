@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dobbins : Arrangement jazz</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobbins : Arrangement jazz</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Zone texte -->
+    <div class="content" id="content">
+      <nav id="toc"></nav>
+      <!-- Le contenu (texte, audio, images) sera inséré ici dynamiquement -->
+    </div>
 
-  <!-- Zone texte -->
-  <div class="content" id="content">
-    <nav id="toc"></nav>
-    <!-- Le texte sera inséré ici dynamiquement -->
-  </div>
+    <!-- Zone image / PDF -->
+    <div class="sidebar" id="sidebar"></div>
 
-  <!-- Zone image -->
-  <div class="sidebar" id="sidebar"></div>
-
-  <script src="script.js"></script>
-</body>
+    <!-- On charge le script principal en tant que module ES -->
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
