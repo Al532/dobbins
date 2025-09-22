@@ -147,11 +147,12 @@ function createAudioPlayer(link) {
   });
 
   // Mise à jour de la barre de progression
-  audio.addEventListener('timeupdate', () => {
-    if (!audio.duration) return;
-    const pct = ((audio.currentTime - start) / (audio.duration - start)) * 100;
-    progressFilled.style.width = Math.max(0, Math.min(100, pct)) + '%';
-  });
+	audio.addEventListener('timeupdate', () => {
+	  if (!audio.duration) return;
+	  const pct = ((audio.currentTime - start) / (audio.duration - start)) * 100;
+	  progressFilled.style.width = Math.max(0, Math.min(100, pct)) + '%';
+	});
+
 
   progressBar.addEventListener('click', e => {
     const r = progressBar.getBoundingClientRect();
@@ -179,7 +180,6 @@ function showImageInSidebar(url) {
    7. Lecteur PDF dans la sidebar
    ========================================================= */
 function showPdfInSidebar(url) {
-  // Normalisation de l'URL et gestion du cache
   const absURL = new URL(url, location.href).href;
   const pdfProm = pdfCache.get(absURL) ||
     (pdfjsLib.getDocument(absURL).promise.then(doc => {
@@ -187,7 +187,6 @@ function showPdfInSidebar(url) {
       return doc;
     }));
 
-  // Préparer la sidebar pour afficher le viewer PDF
   const sidebar = document.getElementById('sidebar');
   sidebar.style.backgroundImage = '';
   sidebar.innerHTML = `
@@ -203,23 +202,20 @@ function showPdfInSidebar(url) {
   const prevBtn = sidebar.querySelector('.sidebar-pdf-btn.prev');
   const nextBtn = sidebar.querySelector('.sidebar-pdf-btn.next');
 
-  // Variables d'état
   let pdfDoc    = null;
   let pageNum   = 1;
   let pageCount = 1;
   let rendering = false;
 
-  // Fonction de rendu d'une page
   function renderPage(num) {
     rendering = true;
     pdfDoc.getPage(num).then(page => {
-      // Calcul du scale pour tenir dans la sidebar
       const view = page.getViewport({ scale: 1 });
-      const maxW = sidebar.clientWidth  * 0.95;
+      const maxW = sidebar.clientWidth * 0.95;
       const maxH = sidebar.clientHeight * 0.95;
       const scale = Math.min(maxW / view.width, maxH / view.height);
-
       const vp = page.getViewport({ scale });
+
       canvas.width = vp.width;
       canvas.height = vp.height;
 
@@ -227,8 +223,28 @@ function showPdfInSidebar(url) {
     })
     .then(() => {
       rendering = false;
-      prevBtn.disabled = (pageNum === 1);
-      nextBtn.disabled = (pageNum === pageCount);
+
+      // Masquer boutons si première/dernière page
+      if (pageNum === 1) {
+        prevBtn.disabled = true;
+        prevBtn.dataset.hidden = "true";
+      } else {
+        prevBtn.disabled = false;
+        prevBtn.dataset.hidden = "false";
+      }
+      if (pageNum === pageCount) {
+        nextBtn.disabled = true;
+        nextBtn.dataset.hidden = "true";
+      } else {
+        nextBtn.disabled = false;
+        nextBtn.dataset.hidden = "false";
+      }
+
+      // Appliquer opacité selon hover + état hidden
+      [prevBtn, nextBtn].forEach(btn => {
+        if (btn.dataset.hidden === "true") btn.style.opacity = 0;
+        else btn.style.opacity = 1; // CSS au survol gérera ensuite
+      });
     })
     .catch(console.error);
   }
@@ -242,7 +258,6 @@ function showPdfInSidebar(url) {
     }
   }
 
-  // Boutons de navigation du PDF
   prevBtn.addEventListener('click', () => {
     if (pageNum > 1) queueRender(pageNum - 1);
   });
@@ -250,16 +265,13 @@ function showPdfInSidebar(url) {
     if (pageNum < pageCount) queueRender(pageNum + 1);
   });
 
-  // Recalibrer l'affichage lors d'un redimensionnement
   const resizeHandler = () => queueRender(pageNum);
   window.addEventListener('resize', resizeHandler);
 
-  // Chargement du document PDF
   pdfProm.then(doc => {
     pdfDoc = doc;
     pageCount = doc.numPages;
 
-    // Gestion éventuelle de paramètres de page dans l'URL
     const u = new URL(url, location.href);
     const pQuery = parseInt(u.searchParams.get('page')) || null;
     const pHash = parseInt((u.hash.match(/page=(\d+)/i) || [])[1]) || null;
