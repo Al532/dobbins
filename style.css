@@ -112,21 +112,23 @@ body {
   gap: 5px;
 }
 .progress {
-  width: 150px;
-  height: 5px;
-  background: #e0cfc2;
-  cursor: pointer;
-  position: relative;
-  border-radius: 3px;
-  overflow: hidden;
-  margin: 0 4px;
+  width:150px;
+  height:6px;          /* un peu plus haut pour être visible */
+  background:#e0cfc2;
+  cursor:pointer;
+  position:relative;
+  border-radius:3px;
+  overflow:hidden;
+  margin:0 4px;
 }
+
 .progress-filled {
-  height: 100%;
-  width: 0;
-  background: #A64B3C;
+  height:100%;
+  width:0;
+  background:#A64B3C;  /* couleur bien visible */
   transition: width .15s linear;
-  border-radius: 3px;
+  border-radius:3px;
+  display:block;
 }
 .audio-player audio { display: none !important; }
 
