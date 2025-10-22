@@ -146,19 +146,15 @@ function createAudioPlayer(link) {
     if (start) audio.currentTime = start;
   });
 
-audio.addEventListener('timeupdate', () => {
-  console.log('timeupdate fired',
-              'currentTime=', audio.currentTime,
-              'duration=', audio.duration);
+  audio.addEventListener('timeupdate', () => {
+    if (!audio.duration || !isFinite(audio.duration)) return;
 
-  if (!audio.duration || !isFinite(audio.duration)) return;
+    const pct = ((audio.currentTime - start) /
+                (audio.duration   - start)) * 100;
 
-  const pct = ((audio.currentTime - start) /
-              (audio.duration   - start)) * 100;
-
-  progressFilled.style.width =
-    Math.max(0, Math.min(100, pct)) + '%';
-});
+    progressFilled.style.width =
+      Math.max(0, Math.min(100, pct)) + '%';
+  });
 
 
   progressBar.addEventListener('click', e => {
