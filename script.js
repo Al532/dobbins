@@ -56,7 +56,7 @@ function initTOC() {
 function initInteractions() {
   // 4-1. Affichage d'une image par défaut dans la sidebar
   const sidebar = document.getElementById('sidebar');
-  sidebar.style.backgroundImage = 'url(1.jpg)';
+  sidebar.style.backgroundImage = 'url(sidebar-default.svg)';
 
   // 4-2. Création du lecteur audio pour tous les liens .mp3
   document
