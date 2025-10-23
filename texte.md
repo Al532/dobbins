@@ -393,10 +393,9 @@ L'accord final de la coda de *Minor D* est une bonne illustration de ce qui pré
 
 **Mesures 11 et 12** : Un mouvement contraire se dirigeant vers un unisson réalise une fin efficace.
 
-**Coda** : La ligne chromatique descendante prépare l'accord final (final
-voicing).
+**Coda** : La ligne chromatique descendante prépare l'accord final (final voicing).
 
-Notez l'emploi du mouvement contraire et oblique. La préparation chromatique de l'accord final dans la coda fait de la note Si♮ une note efficace dans la seconde voix. Sans cette préparation chromatique, la note Fa donne un meilleur son comme dans l'exemple 3. L'indépendance mélodique de la seconde voix crée donc plus de possibilités. Écoutez attentivement les différences entre les exemples 3 et 4.
+Notez l'emploi du mouvement contraire et oblique. La préparation chromatique de l'accord final dans la coda fait de la note Si♮ une note efficace dans la seconde voix. Sans cette préparation chromatique, la note Fa donne un meilleur son comme dans [l'exemple 3](3.jpg). L'indépendance mélodique de la seconde voix crée donc plus de possibilités. Écoutez attentivement les différences entre les exemples 3 et 4.
 
 **[L'exemple 5](5.jpg)** est un arrangement contrapuntique de *Minor D.* Il y a deux approches fondamentales à l'écriture de contrepoint à deux parties dans un idiome "jazzistique".
 
@@ -425,7 +424,9 @@ de basse doivent être étudiés avec soin.
 
 **Mesure 12** : La note Si♭ crée une note de suspension qui se résout sur le deuxième temps. La gamme de blues Ré est employée à la fin de cette mesure.
 
-**Coda** : L'arpège Ré-Fa-La dans la mélodie suggère un accord de Sol9 à la fin du morceau. Dans un arrangement plus élaboré, la version contrapuntique de l'exemple 5 pourrait être jouée par deux instruments à vent à l'unisson, ou bien en octave-unisson et contrebasse. La mélodie peut être répétée ensuite avec une harmonisation des exemples 3 ou 4.
+**Coda** : L'arpège Ré-Fa-La dans la mélodie suggère un accord de Sol9 à la fin du morceau.
+
+Dans un arrangement plus élaboré, la version contrapuntique de l'exemple 5 pourrait être jouée par deux instruments à vent à l'unisson, ou bien en octave-unisson et contrebasse. La mélodie peut être répétée ensuite avec une harmonisation des exemples 3 ou 4.
 
 **[Blues for Barry](6.jpg)** (dédié à Barry Harris) est une mélodie plus complexe dans le style bebop. L'analyse, dans l'exemple 6, montre comment sont employées les notes extérieures à l'harmonie (notes étrangères aux notes des accords indiqués au-dessus de la mélodie). Les abréviations suivantes sont retenues:
 
@@ -830,15 +831,15 @@ L’aspirant arrangeur devra entreprendre la transcription d’arrangements pour
 
 [exemple 22](22.mp3?start=3)
 
-Mesure 5: Les accords diminués à trois sons se déplacent d'une façon parallèlement chromatique sur les trois premiers temps, et se terminent avec Fa♯°7-Solm6 sur le quatrième temps. En position "fermée", le Ré♭ de la première harmonisation interfère davantage avec la note de la mélodie.
+Mesure 5 : Les accords diminués à trois sons se déplacent d'une façon parallèlement chromatique sur les trois premiers temps, et se terminent avec Fa♯°7-Solm6 sur le quatrième temps. En position "fermée", le Ré♭ de la première harmonisation interfère davantage avec la note de la mélodie.
 
-Mesure 7: Semblable à la mesure 5, mais se terminant avec Do♯°7-Rém6.
+Mesure 7 : Semblable à la mesure 5, mais se terminant avec Do♯°7-Rém6.
 
-Mesure 9: La deuxième harmonisation, qui implique Fa13♯9 ou Si13♯9, est peut-être trop dissonante en position "fermée" pour une harmonisation aussi simple. Les trois voix les plus basses se déplacent d'une manière chromatique et parallèle, indépendamment de la mélodie.
+Mesure 9 : La deuxième harmonisation, qui implique Fa13♯9 ou Si13♯9, est peut-être trop dissonante en position "fermée" pour une harmonisation aussi simple. Les trois voix les plus basses se déplacent d'une manière chromatique et parallèle, indépendamment de la mélodie.
 
-Mesure 10: La première harmonisation serait peut-être trop dissonante en position "fermée". Les trois voix les plus basses se déplacent chromatiquement, en un mouvement contraire par rapport à la mélodie. Le Fa de la seconde voix prépare le son de Rém6 à la fin de la mesure.
+Mesure 10 : La première harmonisation serait peut-être trop dissonante en position "fermée". Les trois voix les plus basses se déplacent chromatiquement, en un mouvement contraire par rapport à la mélodie. Le Fa de la seconde voix prépare le son de Rém6 à la fin de la mesure.
 
-Mesure 11: Les harmonisations impliquent la progression Sol7-Sol♭7-Fa7-Mi7, bien qu'il y ait un certain mouvement indépendant dans la seconde voix.
+Mesure 11 : Les harmonisations impliquent la progression Sol7-Sol♭7-Fa7-Mi7, bien qu'il y ait un certain mouvement indépendant dans la seconde voix.
 
 A l'exception des mesures 5 et 7, la plupart des harmonisations contiennent la fondamentale, la tierce, la quinte et la septième, ou bien la tierce, la quinte, la septième et la neuvième de l'accord. Dans les accords de tonique, la sixte est parfois substituée à la septième. Dans les accords de dominante, la treizième est parfois substituée à la quinte (cela est en fait identique à une quinte doublement augmentée).
 
@@ -846,19 +847,19 @@ A l'exception des mesures 5 et 7, la plupart des harmonisations contiennent la f
 
 [exemple 23](23.mp3?start=3)
 
-Mesures 1 à 4: La première harmonisation est une harmonisation de tonique mineure qui provient de la gamme mélodique mineure (RémMaj7). La dissonance dans cette harmonisation est un demi-ton (Do♯-Ré). La voix inférieure descend chromatiquement en mouvement contraire par rapport aux accords à trois sons situés au-dessus. La troisième harmonisation, sous la plus haute note de la mélodie dans la phrase, crée la tension la plus forte de toutes. Bien qu'un demi-ton entre les deux voix les plus hautes soit plutôt dissonant, un demi-ton entre les deux voix intermédiaires ou entre les deux voix inférieures n'est pas aussi dissonant qu'une neuvième mineure (Si-Do). La phrase entière alterne entre une tension moins importante et une tension plus grande (Rém7 avec une neuvième mineure entre la sixte et la septième). La deuxième harmonisation dans la mesure 4 provient de la gamme de Ré altérée qui transmet le son des accords de dominante altérés. Même si l'harmonisation ne contient pas de septième, elle est compatible avec le contexte qui est établi pendant les trois premières mesures.
+Mesures 1 à 4 : La première harmonisation est une harmonisation de tonique mineure qui provient de la gamme mélodique mineure (RémMaj7). La dissonance dans cette harmonisation est un demi-ton (Do♯-Ré). La voix inférieure descend chromatiquement en mouvement contraire par rapport aux accords à trois sons situés au-dessus. La troisième harmonisation, sous la plus haute note de la mélodie dans la phrase, crée la tension la plus forte de toutes. Bien qu'un demi-ton entre les deux voix les plus hautes soit plutôt dissonant, un demi-ton entre les deux voix intermédiaires ou entre les deux voix inférieures n'est pas aussi dissonant qu'une neuvième mineure (Si-Do). La phrase entière alterne entre une tension moins importante et une tension plus grande (Rém7 avec une neuvième mineure entre la sixte et la septième). La deuxième harmonisation dans la mesure 4 provient de la gamme de Ré altérée qui transmet le son des accords de dominante altérés. Même si l'harmonisation ne contient pas de septième, elle est compatible avec le contexte qui est établi pendant les trois premières mesures.
 
-Mesures 5 et 6: La voix la plus basse implique réellement Fa♯ mineur. Le son de l'intervalle apparent de neuvième mineure a déjà été clairement établi durant les quatre premières mesures. C'est pour cela qu'il est assez facile d'accepter les dissonances créées entre les simples accords de trois sons (triads) et la quatrième voix indépendante.
+Mesures 5 et 6 : La voix la plus basse implique réellement Fa♯ mineur. Le son de l'intervalle apparent de neuvième mineure a déjà été clairement établi durant les quatre premières mesures. C'est pour cela qu'il est assez facile d'accepter les dissonances créées entre les simples accords de trois sons (triads) et la quatrième voix indépendante.
 
-Mesures 7 et 8: L'harmonisation la plus dissonante des quatre premières mesures est maintenant utilisée au début de la phrase. Etant donné que cette sonorité a été entendue avant, l'oreille peut l'accepter plus aisément. Elle est encore traitée comme une dissonance, cependant, et se résout dans l'accord de Rém avec neuvième, à la fin de la phrase. Le croisement des voix entre la troisième et la quatrième voix donne à cette dernière une ligne mélodique puissante. L'harmonisation sur le quatrième temps de la mesure 7 est, enharmoniquement, Mi♭7 (l'accord de triton de La7 qui est l'accord de dominante de Ré mineur).
+Mesures 7 et 8 : L'harmonisation la plus dissonante des quatre premières mesures est maintenant utilisée au début de la phrase. Etant donné que cette sonorité a été entendue avant, l'oreille peut l'accepter plus aisément. Elle est encore traitée comme une dissonance, cependant, et se résout dans l'accord de Rém avec neuvième, à la fin de la phrase. Le croisement des voix entre la troisième et la quatrième voix donne à cette dernière une ligne mélodique puissante. L'harmonisation sur le quatrième temps de la mesure 7 est, enharmoniquement, Mi♭7 (l'accord de triton de La7 qui est l'accord de dominante de Ré mineur).
 
-Mesure 9: Les deux premières harmonisations suggèrent Si♭ lydien, et la troisième harmonisation substitue Si♭ mineur à Si♭ dominante. L'accord de Si♭m7 doit être inclus dans la partie de basse, étant donné que c'est un accord tenu. Comme il n'y a pas de septième dans les deux premières harmonisations, le symbole de Si♭7 n'entrera en conflit avec aucune des notes contenues dans ces harmonisations. Le symbole fondamental de Si♭, qui indique un accord à trois sons de Si♭, sera lui aussi suffisant. Quand tous les détails harmoniques sont inclus dans la partie de basse, cela peut rendre la partition inutilement complexe plutôt que claire et fonctionnelle.
+Mesure 9 : Les deux premières harmonisations suggèrent Si♭ lydien, et la troisième harmonisation substitue Si♭ mineur à Si♭ dominante. L'accord de Si♭m7 doit être inclus dans la partie de basse, étant donné que c'est un accord tenu. Comme il n'y a pas de septième dans les deux premières harmonisations, le symbole de Si♭7 n'entrera en conflit avec aucune des notes contenues dans ces harmonisations. Le symbole fondamental de Si♭, qui indique un accord à trois sons de Si♭, sera lui aussi suffisant. Quand tous les détails harmoniques sont inclus dans la partie de basse, cela peut rendre la partition inutilement complexe plutôt que claire et fonctionnelle.
 
-Mesure 10: La première harmonisation dissonante se résout par mouvement contraire dans un accord de La7 altéré. Accord de La7 altéré ne comportant pas de tierce.
+Mesure 10 : La première harmonisation dissonante se résout par mouvement contraire dans un accord de La7 altéré. Accord de La7 altéré ne comportant pas de tierce.
 
-Mesures 11 et 12: La voix inférieure implique la tonalité de Do♯ mineur jusqu'à la résolution dans l'accord final. Remarquez l'enchaînement des notes mélodiques (voice leading) dans cette phrase. Le contexte est tellement dissonant que l'harmonisation de l'accord final de Ré mineur, avec la quarte augmentée collée à la quinte, sonne assez consonante. La consonance et la dissonance sont des concepts relatifs, et le contexte est toujours important pour déterminer les possibilités utilisables. C'est la première harmonisation d'un arrangement qui a le plus de possibilités. On peut choisir n'importe quelle harmonisation pour le premier accord d'un arrangement. Quand les deux premières harmonisations ont été choisies, cependant, un contexte clair est déjà établi. Dans ce livre, il y a de nombreuses versions différentes de _Minor D_ et de _Blues for Barry._ Chaque version est stylistiquement logique avec le contexte qui est établi dans la première mesure. La logique stylistique rend la diversité possible. Si chaque arrangement emploie un mélange produit par le hasard de tous les styles possibles, ils auront tous le même son.
+Mesures 11 et 12 : La voix inférieure implique la tonalité de Do♯ mineur jusqu'à la résolution dans l'accord final. Remarquez l'enchaînement des notes mélodiques (voice leading) dans cette phrase. Le contexte est tellement dissonant que l'harmonisation de l'accord final de Ré mineur, avec la quarte augmentée collée à la quinte, sonne assez consonante. La consonance et la dissonance sont des concepts relatifs, et le contexte est toujours important pour déterminer les possibilités utilisables. C'est la première harmonisation d'un arrangement qui a le plus de possibilités. On peut choisir n'importe quelle harmonisation pour le premier accord d'un arrangement. Quand les deux premières harmonisations ont été choisies, cependant, un contexte clair est déjà établi. Dans ce livre, il y a de nombreuses versions différentes de _Minor D_ et de _Blues for Barry._ Chaque version est stylistiquement logique avec le contexte qui est établi dans la première mesure. La logique stylistique rend la diversité possible. Si chaque arrangement emploie un mélange produit par le hasard de tous les styles possibles, ils auront tous le même son.
 
-Coda: Dans la deuxième mesure, les trois voix inférieures se déplacent vers le haut par demi-ton pendant que la mélodie et la partie de basse descendent par demi-ton.
+Coda : Dans la deuxième mesure, les trois voix inférieures se déplacent vers le haut par demi-ton pendant que la mélodie et la partie de basse descendent par demi-ton.
 
 Cette version de _Minor D_ est écrite dans un style semblable aux travaux de Gil Evans et Bob Brookmeyer pendant les années soixante. Beaucoup de ces sons, cependant, avaient été employés par Duke Ellington et Gil Evans avant 1950. Il y a trois aspects de cette version qui aident à la rendre convaincante.
 
@@ -876,15 +877,15 @@ La dissonance doit toujours avoir un but, un objet, dans la structure musicale. 
 
 [exemple 24](24.mp3?start=3)
 
-Mesure 3: Ré♭m7 est substitué à Sol7.
+Mesure 3 : Ré♭m7 est substitué à Sol7.
 
-Mesure 4: Fa7 est approché chromatiquement par Sol♭7.
+Mesure 4 : Fa7 est approché chromatiquement par Sol♭7.
 
-Mesure 6: La dissonance d'un demi-ton entre la septième et la treizième est assez commune dans la musique de jazz depuis 1950.
+Mesure 6 : La dissonance d'un demi-ton entre la septième et la treizième est assez commune dans la musique de jazz depuis 1950.
 
-Mesures 10 et 11: Lam7 est approché par Si♭7 (la substitution du triton pour Mi7). La♭m7 est substitué à La♭°7.
+Mesures 10 et 11 : Lam7 est approché par Si♭7 (la substitution du triton pour Mi7). La♭m7 est substitué à La♭°7.
 
-Mesure 12: A la fin de la phrase, les deux voix les plus hautes s'élèvent par demi-ton, alors que les deux voix inférieures descendent par demi-ton.
+Mesure 12 : A la fin de la phrase, les deux voix les plus hautes s'élèvent par demi-ton, alors que les deux voix inférieures descendent par demi-ton.
 
 Cet arrangement sonnera bien sans piano. Si le piano est employé, il devra marquer les accords dans un unisson rythmique avec l'accompagnement des instruments à vent.
 
@@ -892,25 +893,25 @@ Cet arrangement sonnera bien sans piano. Si le piano est employé, il devra marq
 
 [exemple 25](25.mp3?start=3)
 
-Mesure 7: Ré7sus4 est substitué à Ré7.
+Mesure 7 : Ré7sus4 est substitué à Ré7.
 
-Mesure 8: Comme la onzième de La♭m7 est une note de la mélodie, la quinte ou la neuvième doit être omise de façon à inclure la tierce et la septième. Ici, la neuvième est omise, de manière à laisser un intervalle plus large entre les deux notes les plus hautes au lieu d'un espace plus grand entre les deux voix inférieures.
+Mesure 8 : Comme la onzième de La♭m7 est une note de la mélodie, la quinte ou la neuvième doit être omise de façon à inclure la tierce et la septième. Ici, la neuvième est omise, de manière à laisser un intervalle plus large entre les deux notes les plus hautes au lieu d'un espace plus grand entre les deux voix inférieures.
 
-Mesure 9: La quatrième croche, formant avec les trois autres voix l'accord de Solm7, est approchée chromatiquement par Fa♯m7. Fa♯m7 est approché par Fa°7 (Mi♯°7) qui se résout normalement sur Fa♯. Quand les mêmes notes mélodiques reviennent plus tard dans la mesure, elles sont harmonisées avec les mêmes accords (voicings). Remarquez l'enchaînement des notes de chaque voix de la dernière harmonisation de la mesure 10.
+Mesure 9 : La quatrième croche, formant avec les trois autres voix l'accord de Solm7, est approchée chromatiquement par Fa♯m7. Fa♯m7 est approché par Fa°7 (Mi♯°7) qui se résout normalement sur Fa♯. Quand les mêmes notes mélodiques reviennent plus tard dans la mesure, elles sont harmonisées avec les mêmes accords (voicings). Remarquez l'enchaînement des notes de chaque voix de la dernière harmonisation de la mesure 10.
 
-Mesure 10: L'accord de Do7 est retardé jusqu'au Do grave de la mélodie, en-dessous de la portée. Les deux derniers temps de cette mesure emploient l'approche linéaire. La seconde et la troisième voix sont parallèlement chromatiques, mais la première et la quatrième voix se déplacent avec un mouvement indépendant.
+Mesure 10 : L'accord de Do7 est retardé jusqu'au Do grave de la mélodie, en-dessous de la portée. Les deux derniers temps de cette mesure emploient l'approche linéaire. La seconde et la troisième voix sont parallèlement chromatiques, mais la première et la quatrième voix se déplacent avec un mouvement indépendant.
 
-Mesure 12: Le mouvement contraire à la fin de la phrase est efficace.
+Mesure 12 : Le mouvement contraire à la fin de la phrase est efficace.
 
 Des exemples 22 à 25, une méthode générale d'analyse mélodique peut être formulée. La mélodie d'un morceau doit être analysée avant d'en tenter l'harmonisation. En général, les caractéristiques suivantes doivent être notées.
 
-Arpèges ou tons adjacents d'un accord: ils sont généralement harmonisés avec des renversements de la même harmonisation.
+Arpèges ou tons adjacents d'un accord : ils sont généralement harmonisés avec des renversements de la même harmonisation.
 
-Fragments de gamme: ils sont généralement harmonisés avec la technique du parallélisme diatonique ou la technique de tonicisation.
+Fragments de gamme : ils sont généralement harmonisés avec la technique du parallélisme diatonique ou la technique de tonicisation.
 
-Demi-tons ou fragments de gamme chromatique: ils sont généralement harmonisés avec la technique du parallélisme chromatique ou la technique de tonicisation.
+Demi-tons ou fragments de gamme chromatique : ils sont généralement harmonisés avec la technique du parallélisme chromatique ou la technique de tonicisation.
 
-Anticipations rythmiques juste avant un changement d'accord: la note de la mélodie doit généralement être harmonisée avec le nouvel accord.
+Anticipations rythmiques juste avant un changement d'accord : la note de la mélodie doit généralement être harmonisée avec le nouvel accord.
 
 Les règles générales d'harmonisation restent les mêmes.
 
@@ -922,21 +923,21 @@ Les règles générales d'harmonisation restent les mêmes.
 
 [exemple 26](26.mp3?start=3)
 
-Mesure 1: Les trois voix supérieures se déplacent en accords de trois sons (triads) parallèles pendant que la quatrième voix décrit une ligne indépendante. Le Do♯ dans la quatrième voix est valable parce qu'il se produit sur la partie faible du temps et qu'il se résout immédiatement. Les accords de passage à la fin de la mesure se résolvent dans une harmonisation claire de Fa majeur (sans fondamentale).
+Mesure 1 : Les trois voix supérieures se déplacent en accords de trois sons (triads) parallèles pendant que la quatrième voix décrit une ligne indépendante. Le Do♯ dans la quatrième voix est valable parce qu'il se produit sur la partie faible du temps et qu'il se résout immédiatement. Les accords de passage à la fin de la mesure se résolvent dans une harmonisation claire de Fa majeur (sans fondamentale).
 
-Mesure 2: Les quatre voix se déplacent d'une façon indépendante pendant les deux premiers temps. Les harmonisations impliquent la progression Mim7♭5 (ou Do9/Mi)-Fa7♭5-Mim7-La7♭5. Sur le quatrième temps, les trois voix supérieures continuent avec des accords de trois sons (triads) pendant que la quatrième voix se déplace par mouvement contraire. Ceci aboutit à un accord de trois sons Do♯ diminué avec basse de Sol♯ sur le premier temps de la mesure 3. La dissonance se résout sans heurt, cependant, sur l'accord de Rém6.
+Mesure 2 : Les quatre voix se déplacent d'une façon indépendante pendant les deux premiers temps. Les harmonisations impliquent la progression Mim7♭5 (ou Do9/Mi)-Fa7♭5-Mim7-La7♭5. Sur le quatrième temps, les trois voix supérieures continuent avec des accords de trois sons (triads) pendant que la quatrième voix se déplace par mouvement contraire. Ceci aboutit à un accord de trois sons Do♯ diminué avec basse de Sol♯ sur le premier temps de la mesure 3. La dissonance se résout sans heurt, cependant, sur l'accord de Rém6.
 
-Mesure 4: Les lignes indépendantes durant les trois premiers temps de la mesure impliquent la progression Dom9-La9-Rém7/4-Ré♭m7/4-Dom7/4 qui représente une combinaison de parallélisme chromatique et de tonicisation.
+Mesure 4 : Les lignes indépendantes durant les trois premiers temps de la mesure impliquent la progression Dom9-La9-Rém7/4-Ré♭m7/4-Dom7/4 qui représente une combinaison de parallélisme chromatique et de tonicisation.
 
-Mesure 5: Le Fa7 se poursuit avec Fa7♭9 ou La°7, se résolvant sur Si♭ avec 9 sur le troisième temps. Notez l'enchaînement des notes dans chaque voix à la fin de la mesure.
+Mesure 5 : Le Fa7 se poursuit avec Fa7♭9 ou La°7, se résolvant sur Si♭ avec 9 sur le troisième temps. Notez l'enchaînement des notes dans chaque voix à la fin de la mesure.
 
-Mesure 8: La dernière harmonisation de la mesure anticipe la gamme de Solm7 (Sol dorien).
+Mesure 8 : La dernière harmonisation de la mesure anticipe la gamme de Solm7 (Sol dorien).
 
-Mesure 9: La quatrième harmonisation dans cette mesure implique Ré♭9 qui se résout sur Do avec 9ème. Notez l'enchaînement des notes de la dernière harmonisation de la mesure 9 avec la première harmonisation de la mesure 10.
+Mesure 9 : La quatrième harmonisation dans cette mesure implique Ré♭9 qui se résout sur Do avec 9ème. Notez l'enchaînement des notes de la dernière harmonisation de la mesure 9 avec la première harmonisation de la mesure 10.
 
-Mesure 10: La quatrième harmonisation implique Mi°7 au-dessus de Si (Do♭). Cette dissonance se résout grâce à un enchaînement sans heurt des notes dans chaque voix. Notez l'enchaînement des notes dans chaque voix à la fin de cette mesure.
+Mesure 10 : La quatrième harmonisation implique Mi°7 au-dessus de Si (Do♭). Cette dissonance se résout grâce à un enchaînement sans heurt des notes dans chaque voix. Notez l'enchaînement des notes dans chaque voix à la fin de cette mesure.
 
-Mesure 11: La seconde et la troisième voix se déplacent par intervalles parallèles de seconde majeure, mais indépendamment des deux autres voix. La quatrième voix est formée d'une ligne descendante chromatique.
+Mesure 11 : La seconde et la troisième voix se déplacent par intervalles parallèles de seconde majeure, mais indépendamment des deux autres voix. La quatrième voix est formée d'une ligne descendante chromatique.
 
 Les techniques fondamentales d'harmonisation sont employées de temps en temps dans l'exemple 26. C'est pourtant le mouvement linéaire indépendant qui fait que cette version sonne différemment de l'exemple 25.
 
@@ -945,7 +946,7 @@ Il y a deux exercices qui peuvent aider à développer la maîtrise de l'usage d
 1.  Essayer d'harmoniser les trois voix supérieures avec des accords de trois sons parallèles (triads). Puis, essayer de trouver une ligne indépendante pour la quatrième voix qui ajoute une dissonance et qui colore sans détruire le sentiment de progression harmonique.
 2.  Essayer de trouver des intervalles (secondes majeures, quartes, etc.), ou de simples accords de trois sons, qui peuvent se déplacer d'une manière parallèlement chromatique, indépendamment de la mélodie. Cette technique est également très efficace au-dessous de notes pédales mélodiques.
 
-Un autre exercice possible est de commencer avec une harmonisation fondamentale, puis d'expérimenter avec les voix intermédiaires et inférieures. Employer l'approche linéaire dans quelques secteurs du morceau seulement. Quand une plus grande facilité avec l'écriture linéaire est acquise, elle peut être employée avec plus de confiance et de succès. Il n'y a pas encore de règles générales pour trouver quatre lignes indépendantes qui créent un son harmoniquement unifié. Une sensibilité pour ce type d'écriture linéaire ne peut se développer que grâce à l'oreille et par tâtonnements. C'est pourquoi il est si important pour les arrangeurs d'entendre leur oeuvre jouée dès qu'elle est écrite. Il est aussi important de transcrire des extraits d'enregistrements d'arrangeurs qui utilisent l'approche linéaire: Duke Ellington, Billy Strayhorn, Gil Evans, George Russell, Bill Holman, Bob Brookmeyer, et Clare Fischer. La discographie sera utile pour commencer cet exercice.
+Un autre exercice possible est de commencer avec une harmonisation fondamentale, puis d'expérimenter avec les voix intermédiaires et inférieures. Employer l'approche linéaire dans quelques secteurs du morceau seulement. Quand une plus grande facilité avec l'écriture linéaire est acquise, elle peut être employée avec plus de confiance et de succès. Il n'y a pas encore de règles générales pour trouver quatre lignes indépendantes qui créent un son harmoniquement unifié. Une sensibilité pour ce type d'écriture linéaire ne peut se développer que grâce à l'oreille et par tâtonnements. C'est pourquoi il est si important pour les arrangeurs d'entendre leur oeuvre jouée dès qu'elle est écrite. Il est aussi important de transcrire des extraits d'enregistrements d'arrangeurs qui utilisent l'approche linéaire : Duke Ellington, Billy Strayhorn, Gil Evans, George Russell, Bill Holman, Bob Brookmeyer, et Clare Fischer. La discographie sera utile pour commencer cet exercice.
 
 \* Voir Discographie - texte en anglais - page 74\*
 
@@ -983,11 +984,11 @@ Le mouvement linéaire ne doit pas être trop complexe. Avec cinq instruments à
 
 [exemple 27](27.mp3?start=3)
 
-Mesures 1 à 3: Le parallélisme chromatique crée une tension avec l'harmonisation de l'accord de Fam7 avec 4te dans le milieu de chaque mesure. Les harmonisations de Rém7 avec 4te sur le premier temps de chaque mesure résout la tension. Ces harmonisations proviennent de la gamme pentatonique. La première harmonisation, par exemple, contient toutes les notes de la gamme pentatonique de Fa. Si la seconde voix est écrite une octave plus bas, ces harmonisations contiennent principalement des intervalles adjacents de quarte (comme l'harmonisation de la mesure 6).
+Mesures 1 à 3 : Le parallélisme chromatique crée une tension avec l'harmonisation de l'accord de Fam7 avec 4te dans le milieu de chaque mesure. Les harmonisations de Rém7 avec 4te sur le premier temps de chaque mesure résout la tension. Ces harmonisations proviennent de la gamme pentatonique. La première harmonisation, par exemple, contient toutes les notes de la gamme pentatonique de Fa. Si la seconde voix est écrite une octave plus bas, ces harmonisations contiennent principalement des intervalles adjacents de quarte (comme l'harmonisation de la mesure 6).
 
-Mesure 4: On y découvre un mouvement contraire entre la mélodie et les quatre autres voix. L'harmonisation implique Mi♭7-Ré7 (Mi♭ est le triton de La7).
+Mesure 4 : On y découvre un mouvement contraire entre la mélodie et les quatre autres voix. L'harmonisation implique Mi♭7-Ré7 (Mi♭ est le triton de La7).
 
-Mesure 5: Le mouvement indépendant dans les deux voix les plus basses sur le troisième et sur le quatrième temps aide à éviter de doubler la mélodie. La dernière harmonisation dans cette mesure est une harmonisation efficace à cinq voix d'un accord de dominante avec la septième à la mélodie. Il peut être difficile de trouver des harmonisations éclatantes pour les accords de dominante quand la tierce ou bien la septième se trouve à la mélodie. Etant donné que ces deux notes transmettent la qualité de l'accord de dominante, elles sont plus efficaces dans les voix inférieures avec des extensions ou des notes altérées au-dessus d'elles. Pour quatre instruments à vent, des harmonisations fondamentales des degrés 3-5-7-9- ou 3-5-7-♭9 fonctionnent généralement bien. Pour cinq instruments à vent, cependant, la treizième est trop dissonante au-dessous de la septième et la neuvième en-dessous de la tierce n'est pas très efficace.
+Mesure 5 : Le mouvement indépendant dans les deux voix les plus basses sur le troisième et sur le quatrième temps aide à éviter de doubler la mélodie. La dernière harmonisation dans cette mesure est une harmonisation efficace à cinq voix d'un accord de dominante avec la septième à la mélodie. Il peut être difficile de trouver des harmonisations éclatantes pour les accords de dominante quand la tierce ou bien la septième se trouve à la mélodie. Etant donné que ces deux notes transmettent la qualité de l'accord de dominante, elles sont plus efficaces dans les voix inférieures avec des extensions ou des notes altérées au-dessus d'elles. Pour quatre instruments à vent, des harmonisations fondamentales des degrés 3-5-7-9- ou 3-5-7-♭9 fonctionnent généralement bien. Pour cinq instruments à vent, cependant, la treizième est trop dissonante au-dessous de la septième et la neuvième en-dessous de la tierce n'est pas très efficace.
 
 ![](p.76-1.jpg)
 
@@ -995,39 +996,39 @@ La meilleure solution, comme le montre la mesure 5 de l'exemple 27, est une harm
 
 ![](p.76-2.jpg)
 
-Mesure 7: Il y a un parallélisme chromatique dans les quatre voix inférieures sous la pédale mélodique. L'harmonisation sur le quatrième temps implique Mi♭7♯9 (Mi♭ étant l'accord de substitution du triton de La7).
+Mesure 7 : Il y a un parallélisme chromatique dans les quatre voix inférieures sous la pédale mélodique. L'harmonisation sur le quatrième temps implique Mi♭7♯9 (Mi♭ étant l'accord de substitution du triton de La7).
 
-Mesure 9: La seconde harmonisation implique Fa13♯9 ou Si13♯9 (tonicisation). Les quatre voix inférieures se déplacent chromatiquement pendant que la mélodie se déplace diatoniquement.
+Mesure 9 : La seconde harmonisation implique Fa13♯9 ou Si13♯9 (tonicisation). Les quatre voix inférieures se déplacent chromatiquement pendant que la mélodie se déplace diatoniquement.
 
-Mesure 10: Les harmonisations impliquent Si7-Si♭7-La7. Etant donné que la première harmonisation a la note La à la voix inférieure, la contrebasse peut simplement jouer une mesure de La7.
+Mesure 10 : Les harmonisations impliquent Si7-Si♭7-La7. Etant donné que la première harmonisation a la note La à la voix inférieure, la contrebasse peut simplement jouer une mesure de La7.
 
-Mesure 11: Les harmonisations impliquent Si7-Do7-Si7-Si♭7-La7. La contrebasse peut jouer simplement Rém6-Do7-Si♭7-La7 (un accord par temps). Si♭7 sur le troisième temps est le seul accord de substitution utilisé dans toutes les versions de _Minor D_ qui a changé une note fondamentale de la progression d'accords originale. Et même ici, la contrebasse pourrait jouer un Mi de telle manière que le cinquième instrument à vent aurait la quinte diminuée d'un accord de Mi7.
+Mesure 11 : Les harmonisations impliquent Si7-Do7-Si7-Si♭7-La7. La contrebasse peut jouer simplement Rém6-Do7-Si♭7-La7 (un accord par temps). Si♭7 sur le troisième temps est le seul accord de substitution utilisé dans toutes les versions de _Minor D_ qui a changé une note fondamentale de la progression d'accords originale. Et même ici, la contrebasse pourrait jouer un Mi de telle manière que le cinquième instrument à vent aurait la quinte diminuée d'un accord de Mi7.
 
 De nombreux arrangeurs de jazz ont tendance à employer trop d'accords de substitution. Les différentes versions de _Minor D_ montrent que des choix de notes intéressantes, que l'enchaînement judicieux des notes et que les embellissements harmoniques offrent plus de potentialités pour le développement que la substitution d'accords.
 
 Si les techniques fondamentales d'harmonisation et l'approche linéaire sont habilement employées, la partition originale de basse peut être conservée. Ainsi, les variations harmoniques sont clairement apparentées à la structure originale du morceau. Si l'on emploie des substitutions d'accords trop nombreuses, la structure de base du morceau est perdue. Etant donné que la plupart des arrangeurs de jazz ont leurs substitutions d'accords favorites, tous les morceaux tendent, harmoniquement, à sonner d'une manière similaire. En conservant la ligne de basse originale d'un morceau, cependant, l'arrangeur est contraint de développer une approche harmonique plus disciplinée.
 
-Notez le mouvement linéaire indépendant sur les deux premiers temps de la mesure 11. Il y a beaucoup plus de couleur harmonique et cependant le mouvement harmonique fondamental de Rém-La7-Rém est toujours absolument clair. Voici donc l'essence de l'approche linéaire de l'harmonie: colorer la progression harmonique originale au lieu de lui substituer une progression différente.
+Notez le mouvement linéaire indépendant sur les deux premiers temps de la mesure 11. Il y a beaucoup plus de couleur harmonique et cependant le mouvement harmonique fondamental de Rém-La7-Rém est toujours absolument clair. Voici donc l'essence de l'approche linéaire de l'harmonie : colorer la progression harmonique originale au lieu de lui substituer une progression différente.
 
 **[L'exemple 28](28.jpg)** est un arrangement homophonique pour cinq instruments à vent de _Blues for Barry_.
 
-Notez que, dans les mesures 7 à 10, la cinquième voix donne, d'une façon continue, les toniques des accords (et cela différemment des versions antérieures de ce morceau). Ceci est dû à ce que la mélodie met l'accent sur les extensions de l'accord: la treizième des accords de dominante et la onzième des accords mineurs. Etant donné que les extensions sont exposées dans la mélodie, il n'y a pas besoin de les doubler en-dessous. L'accompagnement sonne très puissant avec la cinquième voix située dans un registre plutôt grave tout au long du morceau. Cette sonorité puissante rend hommage au style bebop. Aucune substitution d'accord n'est utilisée dans cette version. Dans la mesure 4, cependant, Fa7 est approché par Do7 sur le troisième temps (tonicisation).
+Notez que, dans les mesures 7 à 10, la cinquième voix donne, d'une façon continue, les toniques des accords (et cela différemment des versions antérieures de ce morceau). Ceci est dû à ce que la mélodie met l'accent sur les extensions de l'accord : la treizième des accords de dominante et la onzième des accords mineurs. Etant donné que les extensions sont exposées dans la mélodie, il n'y a pas besoin de les doubler en-dessous. L'accompagnement sonne très puissant avec la cinquième voix située dans un registre plutôt grave tout au long du morceau. Cette sonorité puissante rend hommage au style bebop. Aucune substitution d'accord n'est utilisée dans cette version. Dans la mesure 4, cependant, Fa7 est approché par Do7 sur le troisième temps (tonicisation).
 
 **[L'exemple 29](29.jpg)** est une harmonisation pour cinq instruments à vent de _Blues for Barry._ 
 
 Les aspects suivants de cette harmonisation doivent être notés.
 
-Mesure 1: Les harmonisations sur le deuxième et le troisième temps impliquent Sol♭9, le triton de Do7 (tonicisation).
+Mesure 1 : Les harmonisations sur le deuxième et le troisième temps impliquent Sol♭9, le triton de Do7 (tonicisation).
 
-Mesure 2: Les quatre voix inférieures descendent chromatiquement, indépendamment de la mélodie. L'harmonisation sur le quatrième temps est une harmonisation efficace de La7 avec la septième à la mélodie.
+Mesure 2 : Les quatre voix inférieures descendent chromatiquement, indépendamment de la mélodie. L'harmonisation sur le quatrième temps est une harmonisation efficace de La7 avec la septième à la mélodie.
 
-Mesure 4: Les quatre voix inférieures approchent le deuxième temps par mouvement contraire à la mélodie.
+Mesure 4 : Les quatre voix inférieures approchent le deuxième temps par mouvement contraire à la mélodie.
 
-Mesure 5: L'accord de Fa7 se continue sur les deux premiers temps comme un accord de Fa7♭9 ou de La°7. L'accord de Si♭ arrive sur le troisième temps.
+Mesure 5 : L'accord de Fa7 se continue sur les deux premiers temps comme un accord de Fa7♭9 ou de La°7. L'accord de Si♭ arrive sur le troisième temps.
 
-Mesure 6: L'harmonisation de Mi♭7 avec les degrés 1-3-5-7-♭9 sonne improprement dans ce contexte. Une harmonisation de treizième de dominante avec la mélodie doublée donne la meilleure solution. Ceci rend la séquence d'accords descendante claire (Si♭m7-Mi♭7, Lam7-Ré7, etc.) Dans la mesure 6 de l'exemple 25, une harmonisation simple avec les degrés 1-3-5-7 avait déjà été employée pour la même raison, bien que l'emploi des degrés 1-3-♯5-7 ne serait pas complètement inopportun.
+Mesure 6 : L'harmonisation de Mi♭7 avec les degrés 1-3-5-7-♭9 sonne improprement dans ce contexte. Une harmonisation de treizième de dominante avec la mélodie doublée donne la meilleure solution. Ceci rend la séquence d'accords descendante claire (Si♭m7-Mi♭7, Lam7-Ré7, etc.) Dans la mesure 6 de l'exemple 25, une harmonisation simple avec les degrés 1-3-5-7 avait déjà été employée pour la même raison, bien que l'emploi des degrés 1-3-♯5-7 ne serait pas complètement inopportun.
 
-Mesure 10: Les deux dernières harmonisations impliquent Sol9-Do7aug. (tonicisation). Seules les mesures 2, 4, 5 et 10 emploient une approche quelque peu linéaire. La chose la plus importante est d'affirmer clairement la progression harmonique tout en donnant à chaque instrument à vent une ligne moelleuse, harmonieuse. Une mélodie complexe ne permet pas, généralement, une grande indépendance linéaire avec cinq voix et plus. Il y a, cependant, plus d'indépendance linéaire dans l'exemple 29 que dans l'exemple 25. De nombreuses harmonisations pentatoniques sont employées dans l'exemple 29. Elles doivent être notées comme futures références.
+Mesure 10 : Les deux dernières harmonisations impliquent Sol9-Do7aug. (tonicisation). Seules les mesures 2, 4, 5 et 10 emploient une approche quelque peu linéaire. La chose la plus importante est d'affirmer clairement la progression harmonique tout en donnant à chaque instrument à vent une ligne moelleuse, harmonieuse. Une mélodie complexe ne permet pas, généralement, une grande indépendance linéaire avec cinq voix et plus. Il y a, cependant, plus d'indépendance linéaire dans l'exemple 29 que dans l'exemple 25. De nombreuses harmonisations pentatoniques sont employées dans l'exemple 29. Elles doivent être notées comme futures références.
 
 Tous les exemples de ce chapitre doivent être analysés minutieusement, de façon à comprendre pleinement les techniques d'harmonisation. Le chapitre final est une étude relative à la forme et au développement. Seule une analyse de la forme et des motifs est incluse. L'élève devra analyser minutieusement les harmonisations et les techniques d'harmonisation employées dans les arrangements du chapitre 7. On accordera une très grande attention à l'emploi de la section rythmique dans ces arrangements complets. De nombreux enregistrements indiqués sur la liste jointe sont pour grands orchestres. Ils ont été mentionnés à cause de l'exceptionnelle qualité de l'écriture pour la section des saxophones que l'on peut y trouver (généralement cinq saxos, parfois avec une clarinette ou un saxophone soprano à la voix supérieure), ou bien à cause des contrepoints intéressants ou de l'écriture linéaire. L'élève devra tenter de transcrire des extraits de ces enregistrements. Les transcriptions seront analysées comme des études supplémentaires.
 
@@ -1047,31 +1048,31 @@ Dans les arrangements qui sont contenus dans ce chapitre, j'ai essayé de montre
 
 [Minor D](minor d.mp3)
 
-Mesures 1 à 12: Il n'y a pas d'introduction. L'exposition d'ouverture du thème par le piano en solo donne cependant l'impression d'une introduction. L'harmonisation du thème emploie de simples accords de trois sons au-dessus d'une quatrième voix qui est dans une autre tonalité. La dissonance qui en résulte ressemble à la tonalité mineure équivalente aux "notes blues". Les "notes blues" les plus communes dans les tonalités majeures sont la tierce et la septième mineure qui sont jouées au-dessus d'accords contenant des tierces et des septièmes majeures (Fa joué au-dessus d'un accord de RéMaj par exemple). Dans les tonalités mineures, cependant, les tierces et les septièmes sont déjà "bémolisées". Le traitement linéaire du thème dans les mesures 1 à 12 crée une atmosphère obsédante, lugubre et "bluesy".
+Mesures 1 à 12 : Il n'y a pas d'introduction. L'exposition d'ouverture du thème par le piano en solo donne cependant l'impression d'une introduction. L'harmonisation du thème emploie de simples accords de trois sons au-dessus d'une quatrième voix qui est dans une autre tonalité. La dissonance qui en résulte ressemble à la tonalité mineure équivalente aux "notes blues". Les "notes blues" les plus communes dans les tonalités majeures sont la tierce et la septième mineure qui sont jouées au-dessus d'accords contenant des tierces et des septièmes majeures (Fa joué au-dessus d'un accord de RéMaj par exemple). Dans les tonalités mineures, cependant, les tierces et les septièmes sont déjà "bémolisées". Le traitement linéaire du thème dans les mesures 1 à 12 crée une atmosphère obsédante, lugubre et "bluesy".
 
-Mesures 13 à 24: La seconde exposition du thème est identique à celle de l'exemple 5 dans le chapitre 2.
+Mesures 13 à 24 : La seconde exposition du thème est identique à celle de l'exemple 5 dans le chapitre 2.
 
-Mesures 25 à 36: Un second thème a été développé à partir des deux dernières notes du premier thème (Fa et Ré). Ces notes sont employées dans un simple "riff" de deux mesures. Dans les mesures 33 et 34, la mélodie rappelle les notes Do et La qui proviennent du début du premier thème. L'emploi de la gamme de blues dans la mesure 35 rappelle l'emploi de la gamme de blues de la onzième mesure du premier thème. La répétition de la même note ou du même groupe de notes, dans le même registre où elles avaient été entendues auparavant, donne à la musique une impression d'unité de continuité, même si cela se place à un niveau subconscient. Bien sûr, ces relations deviennent de plus en plus claires avec des écoutes répétées.
+Mesures 25 à 36 : Un second thème a été développé à partir des deux dernières notes du premier thème (Fa et Ré). Ces notes sont employées dans un simple "riff" de deux mesures. Dans les mesures 33 et 34, la mélodie rappelle les notes Do et La qui proviennent du début du premier thème. L'emploi de la gamme de blues dans la mesure 35 rappelle l'emploi de la gamme de blues de la onzième mesure du premier thème. La répétition de la même note ou du même groupe de notes, dans le même registre où elles avaient été entendues auparavant, donne à la musique une impression d'unité de continuité, même si cela se place à un niveau subconscient. Bien sûr, ces relations deviennent de plus en plus claires avec des écoutes répétées.
 
-Mesures 37 à 48: Les fonds sonores pour le solo de trombone sont basés sur une variation de la première mesure du premier thème: Do-Si-La devient Do-Si♭-La. Le rythme est une variation du rythme de la troisième et de la quatrième mesures du premier thème: `♩. ♪` devient `♩ ♪♩`. Dans la mesure 40, la mélodie descend de Do-Si♭-La à La♭-Sol, et dans la mesure 42 à Fa-Mi. Les demi-tons ascendants dans la mélodie des mesures 45 à 48 développent le demi-ton contenu dans la quatrième mesure du premier thème (La-Si♭). Dans la mesure 48, les deux notes Fa et Ré conduisent à une formulation culminante du motif de demi-ton ascendant dans la mesure 49 (Sol♯-La). Ceci ajoute de l'intensité, de la puissance, au deuxième "refrain" (chorus) du solo de trombone.
+Mesures 37 à 48 : Les fonds sonores pour le solo de trombone sont basés sur une variation de la première mesure du premier thème : Do-Si-La devient Do-Si♭-La. Le rythme est une variation du rythme de la troisième et de la quatrième mesures du premier thème : `♩. ♪` devient `♩ ♪♩`. Dans la mesure 40, la mélodie descend de Do-Si♭-La à La♭-Sol, et dans la mesure 42 à Fa-Mi. Les demi-tons ascendants dans la mélodie des mesures 45 à 48 développent le demi-ton contenu dans la quatrième mesure du premier thème (La-Si♭). Dans la mesure 48, les deux notes Fa et Ré conduisent à une formulation culminante du motif de demi-ton ascendant dans la mesure 49 (Sol♯-La). Ceci ajoute de l'intensité, de la puissance, au deuxième "refrain" (chorus) du solo de trombone.
 
-Mesures 61 à 72: Le solo de saxo ténor commence seulement avec un accompagnement de contrebasse. Ceci permet au solo de se construire tout au long de deux "chorus", et apporte un contraste dynamique efficace. Le piano et la batterie entrent ensemble à la fin de la mesure 68 et les instruments à vent restants ajoutent une intensité supplémentaire à la mesure 73.
+Mesures 61 à 72 : Le solo de saxo ténor commence seulement avec un accompagnement de contrebasse. Ceci permet au solo de se construire tout au long de deux "chorus", et apporte un contraste dynamique efficace. Le piano et la batterie entrent ensemble à la fin de la mesure 68 et les instruments à vent restants ajoutent une intensité supplémentaire à la mesure 73.
 
-Mesures 73 à 76: Les arrières-plans sonores des vents développent encore davantage le motif de demi-ton ascendant, qui se terminent encore par une autre retour aux notes Fa et Ré.
+Mesures 73 à 76 : Les arrières-plans sonores des vents développent encore davantage le motif de demi-ton ascendant, qui se terminent encore par une autre retour aux notes Fa et Ré.
 
-Mesures 85 à 96: Le fond sonore tout entier pour le solo de contrebasse se développe à partir des notes Fa et Ré et des motifs formés de demi-tons. Le rythme d'ouverture des instruments à vent provient de la seconde mesure du second thème (mesure 26), et le rythme d'ouverture du piano provient de la seconde mesure du premier thème (mesure 2).
+Mesures 85 à 96 : Le fond sonore tout entier pour le solo de contrebasse se développe à partir des notes Fa et Ré et des motifs formés de demi-tons. Le rythme d'ouverture des instruments à vent provient de la seconde mesure du second thème (mesure 26), et le rythme d'ouverture du piano provient de la seconde mesure du premier thème (mesure 2).
 
-Mesures 97 à 108: Cette version du thème initial est simplement une orchestration de l'exposition d'ouverture du piano (mesures 1 à 8). Le thème est complété par la section rythmique dans les mesures 105 à 108. Cela transforme d'une manière frappante l'orchestration, permettant aussi au musicien jouant du "soprano" de passer au "ténor".
+Mesures 97 à 108 : Cette version du thème initial est simplement une orchestration de l'exposition d'ouverture du piano (mesures 1 à 8). Le thème est complété par la section rythmique dans les mesures 105 à 108. Cela transforme d'une manière frappante l'orchestration, permettant aussi au musicien jouant du "soprano" de passer au "ténor".
 
-Mesures 109 à 120: Cette version du thème initial est très proche de l'exemple 23 dans le chapitre 5.
+Mesures 109 à 120 : Cette version du thème initial est très proche de l'exemple 23 dans le chapitre 5.
 
-Coda: Les notes mélodiques dans les deux premières mesures sont les mêmes que celles des mesures 33 et 34, mais sont employées dans un ordre inverse. La mélodie ascendante (La à Do) monte en direction de la phrase finale. La cadence finale est déceptive, se terminant sur l'accord du IVe degré (Sol7).
+Coda : Les notes mélodiques dans les deux premières mesures sont les mêmes que celles des mesures 33 et 34, mais sont employées dans un ordre inverse. La mélodie ascendante (La à Do) monte en direction de la phrase finale. La cadence finale est déceptive, se terminant sur l'accord du IVe degré (Sol7).
 
 L'architecture formelle complète de l'arrangement est montrée ci-dessous.
 
 ![](p.84.jpg)
 
-Les parties importantes du morceau: exposition, solos, récapitulation, deviennent petit à petit plus courtes: 36 mesures, 24 mesures, 24 mesures, 12 mesures, 36 mesures. L'exposition et la récapitulation du thème ont chacune leur propre procédé fondamental de développement. Durant l'exposition du thème, l'orchestration devient de plus en plus dense: piano solo, puis trombone, basse et batterie, puis ensemble complet (sans piano). Durant la récapitulation du thème, le registre des notes de l'orchestration devient graduellement plus grave: haut (mesure 97), moyen (mesure 108), puis bas (mesure 25 dans le D.S). La soudaine montée en registre dans les quatre dernières mesures du morceau a, pour cette raison, un effet très spectaculaire.
+Les parties importantes du morceau : exposition, solos, récapitulation, deviennent petit à petit plus courtes : 36 mesures, 24 mesures, 24 mesures, 12 mesures, 36 mesures. L'exposition et la récapitulation du thème ont chacune leur propre procédé fondamental de développement. Durant l'exposition du thème, l'orchestration devient de plus en plus dense : piano solo, puis trombone, basse et batterie, puis ensemble complet (sans piano). Durant la récapitulation du thème, le registre des notes de l'orchestration devient graduellement plus grave : haut (mesure 97), moyen (mesure 108), puis bas (mesure 25 dans le D.S). La soudaine montée en registre dans les quatre dernières mesures du morceau a, pour cette raison, un effet très spectaculaire.
 
 Chaque partie où se produit le solo de trombone et le solo de saxo ténor est orchestrée de façon à atteindre son point culminant ("climax") juste après le milieu du solo. Ceci devant aider les solistes à mesurer efficacement leur solo. Bien que la forme complète de _Minor D_ soit plutôt simple, ces formules d'organisation sous-jacentes aident à lui donner une impression de développement logique, mais extrêmement satisfaisante.
 
@@ -1079,29 +1080,29 @@ Chaque partie où se produit le solo de trombone et le solo de saxo ténor est o
 
 [Blues for Barry](blues for barry.mp3)
 
-Mesures 1 à 8: Cette introduction de huit mesures est développée à partir du rythme et de la forme mélodique des mesures 13 et 14 (la cinquième et la sixième mesures du thème). Le motif d'ouverture de l'introduction se répète sous forme de séquences ascendantes par intervalles de tierces mineures. La progression harmonique module à Ré♭Maj et à SiMaj avant de se terminer par la progression Solm7-Do7 (degrés II et V aboutissants à la tonalité de FaMaj à la neuvième mesure).
+Mesures 1 à 8 : Cette introduction de huit mesures est développée à partir du rythme et de la forme mélodique des mesures 13 et 14 (la cinquième et la sixième mesures du thème). Le motif d'ouverture de l'introduction se répète sous forme de séquences ascendantes par intervalles de tierces mineures. La progression harmonique module à Ré♭Maj et à SiMaj avant de se terminer par la progression Solm7-Do7 (degrés II et V aboutissants à la tonalité de FaMaj à la neuvième mesure).
 
-Mesures 9 à 20: Cette version du thème est exactement la même que celle de l'exemple 9 du chapitre 2.
+Mesures 9 à 20 : Cette version du thème est exactement la même que celle de l'exemple 9 du chapitre 2.
 
-Mesures 21 à 32: Cette version du thème est exactement la même que celle de l'exemple 29 du chapitre 6.
+Mesures 21 à 32 : Cette version du thème est exactement la même que celle de l'exemple 29 du chapitre 6.
 
-Mesures 33 à 36: Cet arrière-plan sonore est développé à partir de la cinquième mesure du thème (mesure 13). Le saut de la mesure 34 rappelle le saut dans la quatrième mesure du thème (mesure 12). Les notes Sol♯ et La dans la mesure 35 rappellent les deux dernières notes du thème. La note finale Fa dans la mesure 36 est la note la plus haute du thème.
+Mesures 33 à 36 : Cet arrière-plan sonore est développé à partir de la cinquième mesure du thème (mesure 13). Le saut de la mesure 34 rappelle le saut dans la quatrième mesure du thème (mesure 12). Les notes Sol♯ et La dans la mesure 35 rappellent les deux dernières notes du thème. La note finale Fa dans la mesure 36 est la note la plus haute du thème.
 
-Mesures 45 à 48: Les mesures 46 et 47 rappellent le rythme croisé en 3/4 de la deuxième et de la troisième mesures du thème (mesures 10 et 11).
+Mesures 45 à 48 : Les mesures 46 et 47 rappellent le rythme croisé en 3/4 de la deuxième et de la troisième mesures du thème (mesures 10 et 11).
 
-Mesures 57 à 60: La voix principale à la trompette est une variation chromatique de la voix principale dans les mesures 45 à 48.
+Mesures 57 à 60 : La voix principale à la trompette est une variation chromatique de la voix principale dans les mesures 45 à 48.
 
-Mesures 69 à 72: Les quatre premières notes du thème sont employées dans un rythme croisé en 3/4 de la même façon que celles de la seconde et de la troisième mesures du thème.
+Mesures 69 à 72 : Les quatre premières notes du thème sont employées dans un rythme croisé en 3/4 de la même façon que celles de la seconde et de la troisième mesures du thème.
 
-Mesures 81 à 86: Le rythme `♩. ♪` employé partout dans cette section se rencontre entre la fin de la première exposition du thème et le début de la seconde (mesures 20-21). Le rythme terminant cette section est une variation du rythme employé à la fin de l'introduction (mesure 8), et à la fin du thème (mesure 20).
+Mesures 81 à 86 : Le rythme `♩. ♪` employé partout dans cette section se rencontre entre la fin de la première exposition du thème et le début de la seconde (mesures 20-21). Le rythme terminant cette section est une variation du rythme employé à la fin de l'introduction (mesure 8), et à la fin du thème (mesure 20).
 
-Mesures 93 à 99: Cette pédale mélodique emploie un cliché rythmique développé par le quintet de Miles Davis avec le batteur Philly Jo Jones.
+Mesures 93 à 99 : Cette pédale mélodique emploie un cliché rythmique développé par le quintet de Miles Davis avec le batteur Philly Jo Jones.
 
-Mesures 106 à 117: Cette version du thème est presque la même que celle de l'exemple 8 dans le chapitre 2.
+Mesures 106 à 117 : Cette version du thème est presque la même que celle de l'exemple 8 dans le chapitre 2.
 
-Mesures 118 à 125: L'introduction est employée comme fin. La note de longue durée dans la mesure 124 est une octave plus haute que la note correspondante de la mesure 7. Ceci crée une tension plus importante avant la fin du morceau.
+Mesures 118 à 125 : L'introduction est employée comme fin. La note de longue durée dans la mesure 124 est une octave plus haute que la note correspondante de la mesure 7. Ceci crée une tension plus importante avant la fin du morceau.
 
-Mesures 128 à 130: Les quatre premières notes du thème sont suivies par une dissonance tendue (une variation de Fa°Maj7) qui se résout sur un accord tonique lydien (FaMaj7♯11).
+Mesures 128 à 130 : Les quatre premières notes du thème sont suivies par une dissonance tendue (une variation de Fa°Maj7) qui se résout sur un accord tonique lydien (FaMaj7♯11).
 
 La forme générale de cet arrangement est une arche.
 
@@ -1128,13 +1129,13 @@ Notez que chaque arrière-plan sonore possède une durée de quatre mesures. Dur
 
 La suite commence avec une longue introduction de 35 mesures, qui amène les motifs les plus importants dans un contexte non thématique plutôt abstrait. L'introduction sert aussi à présenter les instruments individuels de l'ensemble.
 
-Mesures 1 à 21: Cette section est développée entièrement à partir du motif b1, qui est formé de demi-tons ascendants. L'inversion de ce motif, deux demi-tons descendants, est parfois employée pour le contraste. L'ouverture emploie ce motif en se servant du procédé d'imitation, et aussi pour mettre en vedette le saxo soprano dans le rôle de soliste. Le saxo soprano solo est employé plus tard dans la deuxième exposition du thème (mesure 48).
+Mesures 1 à 21 : Cette section est développée entièrement à partir du motif b1, qui est formé de demi-tons ascendants. L'inversion de ce motif, deux demi-tons descendants, est parfois employée pour le contraste. L'ouverture emploie ce motif en se servant du procédé d'imitation, et aussi pour mettre en vedette le saxo soprano dans le rôle de soliste. Le saxo soprano solo est employé plus tard dans la deuxième exposition du thème (mesure 48).
 
-Mesures 22 à 27: La section des instruments à vent expose une harmonisation du motif c dans la mesure 22. Le piano répond, dans les mesures 24 et 25, avec une variation du motif be. La section des instruments à vent continue dans la mesure 26, avec une combinaison du motif a et une inversion du motif c.
+Mesures 22 à 27 : La section des instruments à vent expose une harmonisation du motif c dans la mesure 22. Le piano répond, dans les mesures 24 et 25, avec une variation du motif be. La section des instruments à vent continue dans la mesure 26, avec une combinaison du motif a et une inversion du motif c.
 
-Mesures 28 à 35: La gamme ascendante, une extension du motif a, conduit à une série de demi-tons ascendants (la première partie du motif b). Ce point culminant (climax) conclut l'introduction sur Si♭7, l'accord de dominante dans la tonalité de Mi♭. La pédale dominante, qui commence à la mesure 21, contribue à augmenter la tension tout au long de cette partie de l'introduction.
+Mesures 28 à 35 : La gamme ascendante, une extension du motif a, conduit à une série de demi-tons ascendants (la première partie du motif b). Ce point culminant (climax) conclut l'introduction sur Si♭7, l'accord de dominante dans la tonalité de Mi♭. La pédale dominante, qui commence à la mesure 21, contribue à augmenter la tension tout au long de cette partie de l'introduction.
 
-Mesures 36 à 47: Le thème principal de la partie I est un blues de 12 mesures. La première phrase est formée des motifs d et c. Ceci se poursuit, dans les mesures 38 à 41, par les motifs a, b et a1. Le motif a1 est développé en une séquence dans les mesures 42 et 43. Ceci continue par le motif a et le motif ascendant par demi-ton à partir du motif b. Les deux dernières mesures (46 et 47) sont constituées entièrement du motif d1. Beaucoup de ces motifs contiennent exactement les mêmes tons que leurs contreparties dans la mélodie de _Swee' Pea's Samba,_ même si les rythmes sont souvent différents. Ceci a été fait intentionnellement, de façon à mettre l'accent sur le son de ces séries de notes particulières dans la mémoire "auditive" de l'auditeur.
+Mesures 36 à 47 : Le thème principal de la partie I est un blues de 12 mesures. La première phrase est formée des motifs d et c. Ceci se poursuit, dans les mesures 38 à 41, par les motifs a, b et a1. Le motif a1 est développé en une séquence dans les mesures 42 et 43. Ceci continue par le motif a et le motif ascendant par demi-ton à partir du motif b. Les deux dernières mesures (46 et 47) sont constituées entièrement du motif d1. Beaucoup de ces motifs contiennent exactement les mêmes tons que leurs contreparties dans la mélodie de _Swee' Pea's Samba,_ même si les rythmes sont souvent différents. Ceci a été fait intentionnellement, de façon à mettre l'accent sur le son de ces séries de notes particulières dans la mémoire "auditive" de l'auditeur.
 
 Un diagramme de la structure motivique de ce thème peut être comparé à celui de _Swee' Pea's Samba._ Notez que le motif d (ou d1) est employé seulement au début et à la fin de ce thème impliquant une forme en arche.
 
@@ -1144,23 +1145,23 @@ Un diagramme de la structure motivique de ce thème peut être comparé à celui
 
 [partie II](suite for swee' pea.mp3?start=298)
 
-Le thème de cette partie a une longue forme AABA de 64 mesures, avec des sections de 16 mesures chacune. Une technique subtile de réharmonisation est utilisée dans les sections A. La mélodie dans les mesures 9 à 11 est accompagnée par des accords mineurs altérés qui suggèrent le son de l'obstinato (vamp: voir glossaire) avant le début de _Swee' Pea's Samba._ Quand la mélodie revient dans les mesures 25 à 27 et 57 à 59, elle est accompagnée par des accords majeurs construits sur les mêmes fondamentales. La mélodie dans les mesures 1 à 8 et 17 à 24 est dans les tonalités de Do mineur et de La mineur. Dans la dernière section A, mesures 49 à 56, les tonalités majeures parallèles sont employées à leur place. Le changement progressif du mineur au majeur est intentionnel. Le titre de ce mouvement vient du panégyrique que Duke Ellington prononça aux funérailles de Billy Strayhorn. Je voulais que ce mouvement transmette la tristesse de la mort de Billy Strayhorn combinée avec ma gratitude pour la belle musique qu'il nous laissait. C'est pourquoi ce morceau commence presque lugubremente, tout en se terminant sur une note chaleureuse et positive.
+Le thème de cette partie a une longue forme AABA de 64 mesures, avec des sections de 16 mesures chacune. Une technique subtile de réharmonisation est utilisée dans les sections A. La mélodie dans les mesures 9 à 11 est accompagnée par des accords mineurs altérés qui suggèrent le son de l'obstinato (vamp : voir glossaire) avant le début de _Swee' Pea's Samba._ Quand la mélodie revient dans les mesures 25 à 27 et 57 à 59, elle est accompagnée par des accords majeurs construits sur les mêmes fondamentales. La mélodie dans les mesures 1 à 8 et 17 à 24 est dans les tonalités de Do mineur et de La mineur. Dans la dernière section A, mesures 49 à 56, les tonalités majeures parallèles sont employées à leur place. Le changement progressif du mineur au majeur est intentionnel. Le titre de ce mouvement vient du panégyrique que Duke Ellington prononça aux funérailles de Billy Strayhorn. Je voulais que ce mouvement transmette la tristesse de la mort de Billy Strayhorn combinée avec ma gratitude pour la belle musique qu'il nous laissait. C'est pourquoi ce morceau commence presque lugubremente, tout en se terminant sur une note chaleureuse et positive.
 
 La mélodie des sections A est presque entièrement formée du motif chromatique b, commençant avec les mêmes sons qui sont employés dans _Swee' Pea's Samba._ L'inversion de motif est quelquefois employée pour faire contraste (mesures 9 à 12, 25 à 28, 57 à 60). La section B (mesures 33 à 48) est basée sur le motif a et le commencement du motif b. Les gammes diatoniques de la mélodie de la section B apportent un contraste efficace au chromatisme des sections A. Les pédales dans la section B apportent aussi un contraste harmonique aux sections A qui sont harmoniquement plus actives. Après le solo du saxo alto (mesures 65 à 96), la section B est exposée à nouveau avec une orchestration différente. Dans les mesures 97 à 104 la mélodie se trouve à la voix inférieure, au saxo baryton. Les huit dernières mesures de cette section sont exposées par le piano, une fois de plus avec de subtiles variations harmoniques. Notez que, en dépit de ces variations harmoniques, la progression harmonique originale est toujours la même que celle employée dans la section B originale (mesures 33 à 48). L'accord final Sol7 est étendu d'une mesure à cinq mesures (mesures 112 à 116). Cette extension crée une tension harmonique juste avant la section A finale.
 
 La section A finale (mesure 117) contient de nouvelles variations harmoniques, tout en maintaining la même ligne de basse que les autres versions A. La fin de ce mouvement aboutit, d'une façon séquentielle, à Mi♭6/9♯11, au début de la partie III. C'est le triton de Si♭7, l'accord de dominante dans la tonalité de Mi♭ majeur.
 
-**[PARTIE III: SWEE' PEA'S SAMBA](suite for swee' pea.pdf#page=18)**
+**[PARTIE III : SWEE' PEA'S SAMBA](suite for swee' pea.pdf#page=18)**
 
 [partie III](suite for swee' pea.mp3?start=530)
 
-Au début de cette section, la batterie établit le rythme de samba. L'obstinato (vamp: voir glossaire) commence à la mesure 9, suivie du thème à la mesure 17. Le thème de cette partie a une forme simple ABAB' de 32 mesures. Les secondes huit mesures et les dernières huit mesures sont similaires mais différentes. Dans l'orchestration, le "tutti" alterne avec la trompette et le saxo alto jouant à l'unisson.
+Au début de cette section, la batterie établit le rythme de samba. L'obstinato (vamp : voir glossaire) commence à la mesure 9, suivie du thème à la mesure 17. Le thème de cette partie a une forme simple ABAB' de 32 mesures. Les secondes huit mesures et les dernières huit mesures sont similaires mais différentes. Dans l'orchestration, le "tutti" alterne avec la trompette et le saxo alto jouant à l'unisson.
 
 Pendant les solos improvisés (mesures 49 à 120), l'obstinato est employé comme un interlude entre les solos. L'arrière-plan sonore simple des instruments à vent rappelle le rythme croisé en 3/4 du thème. L'obstinato (vamp) revient à la mesure 121 pour introduire un "tutti" à la mesure 129. Cette structure commence avec les notes de démarrage du thème (motif a). Les quatre premières notes de la mesure 129 décorent les deux premières notes du thème (La-Si♭). Cette décoration mélodique est ensuite développée, le plus souvent par au moyen d'une séquence. Notez l'emploi de rythmes croisés de 3/4 et 5/8. A la mesure 137, la forme originale de la mélodie de la mesure 129 est inversée et donne Si♭-Sol-La♭. Cette variation, couplée avec le rythme `♩. ♪  ♩. ♩`, est développée pendant huit mesures. Le passage progressif de l'unisson à l'écriture à cinq voix est très efficace pour le contraste, et augmente aussi l'intensité. La mesure 144 est une variation des notes de démarrage de l'ouverture du thème. La forme du motif de la mesure 129 (La-Do-Si♭) se retrouve dans la mesure 147 (Ré-Fa-Mi♭), et est développée avec un rythme croisé de 5/4 dans les mesures 149 à 152. Le motif de la première mesure de la seconde fin du thème (Do-Si♭-Sol♭) est développé dans les mesures 153 à 155 (Fa-Mi♭-Do). Le "tutti" se termine avec le motif b1, exposé dans un rythme croisé de 3/4, et une figure mélodique descendante basée sur le motif c. La phrase finale revient à l'accord d'ouverture de l'obstinato (vamp) (Mi♭7♯11).
 
 A la mesure 161, un nouvel obstinato est introduit, qui est basé sur les fondamentales des accords du premier obstinato (Mi♭ et Ré♭). Le nouvel obstinato se transforme pour donner le sentiment de "mambo". La ligne de basse met l'accent sur le quatrième temps au lieu du premier temps. L'obstinato du piano et l'obstinato des instruments à vent sont basés assez librement sur les motifs b, b1 et be. Cette section atteint un point culminant (climax) sur l'accord de Mi13♯11 (le triton de Si♭7) à la mesure 183. Le piano ensuite commence la réexposition du thème. Ceci donne aux instruments à vent un court repos avant la fin du morceau, et pourvoit aussi un changement effectif de l'orchestration.
 
-**Coda:** La coda emploie deux formules de conclusion fondamentales. Le rajout "queue", et la note pédale. Dans une "queue" (tag en anglais), la phrase finale du morceau est interrompue sur l'accord de dominante, avant la cadence finale sur l'accord de tonique. La même phrase mélodique ou une phrase similaire est ensuite exposée avec certaines variations harmoniques des accords III-VI (Sol7 et Do7 dans ce cas). Finalement, la phrase originale de fin est répétée, se continuant sur II-V et I. Dans ce morceau, cependant, la tension est maintenue plus longtemps grâce à l'emploi d'une pédale de dominante (en fait, II-V: Fa-Si♭). Le fragment mélodique provenant de la "queue" au début de la coda (Ré-Mi♭-Si -Do) est ensuite développé en "strette" (questions et réponses se poursuivent avec des entrées de plus en plus rapprochées) par intervalle de triton et un rythme croisé en 3/4 ou 3/8. La tension augmente jusqu'à un point culminant de la cadence III-VI (Mi♭/Sol-Do7), qui est suivie par un court solo de batterie. Finalement, la tension se résout par une exposition finale de la "queue" et une fin typiquement latine. Le doublement des dissonances d'un demi-ton dans l'accord final ajoute une certaine intensité à la fin.
+**Coda:** La coda emploie deux formules de conclusion fondamentales. Le rajout "queue", et la note pédale. Dans une "queue" (tag en anglais), la phrase finale du morceau est interrompue sur l'accord de dominante, avant la cadence finale sur l'accord de tonique. La même phrase mélodique ou une phrase similaire est ensuite exposée avec certaines variations harmoniques des accords III-VI (Sol7 et Do7 dans ce cas). Finalement, la phrase originale de fin est répétée, se continuant sur II-V et I. Dans ce morceau, cependant, la tension est maintenue plus longtemps grâce à l'emploi d'une pédale de dominante (en fait, II-V : Fa-Si♭). Le fragment mélodique provenant de la "queue" au début de la coda (Ré-Mi♭-Si -Do) est ensuite développé en "strette" (questions et réponses se poursuivent avec des entrées de plus en plus rapprochées) par intervalle de triton et un rythme croisé en 3/4 ou 3/8. La tension augmente jusqu'à un point culminant de la cadence III-VI (Mi♭/Sol-Do7), qui est suivie par un court solo de batterie. Finalement, la tension se résout par une exposition finale de la "queue" et une fin typiquement latine. Le doublement des dissonances d'un demi-ton dans l'accord final ajoute une certaine intensité à la fin.
 
 La longue section de mambo et la coda dans le troisième mouvement équilibrent la longue introduction du premier mouvement. Sans une section de développement final, la suite finirait trop abruptement et le potentiel créatif établi dans le premier mouvement ne serait pas complètement réalisé. Une fois encore, le concept général d'équilibre est d'une importance primordiale.
 
@@ -1177,7 +1178,7 @@ Les conducteurs dans ce chapitre seront analysés en relation avec les technique
 
 L'analyse des techniques d'harmonisation et d'enchaînement des notes à l'intérieur des voix employées dans les morceaux de ce chapitre aidera l'élève à assimilier plus complètement ces techniques et ces concepts.
 
-En concluant ce livre, je dois mettre l'accent sur le fait qu'un développement intelligent des motifs musicaux et des techniques de composition n'aboutit pas forcément à une musique intéressante et qui vaille la peine d'être écoutée. Il est vraiment très hasardeux d'essayer d'enseigner quelque chose au sujet de la créativité musicale. La seule raison de m'attaquer à une telle tâche est que la composition sérieuse dans un idiome de jazz reste un terrain relativement inexploré. Bien qu'il y ait de nombreux bons compositeurs de thèmes de jazz, la liste des compositeurs de jazz qui travaillent d'une façon convaincante à des formes étendues et qui ont une unité de structure n'a pas tellement changé depuis le début des années soixante: Duke Ellington, Billy Strayhorn, Bill Holman, Bill Russo, George Russell, John Lewis, John Carisi, Gerry Mulligan, Bob Brookmeyer, Gary McFarland, Gil Evans, Carla Bley et Clare Fischer. Ceci est peut-être en partie dû à la nature extrêmement commerciale des affaires du monde musical à notre époque. C'est aussi probablement le résultat de l'accent mis sur les petites formations peu structurées, ceci étant le résultat des conditions économiques difficiles. Cependant, je pense que l'ignorance générale de la part du jeune compositeur ou arrangeur des oeuvres des grands compositeurs dont les noms sont cités plus haut est également en cause. Tout aspirant compositeur de jazz doit être complètement familiarisé avec les oeuvres de ces grands compositeurs, comme tout aspirant compositeur classique doit être familiarisé avec les oeuvres de Debussy, Ravel, Messiaen, Scriabin, Hindemith, Schoenberg, Berg, Webern, Prokofiev, Shostakovitch, Stravinsky et Bartok, sans mentionner des douzaines d'autres compositeurs qui appartiennent à la riche tradition musicale européenne depuis le dix-septième siècle. Bien que les vocabulaires des musiques polytonale et atonale pourraient être le sujet d'un autre livre entier, une compréhension et une assimilation totales de l'harmonie plus conventionnelle et du contrepoint sont nécessaires de manière à donner une fondation solide et une perspective sonore musicale.
+En concluant ce livre, je dois mettre l'accent sur le fait qu'un développement intelligent des motifs musicaux et des techniques de composition n'aboutit pas forcément à une musique intéressante et qui vaille la peine d'être écoutée. Il est vraiment très hasardeux d'essayer d'enseigner quelque chose au sujet de la créativité musicale. La seule raison de m'attaquer à une telle tâche est que la composition sérieuse dans un idiome de jazz reste un terrain relativement inexploré. Bien qu'il y ait de nombreux bons compositeurs de thèmes de jazz, la liste des compositeurs de jazz qui travaillent d'une façon convaincante à des formes étendues et qui ont une unité de structure n'a pas tellement changé depuis le début des années soixante : Duke Ellington, Billy Strayhorn, Bill Holman, Bill Russo, George Russell, John Lewis, John Carisi, Gerry Mulligan, Bob Brookmeyer, Gary McFarland, Gil Evans, Carla Bley et Clare Fischer. Ceci est peut-être en partie dû à la nature extrêmement commerciale des affaires du monde musical à notre époque. C'est aussi probablement le résultat de l'accent mis sur les petites formations peu structurées, ceci étant le résultat des conditions économiques difficiles. Cependant, je pense que l'ignorance générale de la part du jeune compositeur ou arrangeur des oeuvres des grands compositeurs dont les noms sont cités plus haut est également en cause. Tout aspirant compositeur de jazz doit être complètement familiarisé avec les oeuvres de ces grands compositeurs, comme tout aspirant compositeur classique doit être familiarisé avec les oeuvres de Debussy, Ravel, Messiaen, Scriabin, Hindemith, Schoenberg, Berg, Webern, Prokofiev, Shostakovitch, Stravinsky et Bartok, sans mentionner des douzaines d'autres compositeurs qui appartiennent à la riche tradition musicale européenne depuis le dix-septième siècle. Bien que les vocabulaires des musiques polytonale et atonale pourraient être le sujet d'un autre livre entier, une compréhension et une assimilation totales de l'harmonie plus conventionnelle et du contrepoint sont nécessaires de manière à donner une fondation solide et une perspective sonore musicale.
 
 J'espère que les exemples musicaux de ce livre et les discographies exhaustives incluses ici serviront de point de départ à la découverte de cet héritage créatif qui nous a été légué par les grands compositeurs et arrangeurs de jazz. C'est à travers l'exploration approfondie de leurs oeuvres, et non par la canonisation des systèmes et des règles de composition, que l'écriture de la musique de jazz continuera de fleurir et de se développer.
 
@@ -1231,7 +1232,7 @@ Etant donné que la musique de jazz a vu le jour aux Etats-Unis, la notation emp
 
 Ce glossaire a été composé par Jean-Louis Billoud, professeur de composition et d'arrangement à L'Aimra (Lyon). Contrebassiste, compositeur et arrangeur, il a étudié à la "Berklee School" (Boston) et à "L'Eastman School of Music" (Rochester) U.S.A. Il dirige la formation "Equinox Jazz Quintet" avec laquelle il a gravé trois disques.
 
-**Backgrounds:** "Arrière-plans sonores" musicaux (au singulier: "arrière-plan sonore musical"). Ces "arrières-plans sonores" ont plusieurs rôles dans les arrangements:
+**Backgrounds:** "Arrière-plans sonores" musicaux (au singulier : "arrière-plan sonore musical"). Ces "arrières-plans sonores" ont plusieurs rôles dans les arrangements:
 
 *   Ce sont des guides, des repères éventuels pour le soliste.
 
@@ -1247,7 +1248,7 @@ Ce glossaire a été composé par Jean-Louis Billoud, professeur de composition 
 
 **Be-bop:** C'est le mot qui caractérise un style de musique de jazz associé à Charlie Parker et Dizzy Gillespie, et qui a été un courant très marquant de l'histoire du jazz.
 
-**Chorus:** Littéralement: "refrain" (d'une chanson). Dans le langage des musiciens, ce terme représente une structure harmonique que l'on répète et sur laquelle on improvise (ou sur laquelle on développe l'arrangement), et qui a un nombre de mesures déterminé correspondant (le plus souvent) à la chanson, au morceau. Ce nombre de mesures est souvent 32 (morceau du type AABA), ou de 12 (blues). Mais il peut avoir aussi 16, 24, 40, 64 mesures, etc...
+**Chorus:** Littéralement : "refrain" (d'une chanson). Dans le langage des musiciens, ce terme représente une structure harmonique que l'on répète et sur laquelle on improvise (ou sur laquelle on développe l'arrangement), et qui a un nombre de mesures déterminé correspondant (le plus souvent) à la chanson, au morceau. Ce nombre de mesures est souvent 32 (morceau du type AABA), ou de 12 (blues). Mais il peut avoir aussi 16, 24, 40, 64 mesures, etc...
 
 **Close position "Position fermée":**
 
@@ -1255,27 +1256,27 @@ Une harmonisation en "position fermée" est une harmonisation qui tient à l'int
 
 **Cluster:** Peut se traduire par "agrégat de notes" ou "accord en grappe" où les intervalles sont principalement des secondes majeures et mineures. Ces accords ont une sonorité très tendue.
 
-**Double time feel:** Expression difficile à traduire d'une façon satisfaisante et succincte: "doubler le tempo" ne rend pas compte du mot "feel"; "donner l'impression d'un tempo deux fois plus rapide" est plus satisfaisant. En effet, la batterie ne joue pas forcément un tempo deux fois plus rapide, mais peut très bien seulement le suggérer. Même remarque en ce qui concerne la contrebasse.
+**Double time feel:** Expression difficile à traduire d'une façon satisfaisante et succincte : "doubler le tempo" ne rend pas compte du mot "feel"; "donner l'impression d'un tempo deux fois plus rapide" est plus satisfaisant. En effet, la batterie ne joue pas forcément un tempo deux fois plus rapide, mais peut très bien seulement le suggérer. Même remarque en ce qui concerne la contrebasse.
 
-**2-beat feel:** Là encore, il est difficile de traduire par une formule courte: "donner l'impression d'un tempo à deux temps" est le plus satisfaisant. Le bassiste "dédouble" le tempo en 4/4 en jouing la plupart du temps des blanches et de temps en temps des variations rythmiques pour faire contraste.
+**2-beat feel:** Là encore, il est difficile de traduire par une formule courte : "donner l'impression d'un tempo à deux temps" est le plus satisfaisant. Le bassiste "dédouble" le tempo en 4/4 en jouing la plupart du temps des blanches et de temps en temps des variations rythmiques pour faire contraste.
 
 **Fake book (En France "Real Book"):**
 
-Littéralement: "Livre truqué, falsifié". Ce n'est qu'un recueil de thèmes de jazz (illégal) où parfois les accords ne sont pas toujours très satisfaisants!
+Littéralement : "Livre truqué, falsifié". Ce n'est qu'un recueil de thèmes de jazz (illégal) où parfois les accords ne sont pas toujours très satisfaisants!
 
 **Featuring:** "Mettant en vedette" convient bien.
 
 **Feel, Feeling:**
 
-1.  With feeling: avec âme, avec coeur. Ressentir la musique avec intensité, exprimer sentiments et chaleur.
+1.  With feeling : avec âme, avec coeur. Ressentir la musique avec intensité, exprimer sentiments et chaleur.
 
-2.  To give the feeling of: donner l'impression, le sentiment de: ..
+2.  To give the feeling of : donner l'impression, le sentiment de...
 
-3.  Swing feel: en donnant l'impression de swing-en dégageant du swing - en "swinguant" -
+3.  Swing feel : en donnant l'impression de swing-en dégageant du swing - en "swinguant" -
 
-**Fill "Remplir":** Les batteurs sont habitués à cette notation: ils remplissent avec des clichés rythmiques ou avec des figures de leur propre invention des mesures peu actives.
+**Fill "Remplir":** Les batteurs sont habitués à cette notation : ils remplissent avec des clichés rythmiques ou avec des figures de leur propre invention des mesures peu actives.
 
-**Groove:** S'applique souvent au tempo, signifie: "à l'aise, tempo qui balance bien, médium swing qui se joue d'une manière détendue".
+**Groove:** S'applique souvent au tempo, signifie : "à l'aise, tempo qui balance bien, médium swing qui se joue d'une manière détendue".
 
 **Open feel:** Jouer d'une façon qui donne une impression de liberté par rapport à la mesure. Le jeu de la basse est alors imprévisible, irrégulier.
 
@@ -1285,15 +1286,15 @@ Les harmonisations d'accords excèdent l'octave; on arrive à ce résultat en de
 
 **Score - conducteur:** C'est la partition du chef d'orchestre écrite par l'arrangeur ou le compositeur. Le "conducteur" peut être en ut ou transposé.
 
-**Smooth voice leading:** Certainement l'une des expressions les plus difficiles à traduire en français. -"Smooth" signifie: "moelleux, lisse, qui fonctionne sans à-coups, qui tourne rond...".
--"Voice leading": c'est la façon dont les notes s'enchaînent à l'intérieur de chaque voix d'une harmonisation. Il est capital pour la qualité de la musique.
--"With smooth voice leading" signifie: "avec un enchaînement harmonieux des notes à l'intérieur de l'harmonie".
+**Smooth voice leading:** Certainement l'une des expressions les plus difficiles à traduire en français. -"Smooth" signifie : "moelleux, lisse, qui fonctionne sans à-coups, qui tourne rond...".
+-"Voice leading" : c'est la façon dont les notes s'enchaînent à l'intérieur de chaque voix d'une harmonisation. Il est capital pour la qualité de la musique.
+-"With smooth voice leading" signifie : "avec un enchaînement harmonieux des notes à l'intérieur de l'harmonie".
 
 **Triad:** Accord de trois sons qui peut être majeur, mineur, diminué ou augmenté.
 
 **Vamp "Obstinato".**
 
-Figure répétitive: mélodique, harmonique, rythmique, pour établir le caractère ou l'atmosphère d'un morceau, ou comme introduction.
+Figure répétitive : mélodique, harmonique, rythmique, pour établir le caractère ou l'atmosphère d'un morceau, ou comme introduction.
 
 **Voicing:** Là encore, un mot typiquement américain. Ce terme désigne la manière dont l'arrangeur dispose les notes ou les extensions de l'accord de base donné. C'est donc finalement un nouvel accord que l'on obtient, mais le mot "accord" serait alors déroutant. C'est pourquoi j'ai choisi le mot "harmonisation" qui semble le plus approprié; "étagement des voix", moins commode d'emploi, pourrait convenir aussi.
 
