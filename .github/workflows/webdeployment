@@ -1,10 +1,8 @@
-# .github/workflows/pages.yml
 name: Deploy GitHub Pages (prefer test)
 
 on:
-  push:
-    branches: [ "main", "test" ]   # déclenché sur push main ou test
-  workflow_dispatch:               # déclenchement manuel
+  push:                # déclenche sur toute branche
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,17 +15,17 @@ concurrency:
 
 jobs:
   build-and-deploy:
+    # ne lance que pour main ou test
+    if: contains(fromJson('["refs/heads/main","refs/heads/test"]'), github.ref)
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      # 1) Checkout (pour avoir 'origin' configuré)
-      - name: Initial checkout
+      - name: Initial checkout (whatever branch triggered)
         uses: actions/checkout@v4
 
-      # 2) Choisir la branche à déployer : test si elle existe, sinon main
       - name: Pick branch to deploy
         id: pick
         run: |
@@ -36,39 +34,28 @@ jobs:
           else
             echo "ref=main" >> $GITHUB_OUTPUT
           fi
-          echo "Will deploy: $(cat $GITHUB_OUTPUT)"
+          echo "Deploying ${{ steps.pick.outputs.ref }}"
 
-      # 3) Re-checkout sur la branche choisie
       - name: Checkout target branch
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.pick.outputs.ref }}
 
-      # 4) (OPTION A) Site statique sans build : décommente cette section
-      # - name: Upload artifact (static site)
-      #   uses: actions/upload-pages-artifact@v3
+      # === Option A : site statique sans build ===
+      # - uses: actions/upload-pages-artifact@v3
       #   with:
-      #     path: .   # dossier du site
+      #     path: .
 
-      # 4bis) (OPTION B) Build Node (Vite/React…) : utilise cette section
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      # === Option B : build Node (Vite/React, etc.) ===
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Build
-        run: npm run build   # produit ./dist
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - run: npm ci
+      - run: npm run build   # produit ./dist
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist       # mets "." si option A
+          path: ./dist       # mets "." si Option A
 
-      # 5) Deploy sur GitHub Pages
-      - name: Deploy to Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
