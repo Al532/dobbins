@@ -1,43 +1,74 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# .github/workflows/pages.yml
+name: Deploy GitHub Pages (prefer test)
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: [ "main", "test" ]   # déclenché sur push main ou test
+  workflow_dispatch:               # déclenchement manuel
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  build-and-deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # 1) Checkout (pour avoir 'origin' configuré)
+      - name: Initial checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+
+      # 2) Choisir la branche à déployer : test si elle existe, sinon main
+      - name: Pick branch to deploy
+        id: pick
+        run: |
+          if git ls-remote --heads origin test | grep -q "refs/heads/test"; then
+            echo "ref=test" >> $GITHUB_OUTPUT
+          else
+            echo "ref=main" >> $GITHUB_OUTPUT
+          fi
+          echo "Will deploy: $(cat $GITHUB_OUTPUT)"
+
+      # 3) Re-checkout sur la branche choisie
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pick.outputs.ref }}
+
+      # 4) (OPTION A) Site statique sans build : décommente cette section
+      # - name: Upload artifact (static site)
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: .   # dossier du site
+
+      # 4bis) (OPTION B) Build Node (Vite/React…) : utilise cette section
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build   # produit ./dist
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
+          path: ./dist       # mets "." si option A
+
+      # 5) Deploy sur GitHub Pages
+      - name: Deploy to Pages
         id: deployment
         uses: actions/deploy-pages@v4
