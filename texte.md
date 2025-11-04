@@ -8,7 +8,7 @@ Auteur : Bill Dobbins
 
 ## Préface
 
-test du workflow!!! L'intention de ce livre est de mettre en lumière une conception claire et économique de l'arrangement et de la composition dans un idiome "jazzistique". Dans mon esprit, cette conception est avant tout linéaire. Le but de cette conception est de donner à chaque instrument, au sein de l'orchestre, une ligne qui soit aussi mélodique que possible. Parfois, ce but peut être atteint grâce aux techniques traditionnelles d'arrangement ou d'harmonisation d'une mélodie. Souvent, cependant, deux ou plusieurs techniques peuvent être combinées pour obtenir un son plus riche, plus coloré. Et quelquefois il est possible de donner à chaque instrument à vent une ligne harmonieuse et mélodiquement indépendante, tout en créant, en même temps, une forte sensation de mouvement harmonique.
+L'intention de ce livre est de mettre en lumière une conception claire et économique de l'arrangement et de la composition dans un idiome "jazzistique". Dans mon esprit, cette conception est avant tout linéaire. Le but de cette conception est de donner à chaque instrument, au sein de l'orchestre, une ligne qui soit aussi mélodique que possible. Parfois, ce but peut être atteint grâce aux techniques traditionnelles d'arrangement ou d'harmonisation d'une mélodie. Souvent, cependant, deux ou plusieurs techniques peuvent être combinées pour obtenir un son plus riche, plus coloré. Et quelquefois il est possible de donner à chaque instrument à vent une ligne harmonieuse et mélodiquement indépendante, tout en créant, en même temps, une forte sensation de mouvement harmonique.
 
 Je pense qu'il est important de donner une bonne ligne mélodique à chaque instrument, pour deux raisons :
 
