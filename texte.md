@@ -835,7 +835,7 @@ Mesure 5 : Les accords diminués à trois sons se déplacent d'une façon parall
 
 Mesure 7 : Semblable à la mesure 5, mais se terminant avec Do♯°7-Rém6.
 
-Mesure 9 : La deuxième harmonisation, qui implique Fa13♯9 ou Si13♯9, est peut-être trop dissonante en position "fermée" pour une harmonisation aussi simple [trad]. Les trois voix les plus basses se déplacent d'une manière chromatique et parallèle, indépendamment de la mélodie.
+Mesure 9 : La deuxième harmonisation, qui implique Fa13♯9 ou Si13♯9, est peut-être trop dissonante en position "fermée" pour une harmonisation aussi simple [vérifier traduction]. Les trois voix les plus basses se déplacent d'une manière chromatique et parallèle, indépendamment de la mélodie.
 
 Mesure 10 : La première harmonisation serait peut-être trop dissonante en position "fermée". Les trois voix les plus basses se déplacent chromatiquement, en un mouvement contraire par rapport à la mélodie. Le Fa de la seconde voix prépare le son de Rém6 à la fin de la mesure.
 
@@ -921,7 +921,7 @@ Les règles générales d'harmonisation restent les mêmes.
 
 **[L'exemple 26](26.jpg)** est une harmonisation de _Blues for Barry_ qui emploie l'approche linéaire. Les aspects suivants de l'harmonisation doivent être notés.
 
-[exemple 26](26.mp3?start=3)
+[exemple 26](26.mp3?start=2)
 
 Mesure 1 : Les trois voix supérieures se déplacent en accords de trois sons (triads) parallèles pendant que la quatrième voix décrit une ligne indépendante. Le Do♯ dans la quatrième voix est valable parce qu'il se produit sur la partie faible du temps et qu'il se résout immédiatement. Les accords de passage à la fin de la mesure se résolvent dans une harmonisation claire de Fa majeur (sans fondamentale).
 
