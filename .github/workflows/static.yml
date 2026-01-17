@@ -48,6 +48,13 @@ jobs:
         with:
           ref: ${{ steps.pick.outputs.ref }}
 
+      # 3.5) Conversion Markdown -> HTML
+      - name: Convert texte.md to texte.html
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+          pandoc texte.md -t html -o texte.html
+
       # 4) Site statique sans build
       - name: Upload artifact (static site)
         uses: actions/upload-pages-artifact@v3
