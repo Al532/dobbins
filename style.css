@@ -183,16 +183,40 @@ RÉPONSIVE
   .progress{width:120px;}
 }
 
-/* Portrait : la sidebar passe dessous */
+/* Lecture et hiérarchie communes à tous les chapitres. */
+*{box-sizing:border-box;}
+body{height:100dvh;overflow:hidden;}
+.content{flex:1 1 48%;min-width:0;max-width:720px;padding:32px clamp(20px,3vw,48px);line-height:1.65;scroll-behavior:auto;}
+.sidebar{flex:1 1 52%;min-width:0;border-left:1px solid #e0cfc2;}
+h1{font-size:2rem;line-height:1.2;margin:0 0 1rem;}
+h2{font-size:1.65rem;line-height:1.3;margin:3.5rem 0 1.25rem;padding-top:1rem;border-top:1px solid #e0cfc2;}
+h3{font-size:1.2rem;line-height:1.4;margin:2.25rem 0 .75rem;}
+h4{font-size:1.05rem;line-height:1.4;margin:1.75rem 0 .75rem;color:#5a1f1f;}
+p{margin:.9rem 0;}
+li{margin:.5rem 0;}
+ul,ol{padding-left:1.5rem;}
+hr{border:0;border-top:1px solid #e0cfc2;margin:1.5rem 0;}
+a{text-underline-offset:.18em;overflow-wrap:anywhere;}
+:focus-visible{outline:2px solid #a64b3c;outline-offset:4px;}
+#toc{max-width:none;margin:1.5rem 0 2rem;padding:18px 22px;}
+#toc h2{margin:0;padding:0;border:0;}
+#toc ul{margin:.75rem 0 0;}
+.content img{max-width:100%;width:auto;height:auto;margin:1rem auto;}
+.content img.rhythm{display:inline-block;vertical-align:middle;margin:0 .2em;max-height:2rem;max-width:100%;width:auto;}
+.audio-player{flex-wrap:wrap;gap:8px;padding:8px 12px;line-height:1.4;}
+.audio-label{min-width:100px;}
+.play-btn{min-width:32px;min-height:32px;}
+.progress{width:100px;}
+.sidebar-pdf-btn:focus-visible{opacity:1;}
+.pdf-page-status{position:absolute;bottom:8px;background:#fffdf5e8;border-radius:4px;padding:2px 8px;font-size:.8rem;}
 @media(max-width:768px) and (orientation:portrait){
   body{flex-direction:column;}
-  .content{max-width:none;width:100%;min-height:40vh;}
-  .sidebar{width:100%;min-height:40vh;}
+  .content{flex:1 1 58%;width:100%;max-width:none;min-height:0;padding:24px;}
+  .sidebar{flex:1 1 42%;width:100%;min-height:0;border-left:0;border-top:1px solid #e0cfc2;}
+  h1{font-size:1.65rem;}
+  h2{font-size:1.4rem;}
 }
-
-/* Paysage : la sidebar reste à côté */
 @media(max-width:768px) and (orientation:landscape){
-  body{flex-direction:row;}
-  .content{width:65%;min-height:40vh;max-width:100%;}
-  .sidebar{width:35%;min-height:40vh;}
+  .content{flex-basis:60%;padding:20px;}
+  .sidebar{flex-basis:40%;}
 }

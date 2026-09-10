@@ -7,12 +7,14 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.mjs';
 /* =========================================================
    1. Cache des PDF déjà ouverts
    ========================================================= */
+let disposeSidebar = () => {};
 const pdfCache = new Map(); // absURL -> Promise<pdfjsLib.PDFDocumentProxy>
 
 /* =========================================================
    2. Chargement du fichier principal (texte.html)
    ========================================================= */
-fetch('texte.html')
+fetch(document.getElementById('content').dataset.textSource === 'texte-relecture.html'
+  ? 'texte-relecture.html' : 'texte.html')
   .then(r => r.text())
   .then(html => {
     // On insère le contenu après le sommaire (TOC)
@@ -27,6 +29,8 @@ fetch('texte.html')
    ========================================================= */
 function initTOC() {
   const toc = document.getElementById('toc');
+  const firstSection = document.querySelector('#content h2');
+  if (firstSection) firstSection.before(toc);
   toc.innerHTML = '<h2>Sommaire</h2><ul></ul>';
   const ul = toc.querySelector('ul');
 
@@ -174,6 +178,7 @@ function createAudioPlayer(link) {
    6. Affichage d'une image dans la sidebar
    ========================================================= */
 function showImageInSidebar(url) {
+  disposeSidebar();
   const sidebar = document.getElementById('sidebar');
   sidebar.innerHTML = '';
   sidebar.style.backgroundImage = `url(${url})`;
@@ -183,6 +188,7 @@ function showImageInSidebar(url) {
    7. Lecteur PDF avec streaming + couverture
    ========================================================= */
 function showPdfInSidebar(url) {
+  disposeSidebar();
   const absURL = new URL(url, location.href).href;
   const pdfProm = pdfCache.get(absURL) ||
     (pdfjsLib.getDocument({
@@ -199,12 +205,14 @@ function showPdfInSidebar(url) {
     <div class="sidebar-pdf-viewer">
       <button class="sidebar-pdf-btn prev" title="Page précédente">‹</button>
       <canvas class="sidebar-pdf-canvas"></canvas>
+      <output class="pdf-page-status" aria-live="polite"></output>
       <button class="sidebar-pdf-btn next" title="Page suivante">›</button>
     </div>
   `;
 
   const canvas  = sidebar.querySelector('.sidebar-pdf-canvas');
   const ctx     = canvas.getContext('2d');
+  const pageStatus = sidebar.querySelector('.pdf-page-status');
   const prevBtn = sidebar.querySelector('.sidebar-pdf-btn.prev');
   const nextBtn = sidebar.querySelector('.sidebar-pdf-btn.next');
 
@@ -229,6 +237,7 @@ function showPdfInSidebar(url) {
     })
     .then(() => {
       rendering = false;
+      pageStatus.replaceChildren(document.createTextNode(`Page ${pageNum} / ${pageCount}`));
       prevBtn.disabled = (pageNum === 1);
       nextBtn.disabled = (pageNum === pageCount);
       prevBtn.style.opacity = prevBtn.disabled ? 0 : 1;
@@ -238,6 +247,7 @@ function showPdfInSidebar(url) {
   }
 
   function queueRender(num) {
+    if (!pdfDoc || !canvas.isConnected) return;
     if (rendering) {
       setTimeout(() => queueRender(num), 100);
     } else {
@@ -255,6 +265,7 @@ function showPdfInSidebar(url) {
 
   const resizeHandler = () => queueRender(pageNum);
   window.addEventListener('resize', resizeHandler);
+  disposeSidebar = () => window.removeEventListener('resize', resizeHandler);
 
   // Afficher un placeholder dès le départ
   canvas.width = 200;
