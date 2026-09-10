@@ -1,20 +1,22 @@
 import {compact, normalize, scoreForAudio, scoreTitle, clamp} from './reader-utils.mjs';
 import {ScoreViewer} from './score-viewer.js';
 import {StudyAudio} from './audio-player.js';
+import {MobileControls} from './mobile-controls.js';
 
 const content = document.getElementById('content'), sidebar = document.getElementById('sidebar');
 const source = content.dataset.textSource === 'texte-relecture.html' ? 'texte-relecture.html' : 'texte.html';
 const storageKey = `dobbins:lecture:${source}:v1`;
 let saved;
 try {saved = JSON.parse(localStorage.getItem(storageKey));} catch {saved = null;}
-let ready = false, restoring = false, mode = 'both', lastTextMode = 'both', headings = [], passages = [], searchItems = [];
+let ready = false, restoring = false, headings = [], passages = [], searchItems = [];
 let currentChapter, saveTimer, scrollFrame, viewer, lastReading = {anchor:'',offset:0};
 history.scrollRestoration = 'manual';
 
 const header = document.createElement('header');header.className = 'reader-bar';
-header.innerHTML = `<a class="skip-link" href="#content">Aller au texte</a><div class="reader-actions"><span class="brand">Dobbins<span>ARRANGEMENT JAZZ</span></span><button type="button" id="open-toc" aria-haspopup="dialog">Sommaire</button><button type="button" id="open-search" aria-haspopup="dialog">Rechercher</button><div class="view-modes" role="group" aria-label="Mode de lecture"><button type="button" data-mode="text" aria-pressed="false">Texte</button><button type="button" data-mode="score" aria-pressed="false">Partition</button><button type="button" data-mode="both" aria-pressed="true">Ensemble</button></div></div><div class="reading-context"><span id="current-chapter">Une approche linéaire</span><div><button type="button" id="resume-reading" hidden>Reprendre ma lecture</button><button type="button" id="copy-passage">Partager ce passage</button></div></div>`;
+header.innerHTML = `<a class="skip-link" href="#content">Aller au texte</a><div class="reader-actions"><span class="brand">Dobbins<span>ARRANGEMENT JAZZ</span></span><button type="button" id="open-toc" aria-haspopup="dialog">Sommaire</button><button type="button" id="open-search" aria-haspopup="dialog">Rechercher</button></div><div class="reading-context"><span id="current-chapter">Une approche linéaire</span><div><button type="button" id="resume-reading" hidden>Reprendre ma lecture</button><button type="button" id="copy-passage">Partager ce passage</button></div></div>`;
 document.body.prepend(header);
 const workspace = document.createElement('div');workspace.id = 'workspace';workspace.className = 'workspace';
+workspace.dataset.mode = 'both';
 content.before(workspace);workspace.append(content);
 const divider = document.createElement('div');divider.className = 'divider';divider.tabIndex = 0;divider.setAttribute('role','separator');divider.setAttribute('aria-label','Répartition du texte et de la partition');divider.setAttribute('aria-orientation','vertical');divider.setAttribute('aria-valuemin','25');divider.setAttribute('aria-valuemax','75');divider.setAttribute('aria-valuenow','48');
 workspace.append(divider,sidebar);content.tabIndex = -1;
@@ -42,56 +44,64 @@ const definition = document.createElement('div');definition.className = 'definit
 const shareDialog = createDialog('Partager ce passage');
 shareDialog.insertAdjacentHTML('beforeend','<p>Copiez ce lien pour retrouver exactement ce passage.</p><label for="share-url">Lien du passage</label><input id="share-url" readonly>');
 
-function setMode(value, focus = false) {
-  if (ready && mode !== 'score') lastReading = snapshot();
-  const position = lastReading;
-  mode = ['text','score','both'].includes(value) ? value : 'both';workspace.dataset.mode = mode;
-  if (mode !== 'score') lastTextMode = mode;
-  content.inert = mode === 'score';sidebar.inert = mode === 'text';
-  header.querySelectorAll('[data-mode]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.mode === mode)));
-  if (ready) alignReading(position);
-  if (focus) (mode === 'score' ? sidebar.querySelector('.score-stage') : content).focus({preventScroll:true});
-  viewer?.render();
-}
-header.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {setMode(button.dataset.mode,true);savePosition();}));
-header.querySelector('.skip-link').addEventListener('click', event => {event.preventDefault();setMode('text',true);});
-let split = 48;
+header.querySelector('.skip-link').addEventListener('click', event => {event.preventDefault();content.focus({preventScroll:true});});
+const mobileQuery = matchMedia('(max-width:700px), (max-width:1000px) and (max-height:500px)');
+const layoutKey = () => mobileQuery.matches ? (innerHeight >= innerWidth ? 'portrait' : 'landscape') : 'desktop';
+const splits = {portrait:48,landscape:48,desktop:48};
+for (const key of Object.keys(splits)) if (Number.isFinite(saved?.splits?.[key])) splits[key] = clamp(saved.splits[key],25,75);
+let layout = layoutKey(), split = splits[layout];
+if (!saved?.splits && Number.isFinite(saved?.split)) splits[layout] = split = clamp(saved.split,25,75);
 function setSplit(value) {
   const position = ready && content.clientHeight ? snapshot() : lastReading;
-  split = clamp(value,25,75);workspace.style.setProperty('--text-share',`${split}%`);divider.setAttribute('aria-valuenow',String(Math.round(split)));
+  split = clamp(value,25,75);splits[layout] = split;workspace.style.setProperty('--text-share',`${split}%`);divider.setAttribute('aria-valuenow',String(Math.round(split)));
   if (ready) alignReading(position);
   viewer?.render();
 }
 divider.addEventListener('keydown', event => {
-  const portrait = matchMedia('(max-width: 700px) and (orientation: portrait)').matches;
+  const portrait = layout === 'portrait';
   const down = portrait ? 'ArrowDown' : 'ArrowRight', up = portrait ? 'ArrowUp' : 'ArrowLeft';
   if ([up,down,'Home','End'].includes(event.key)) {event.preventDefault();setSplit(event.key === 'Home' ? 25 : event.key === 'End' ? 75 : split + (event.key === down ? 3 : -3));savePosition();}
 });
 divider.addEventListener('pointerdown', event => {divider.setPointerCapture(event.pointerId);event.preventDefault();});
 divider.addEventListener('pointermove', event => {
   if (!divider.hasPointerCapture(event.pointerId)) return;
-  const r = workspace.getBoundingClientRect(), vertical = matchMedia('(max-width: 700px) and (orientation: portrait)').matches;
+  const r = workspace.getBoundingClientRect(), vertical = layout === 'portrait';
   setSplit(vertical ? 100 * (event.clientY-r.top)/r.height : 100 * (event.clientX-r.left)/r.width);
 });
 divider.addEventListener('pointerup', event => {if (divider.hasPointerCapture(event.pointerId)) divider.releasePointerCapture(event.pointerId);savePosition();});
-const updateOrientation = () => divider.setAttribute('aria-orientation',matchMedia('(max-width: 700px) and (orientation: portrait)').matches ? 'horizontal' : 'vertical');
-window.addEventListener('resize',updateOrientation);updateOrientation();
-window.addEventListener('resize', () => {if (ready) {alignReading(lastReading);updateChapter();savePosition();}});
 viewer = new ScoreViewer(sidebar, () => {if (ready && !restoring) savePosition();});
 const audio = new StudyAudio((record, reveal) => {
   if (!record?.score) return;
   viewer.open({...record.score,context:record.context});
-  if (reveal) setMode(matchMedia('(max-width: 700px)').matches ? 'score' : 'both');
+  if (reveal && !mobileQuery.matches) viewer.stage.focus({preventScroll:true});
 }, async record => {if (sidebar.classList.contains('score-expanded')) await viewer.fullscreen();if (record) navigateTo(record.element.id);});
+const mobileControls = new MobileControls(header,viewer,audio);
+let layoutWidth = innerWidth;
+function updateLayout() {
+  // A phone's on-screen keyboard can make a portrait viewport look landscape.
+  // Keep the reading arrangement while editing; a real rotation changes width.
+  if (mobileControls.mobile && innerWidth === layoutWidth && document.activeElement.matches('input,textarea,select')) return;
+  layoutWidth = innerWidth;
+  const position = {...lastReading};
+  layout = layoutKey();split = splits[layout];
+  workspace.style.setProperty('--text-share',`${split}%`);
+  workspace.dataset.layout = layout;
+  divider.setAttribute('aria-valuenow',String(Math.round(split)));
+  divider.setAttribute('aria-orientation',layout === 'portrait' ? 'horizontal' : 'vertical');
+  mobileControls.sync(mobileQuery.matches);
+  if (ready) {alignReading(position);updateChapter();savePosition();}
+  viewer.render();
+}
+window.addEventListener('resize',updateLayout);updateLayout();
 document.addEventListener('reader-fullscreen', event => {
   const active = event.detail.active;
-  (active ? sidebar : document.body).append(audio.panel);
-  header.inert = active;divider.inert = active;content.inert = active || mode === 'score';
+  mobileControls.syncFullscreen();
+  header.inert = active;divider.inert = active;content.inert = active;
+  if (mobileQuery.matches) mobileControls.toggle.focus({preventScroll:true});
 });
-setMode(matchMedia('(max-width: 700px)').matches ? 'text' : 'both');
 
 function snapshot() {
-  if (!content.clientHeight) return {...lastReading,score:viewer.snapshot(),mode,textMode:lastTextMode,split};
+  if (!content.clientHeight) return {...lastReading,score:viewer.snapshot(),split,splits:{...splits}};
   const top = content.getBoundingClientRect().top;let anchor = passages[0];
   let distance = Infinity;
   for (const element of passages) {
@@ -100,7 +110,7 @@ function snapshot() {
     if (delta >= 0) break;
   }
   lastReading = {anchor:anchor?.id || '',offset:anchor ? anchor.getBoundingClientRect().top-top : 0};
-  return {...lastReading,score:viewer.snapshot(),mode,textMode:lastTextMode,split};
+  return {...lastReading,score:viewer.snapshot(),split,splits:{...splits}};
 }
 function alignReading(position) {
   const target = document.getElementById(position?.anchor);
@@ -114,20 +124,19 @@ function savePosition() {
 }
 async function restore(state, focus = false) {
   if (!state) return;restoring = true;
-  setSplit(Number.isFinite(state.split) ? state.split : 48);setMode(state.mode === 'score' ? (state.textMode || 'both') : state.mode);
+  setSplit(Number.isFinite(state.splits?.[layout]) ? state.splits[layout] : (Number.isFinite(state.split) ? state.split : splits[layout]));
   const target = document.getElementById(state.anchor);
   if (target && content.contains(target)) {
     content.scrollTop += target.getBoundingClientRect().top-content.getBoundingClientRect().top-(state.offset || 0);
-    if (focus && mode !== 'score') {target.tabIndex = -1;target.focus({preventScroll:true});}
+    if (focus) {target.tabIndex = -1;target.focus({preventScroll:true});}
   }
   if (state.score?.url) await viewer.open(state.score);
-  setMode(state.mode);
   restoring = false;updateChapter();
 }
 function navigateTo(id, options = {}) {
   const target = document.getElementById(id);if (!target || !content.contains(target)) return;
   savePosition();navigation.close();glossary.close();
-  if (mode === 'score') setMode('text');
+  mobileControls.close(false);
   target.scrollIntoView({block:'start'});target.tabIndex = -1;target.focus({preventScroll:true});
   const next = snapshot();next.anchor = id;next.offset = target.getBoundingClientRect().top-content.getBoundingClientRect().top;
   if (options.push !== false) history.pushState({reader:next},'',`#${encodeURIComponent(id)}`);
@@ -144,7 +153,7 @@ function updateChapter() {
 }
 content.addEventListener('scroll', () => {
   if (!ready || restoring) return;
-  if (!scrollFrame) scrollFrame = requestAnimationFrame(() => {scrollFrame = null;updateChapter();});
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(() => {scrollFrame = null;updateChapter();snapshot();});
   clearTimeout(saveTimer);saveTimer = setTimeout(savePosition,200);
 });
 window.addEventListener('pagehide',savePosition);
@@ -241,7 +250,7 @@ async function loadBook() {
     for (const img of book.querySelectorAll('img')) {
       img.decoding = 'async';if (img.closest('a')) continue;
       const button = document.createElement('button');button.type = 'button';button.className = 'enlarge-illustration';button.setAttribute('aria-label',`Agrandir : ${img.alt}`);img.before(button);button.append(img);
-      button.addEventListener('click', () => {viewer.open({url:img.getAttribute('src'),title:img.alt});setMode(matchMedia('(max-width: 700px)').matches ? 'score' : 'both');});
+      button.addEventListener('click', () => {viewer.open({url:img.getAttribute('src'),title:img.alt});});
     }
     passages = [...book.querySelectorAll('h1,h2,h3,h4,p,figure,.audio-player')].filter(el=>el.id&&!el.closest('.revision-before')&&!el.closest('#toc'));
     // Layout must settle before restoring a position inside the long article.
@@ -260,6 +269,6 @@ content.addEventListener('click', event => {
   if (link.dataset.definition) {event.preventDefault();openDefinition(link.dataset.definition,link);return;}
   const href = link.getAttribute('href') || '';
   if (href.startsWith('#')) {event.preventDefault();navigateTo(decodeURIComponent(href.slice(1)));return;}
-  if (/\.(pdf|jpe?g|png|svg)([?#]|$)/i.test(href)) {event.preventDefault();viewer.open({url:href,title:link.dataset.scoreTitle || compact(link.textContent),context:link.dataset.scoreContext});setMode(matchMedia('(max-width: 700px)').matches ? 'score' : 'both');}
+  if (/\.(pdf|jpe?g|png|svg)([?#]|$)/i.test(href)) {event.preventDefault();viewer.open({url:href,title:link.dataset.scoreTitle || compact(link.textContent),context:link.dataset.scoreContext});}
 });
 loadBook();

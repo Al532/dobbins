@@ -482,16 +482,6 @@ hr {
   width:44px;
   padding:6px
 }
-.study-btn {
-  flex-basis:100%;
-  background:transparent;
-  border:0;
-  min-height:32px;
-  padding:4px;
-  text-align:right;
-  text-decoration:underline;
-  text-underline-offset:3px
-}
 .study-audio {
   flex:none;
   background:var(--paper);
@@ -850,9 +840,6 @@ hr {
   .score-tools button,.score-tools select {
     min-height:40px
   }
-  .audio-player .study-btn {
-    min-height:36px
-  }
 }
 @media(max-width:700px) and (orientation:portrait) {
   .workspace[data-mode=both] {
@@ -989,13 +976,228 @@ hr {
     order: 3;
   }
 }
+/* Mobile reading: only the reading surfaces occupy space. All controls are
+   mounted in this dialog before it opens, so opening it never changes layout. */
+.mobile-launcher,.mobile-excerpt {
+  display:none;
+}
+.mobile-reading .workspace {
+  grid-template-columns:minmax(0,var(--text-share)) 12px minmax(0,1fr);
+  grid-template-rows:minmax(0,1fr);
+}
+.mobile-reading .workspace[data-layout=portrait] {
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:minmax(0,var(--text-share)) 12px minmax(0,1fr);
+}
+.mobile-reading .workspace[data-layout=portrait] .divider {
+  cursor:row-resize;
+}
+.mobile-reading .workspace[data-layout=portrait] .divider:after {
+  width:34px;height:3px;top:4px;left:calc(50% - 17px);
+}
+.mobile-reading .workspace[data-layout=landscape] .divider:after {
+  width:3px;height:34px;left:4px;top:calc(50% - 17px);
+}
+.mobile-reading .content {
+  padding:20px 16px;
+  scrollbar-gutter:auto;
+}
+.mobile-reading .score-stage {
+  padding:8px;
+}
+.mobile-reading .mobile-launcher {
+  position:fixed;
+  right:max(12px,env(safe-area-inset-right));
+  bottom:max(12px,env(safe-area-inset-bottom));
+  z-index:60;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.mobile-launcher button {
+  min-width:44px;
+  min-height:44px;
+  border-radius:24px;
+  background:#fffdf9ed;
+  box-shadow:0 2px 10px #49312226;
+}
+.mobile-launcher .mobile-menu {
+  padding:8px;
+  font-size:14px;
+  letter-spacing:1px;
+}
+.mobile-launcher .mobile-pause {
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+}
+.mobile-controls {
+  width:min(560px,calc(100vw - 24px));
+  max-height:76dvh;
+  margin:auto max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) auto;
+  padding:0;
+  overscroll-behavior:contain;
+  scrollbar-gutter:auto;
+}
+.mobile-controls::backdrop {
+  background:#21150e30;
+}
+.mobile-controls>.dialog-top {
+  position:sticky;
+  top:0;
+  z-index:2;
+  margin:0;
+  padding:10px 12px;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  gap:8px;
+}
+.mobile-controls>.dialog-top strong {
+  font:600 .95rem 'Segoe UI',sans-serif;
+}
+.mobile-controls .close-controls {
+  font-size:.8rem;
+}
+.mobile-controls .reader-bar {
+  padding:12px;
+}
+.mobile-controls .brand,.mobile-controls #open-search,.controls-fullscreen .mobile-navigation {
+  display:none;
+}
+.mobile-controls .reader-actions {
+  display:flex;
+}
+.mobile-controls #open-toc {
+  flex:1;
+  font-size:.9rem;
+}
+.mobile-controls .reading-context {
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:4px;
+  padding-top:8px;
+  font-size:.8rem;
+}
+.mobile-controls .reading-context>div {
+  flex-wrap:wrap;
+  justify-content:space-between;
+}
+.mobile-controls .reading-context button {
+  max-width:none!important;
+  min-height:44px;
+  font-size:.78rem;
+}
+.mobile-controls .score-heading {
+  padding:12px 12px 4px;
+}
+.mobile-controls .score-heading>div {
+  display:block;
+}
+.mobile-controls .score-heading h2,.mobile-controls .score-heading p {
+  white-space:normal;
+  max-width:none;
+}
+.mobile-controls .score-heading .eyebrow {
+  display:none;
+}
+.mobile-controls .score-tools {
+  min-height:0;
+  flex-wrap:wrap;
+  overflow:visible;
+  padding:8px 12px 12px;
+}
+.mobile-controls .score-tools button,.mobile-controls .score-tools select {
+  min-height:44px;
+}
+.mobile-controls .score-pages {
+  min-height:0;
+  padding:8px 12px;
+  gap:8px;
+}
+.mobile-controls .score-pages button,.mobile-controls .score-pages input {
+  min-height:44px;
+}
+.mobile-controls .study-audio {
+  padding:12px;
+  box-shadow:none;
+}
+.mobile-controls .now-playing {
+  flex-wrap:wrap;
+  gap:2px 8px;
+  margin-bottom:8px;
+}
+.mobile-controls .now-playing button {
+  white-space:normal;
+  max-width:none;
+  width:100%;
+  min-height:44px;
+  font-size:.85rem;
+}
+.mobile-controls .transport {
+  flex-wrap:wrap;
+}
+.mobile-controls .transport>button {
+  flex:1;
+  min-height:44px;
+  font-size:.8rem;
+}
+.mobile-controls .transport>input {
+  order:5;
+  flex:1 1 calc(100% - 100px);
+}
+.mobile-controls #audio-time {
+  order:6;
+}
+.mobile-controls #study-tools {
+  flex-basis:100%;
+  order:7;
+}
+.mobile-controls #study-tools>summary {
+  min-height:44px;
+  font-size:.85rem;
+}
+.mobile-controls .study-options {
+  position:static;
+  max-height:none;
+  max-width:none;
+  margin-top:8px;
+  box-shadow:none;
+  padding:10px;
+}
+.mobile-reading .audio-player {
+  padding:0;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+.mobile-reading .audio-player>:not(.mobile-excerpt) {
+  display:none;
+}
+.mobile-reading .audio-player .mobile-excerpt {
+  display:block;
+  width:100%;
+  min-height:44px;
+  text-align:left;
+  padding:6px 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  font-size:.9rem;
+  line-height:1.5;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.mobile-reading .audio-player.is-active .mobile-excerpt {
+  font-weight:600;
+}
 @media print {
   body {
     height:auto;
     overflow:visible;
     display:block
   }
-  .reader-bar,.sidebar,.divider,.study-audio,dialog,.audio-player {
+  .reader-bar,.sidebar,.divider,.study-audio,dialog,.audio-player,.mobile-launcher {
     display:none!important
   }
   .workspace {

@@ -59,15 +59,16 @@ export class StudyAudio {
     url.searchParams.delete('start');record.url = url.href;
     record.name = [...new Set([score?.title,context,record.label].filter(Boolean))].filter((part,i,parts) => !parts.some((other,j) => j < i && other.toLowerCase().includes(part.toLowerCase()))).join(' · ');
     const wrapper = document.createElement('span');wrapper.className = 'audio-player';wrapper.id = record.id;wrapper.dataset.start = record.start;
-    wrapper.innerHTML = '<button type="button" class="play-btn">Écouter</button><span class="audio-label"></span><button type="button" class="replay-btn" title="Rejouer cet extrait">↺</button><button type="button" class="study-btn">Étudier cet exemple</button>';
+    wrapper.innerHTML = '<button type="button" class="play-btn">Écouter</button><span class="audio-label"></span><button type="button" class="mobile-excerpt" aria-haspopup="dialog" aria-controls="mobile-controls"></button><button type="button" class="replay-btn" title="Rejouer cet extrait">↺</button>';
     wrapper.querySelector('.audio-label').textContent = record.label;
+    const mobileExcerpt = wrapper.querySelector('.mobile-excerpt');
+    mobileExcerpt.textContent = `Écouter — ${record.label}`;
+    mobileExcerpt.setAttribute('aria-label',`Commandes audio — ${record.name}`);
+    mobileExcerpt.addEventListener('click', () => {this.select(record);document.dispatchEvent(new Event('reader-audio-controls'));});
     wrapper.querySelector('.play-btn').setAttribute('aria-label',`Écouter — ${record.name}`);
     wrapper.querySelector('.replay-btn').setAttribute('aria-label',`Rejouer — ${record.name}`);
-    wrapper.querySelector('.study-btn').setAttribute('aria-label',`Étudier cet exemple — ${record.name}`);
-    wrapper.querySelector('.study-btn').disabled = !score;
     wrapper.querySelector('.play-btn').addEventListener('click', () => this.toggle(record));
     wrapper.querySelector('.replay-btn').addEventListener('click', () => this.replay(record));
-    wrapper.querySelector('.study-btn').addEventListener('click', () => {this.select(record);this.onScore(record,true);});
     link.replaceWith(wrapper);record.element = wrapper;this.records.push(record);
     return record;
   }
@@ -94,12 +95,14 @@ export class StudyAudio {
   toggle(record) {
     if (!record) return;
     if (this.current === record && !this.audio.paused) {++this.request;this.audio.pause();return;}
+    if (this.current === record) this.onScore(record,false);
     this.select(record);
     if (this.audio.ended || this.audio.currentTime >= this.audio.duration - .05) this.audio.currentTime = this.loop.checked ? this.a : record.start;
     this.play();
   }
   replay(record) {
     if (!record) return;
+    if (this.current === record) this.onScore(record,false);
     this.select(record);
     const start = this.loop.checked ? this.a : record.start;
     if (this.audio.readyState >= 1) this.audio.currentTime = start;
@@ -113,6 +116,7 @@ export class StudyAudio {
   }
   error() {
     this.panel.querySelector('.audio-error').hidden = false;this.state.textContent = 'Lecture impossible';this.update();
+    document.dispatchEvent(new Event('reader-audio-error'));
   }
   update() {
     if (!this.current) return;

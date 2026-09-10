@@ -27,6 +27,7 @@ export class ScoreViewer {
     this.fit = 'width';
     this.page = 1;
     this.count = 1;
+    this.viewPosition = {left:0,top:0};
     sidebar.innerHTML = `
       <header class="score-heading"><div><span class="eyebrow">PARTITION</span><h2 id="score-title">Votre espace d’étude</h2><p id="score-context"></p></div></header>
       <div class="score-tools" aria-label="Affichage de la partition" hidden>
@@ -36,18 +37,26 @@ export class ScoreViewer {
         <a id="score-original" target="_blank" rel="noopener">Ouvrir séparément ↗</a>
       </div>
       <div class="score-stage" tabindex="0" role="region" aria-label="Partition, défilement et zoom">
-        <div class="score-message"><span class="eyebrow">LIRE · ÉCOUTER · COMPARER</span><p>Ouvrez un exemple musical<br>pour étudier sa partition ici.</p><p class="muted">Le bouton « Étudier cet exemple » réunit la partition et l’écoute.</p></div>
+        <div class="score-message"><span class="eyebrow">LIRE · ÉCOUTER · COMPARER</span><p>Ouvrez un exemple musical<br>pour étudier sa partition ici.</p><p class="muted">Lancer une écoute affiche automatiquement la partition correspondante.</p></div>
       </div>
       <footer class="score-pages" hidden><button type="button" data-action="prev" aria-label="Page précédente">←</button><label for="score-page">Page</label><input id="score-page" type="number" min="1" value="1" inputmode="numeric"><output id="page-count"></output><button type="button" data-action="next" aria-label="Page suivante">→</button><span id="score-status" role="status"></span></footer>`;
     this.stage = sidebar.querySelector('.score-stage');
+    this.heading = sidebar.querySelector('.score-heading');
     this.tools = sidebar.querySelector('.score-tools');
     this.footer = sidebar.querySelector('.score-pages');
     this.status = sidebar.querySelector('#score-status');
-    sidebar.addEventListener('click', event => {
+    for (const controls of [this.tools,this.footer]) controls.addEventListener('click', event => {
       const action = event.target.closest('[data-action]')?.dataset.action;
       if (action === 'in' || action === 'out') {this.zoom = clamp(this.zoom * (action === 'in' ? 1.25 : .8), .5, 4); this.render();}
       if (action === 'prev' || action === 'next') this.goToPage(this.page + (action === 'next' ? 1 : -1));
       if (action === 'fullscreen') this.fullscreen();
+    });
+    this.stage.addEventListener('scroll', () => {
+      if (!this.rendering && this.renderedWidth) {
+        this.viewPosition = {left:this.stage.scrollLeft / this.renderedWidth,top:this.stage.scrollTop / this.renderedWidth};
+        clearTimeout(this.scrollSaveTimer);
+        this.scrollSaveTimer = setTimeout(() => this.onChange(this.snapshot()),150);
+      }
     });
     sidebar.querySelector('#score-fit').addEventListener('change', event => {this.fit = event.target.value; this.zoom = 1; this.render();});
     sidebar.querySelector('#score-page').addEventListener('change', event => this.goToPage(Number(event.target.value)));
@@ -66,21 +75,25 @@ export class ScoreViewer {
     });
     new ResizeObserver(() => {clearTimeout(this.resizeTimer);this.resizeTimer = setTimeout(() => this.render(),80);}).observe(this.stage);
   }
-  snapshot() {return this.current ? {...this.current, page:this.page, fit:this.fit, zoom:this.zoom} : null;}
+  control(selector) {return this.heading.querySelector(selector) || this.tools.querySelector(selector) || this.footer.querySelector(selector);}
+  snapshot() {return this.current ? {...this.current, page:this.page, fit:this.fit, zoom:this.zoom,viewPosition:{...this.viewPosition}} : null;}
   async open(item) {
     if (!item?.url) return;
     const same = this.current?.url === item.url && this.current?.context === item.context && (this.doc || this.image);
-    if (same) return;
+    if (same && this.page === pdfPage(item.url) && item.page == null && item.zoom == null && item.fit == null && item.viewPosition == null) return;
     this.current = {...item};
     const generation = ++this.generation;
+    this.renderId = (this.renderId || 0) + 1;
+    this.rendering = true;
     this.renderTask?.cancel();
     this.doc = null; this.image = null;
     this.page = item.page || pdfPage(item.url);
     this.fit = item.fit || 'width'; this.zoom = clamp(item.zoom || 1,.5,4);
-    this.sidebar.querySelector('#score-fit').value = this.fit;
-    this.sidebar.querySelector('#score-title').textContent = item.title || 'Partition';
-    this.sidebar.querySelector('#score-context').textContent = item.context || '';
-    this.sidebar.querySelector('#score-original').href = item.url;
+    this.viewPosition = {left:Math.max(0,Number(item.viewPosition?.left) || 0),top:Math.max(0,Number(item.viewPosition?.top) || 0)};
+    this.control('#score-fit').value = this.fit;
+    this.control('#score-title').textContent = item.title || 'Partition';
+    this.control('#score-context').textContent = item.context || '';
+    this.control('#score-original').href = item.url;
     this.tools.hidden = false;
     this.footer.hidden = true;
     this.message('Chargement de la partition…');
@@ -97,11 +110,12 @@ export class ScoreViewer {
       }
       this.stage.replaceChildren();
       this.stage.scrollTo(0,0);
-      this.footer.hidden = false;
-      this.render();
+      this.footer.hidden = this.count <= 1;
+      await this.render();
       this.onChange(this.snapshot());
     } catch (error) {
       if (generation !== this.generation) return;
+      this.rendering = false;
       this.message('Impossible de charger la partition.', true);
     }
   }
@@ -117,20 +131,25 @@ export class ScoreViewer {
   goToPage(value) {
     if (!this.doc) return;
     this.page = clamp(Number.isFinite(value) ? Math.round(value) : 1,1,this.count);
+    this.viewPosition = {left:0,top:0};
     this.stage.scrollTo(0,0);this.render();this.onChange(this.snapshot());
   }
   async render() {
     if ((!this.doc && !this.image) || !this.stage.clientWidth || !this.stage.clientHeight) return;
     const generation = this.generation;
     const renderId = this.renderId = (this.renderId || 0) + 1;
+    const position = {...this.viewPosition};
+    this.rendering = true;
     this.renderTask?.cancel();
-    this.sidebar.querySelector('#zoom-status').textContent = `${Math.round(this.zoom * 100)} %`;
-    this.sidebar.querySelector('#score-page').value = this.page;
-    this.sidebar.querySelector('#score-page').max = this.count;
-    this.sidebar.querySelector('#page-count').textContent = `/ ${this.count}`;
-    this.sidebar.querySelector('[data-action="prev"]').disabled = this.page <= 1;
-    this.sidebar.querySelector('[data-action="next"]').disabled = this.page >= this.count;
-    const width = Math.max(1,this.stage.clientWidth - 32), height = Math.max(1,this.stage.clientHeight - 32);
+    this.control('#zoom-status').textContent = `${Math.round(this.zoom * 100)} %`;
+    this.control('#score-page').value = this.page;
+    this.control('#score-page').max = this.count;
+    this.control('#page-count').textContent = `/ ${this.count}`;
+    this.control('[data-action="prev"]').disabled = this.page <= 1;
+    this.control('[data-action="next"]').disabled = this.page >= this.count;
+    const padding = getComputedStyle(this.stage);
+    const width = Math.max(1,this.stage.clientWidth - parseFloat(padding.paddingLeft) - parseFloat(padding.paddingRight));
+    const height = Math.max(1,this.stage.clientHeight - parseFloat(padding.paddingTop) - parseFloat(padding.paddingBottom));
     try {
       const page = this.doc ? await this.doc.getPage(this.page) : null;
       if (generation !== this.generation || renderId !== this.renderId) return;
@@ -153,10 +172,16 @@ export class ScoreViewer {
         this.image.style.width = `${natural.width * scale}px`;this.image.style.height = `${natural.height * scale}px`;
         this.stage.replaceChildren(this.image);
       }
+      this.renderedWidth = natural.width * scale;
+      this.stage.scrollTo(position.left * this.renderedWidth,position.top * this.renderedWidth);
+      this.viewPosition = position;
       this.status.textContent = `Page ${this.page} sur ${this.count}`;
+      this.onChange(this.snapshot());
     } catch (error) {
       if (error.name === 'RenderingCancelledException' || generation !== this.generation || renderId !== this.renderId) return;
       this.message('Impossible d’afficher cette page.',true);
+    } finally {
+      requestAnimationFrame(() => {if (renderId === this.renderId) this.rendering = false;});
     }
   }
   async fullscreen() {
@@ -170,9 +195,10 @@ export class ScoreViewer {
   }
   syncFullscreen() {
     const active = this.sidebar.classList.contains('score-expanded') || document.fullscreenElement === this.sidebar;
-    const button = this.sidebar.querySelector('[data-action="fullscreen"]');
+    const button = this.control('[data-action="fullscreen"]');
     button.textContent = active ? 'Quitter le plein écran' : 'Plein écran';button.setAttribute('aria-pressed',String(active));
     document.dispatchEvent(new CustomEvent('reader-fullscreen',{detail:{active}}));
-    button.focus({preventScroll:true});this.render();
+    if (!document.body.classList.contains('mobile-reading')) button.focus({preventScroll:true});
+    this.render();
   }
 }
