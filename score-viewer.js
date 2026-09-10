@@ -1,3 +1,4 @@
+import {t, localizeMarkup as h} from './i18n.mjs';
 import {clamp, pdfPage} from './reader-utils.mjs';
 
 // PDF.js is loaded only when a score actually needs it. Reading remains available on failure.
@@ -28,7 +29,7 @@ export class ScoreViewer {
     this.page = 1;
     this.count = 1;
     this.viewPosition = {left:0,top:0};
-    sidebar.innerHTML = `
+    sidebar.innerHTML = h(`
       <header class="score-heading"><div><span class="eyebrow">PARTITION</span><h2 id="score-title">Votre espace d’étude</h2><p id="score-context"></p></div></header>
       <div class="score-tools" aria-label="Affichage de la partition" hidden>
         <div class="tool-group"><button type="button" data-action="out" aria-label="Réduire la partition">−</button><output id="zoom-status">100 %</output><button type="button" data-action="in" aria-label="Agrandir la partition">+</button></div>
@@ -39,7 +40,7 @@ export class ScoreViewer {
       <div class="score-stage" tabindex="0" role="region" aria-label="Partition, défilement et zoom">
         <div class="score-message"><span class="eyebrow">LIRE · ÉCOUTER · COMPARER</span><p>Ouvrez un exemple musical<br>pour étudier sa partition ici.</p><p class="muted">Lancer une écoute affiche automatiquement la partition correspondante.</p></div>
       </div>
-      <footer class="score-pages" hidden><button type="button" data-action="prev" aria-label="Page précédente">←</button><label for="score-page">Page</label><input id="score-page" type="number" min="1" value="1" inputmode="numeric"><output id="page-count"></output><button type="button" data-action="next" aria-label="Page suivante">→</button><span id="score-status" role="status"></span></footer>`;
+      <footer class="score-pages" hidden><button type="button" data-action="prev" aria-label="Page précédente">←</button><label for="score-page">Page</label><input id="score-page" type="number" min="1" value="1" inputmode="numeric"><output id="page-count"></output><button type="button" data-action="next" aria-label="Page suivante">→</button><span id="score-status" role="status"></span></footer>`);
     this.stage = sidebar.querySelector('.score-stage');
     this.heading = sidebar.querySelector('.score-heading');
     this.tools = sidebar.querySelector('.score-tools');
@@ -91,19 +92,19 @@ export class ScoreViewer {
     this.fit = item.fit || 'width'; this.zoom = clamp(item.zoom || 1,.5,4);
     this.viewPosition = {left:Math.max(0,Number(item.viewPosition?.left) || 0),top:Math.max(0,Number(item.viewPosition?.top) || 0)};
     this.control('#score-fit').value = this.fit;
-    this.control('#score-title').textContent = item.title || 'Partition';
+    this.control('#score-title').textContent = item.title || t('Partition');
     this.control('#score-context').textContent = item.context || '';
     this.control('#score-original').href = item.url;
     this.tools.hidden = false;
     this.footer.hidden = true;
-    this.message('Chargement de la partition…');
+    this.message(t('Chargement de la partition…'));
     try {
       if (/\.pdf(?:[?#]|$)/i.test(item.url)) {
         const doc = await loadPdf(item.url);
         if (generation !== this.generation) return;
         this.doc = doc; this.count = doc.numPages; this.page = clamp(this.page,1,this.count);
       } else {
-        const image = new Image(); image.alt = item.title || 'Partition musicale'; image.src = item.url;
+        const image = new Image(); image.alt = item.title || t('Partition musicale'); image.src = item.url;
         await image.decode();
         if (generation !== this.generation) return;
         this.image = image; this.count = 1; this.page = 1;
@@ -116,15 +117,15 @@ export class ScoreViewer {
     } catch (error) {
       if (generation !== this.generation) return;
       this.rendering = false;
-      this.message('Impossible de charger la partition.', true);
+      this.message(t('Impossible de charger la partition.'), true);
     }
   }
   message(text, retry = false) {
     const box = document.createElement('div'); box.className = 'score-message'; box.setAttribute('role', retry ? 'alert' : 'status');
     const p = document.createElement('p'); p.textContent = text; box.append(p);
     if (retry) {
-      const button = document.createElement('button'); button.textContent = 'Réessayer'; button.addEventListener('click', () => {this.doc = null;this.image = null;this.open(this.current);});box.append(button);
-      const link = document.createElement('a');link.textContent = 'Ouvrir la partition séparément ↗';link.href = this.current.url;link.target = '_blank';link.rel = 'noopener';box.append(link);
+      const button = document.createElement('button'); button.textContent = t('Réessayer'); button.addEventListener('click', () => {this.doc = null;this.image = null;this.open(this.current);});box.append(button);
+      const link = document.createElement('a');link.textContent = t('Ouvrir la partition séparément ↗');link.href = this.current.url;link.target = '_blank';link.rel = 'noopener';box.append(link);
     }
     this.stage.replaceChildren(box);
   }
@@ -159,7 +160,7 @@ export class ScoreViewer {
       if (page) {
         // A separate canvas per render prevents cancelled pages from overwriting a newer page.
         const canvas = document.createElement('canvas');
-        canvas.setAttribute('role','img');canvas.setAttribute('aria-label',`${this.current.title}, page ${this.page} sur ${this.count}`);
+        canvas.setAttribute('role','img');canvas.setAttribute('aria-label',t('{title}, page {page} sur {count}',{title:this.current.title,page:this.page,count:this.count}));
         const density = Math.min(devicePixelRatio || 1,2,Math.sqrt(16000000 / (natural.width * natural.height * scale * scale)));
         const viewport = page.getViewport({scale:scale * density});
         canvas.width = Math.ceil(viewport.width);canvas.height = Math.ceil(viewport.height);
@@ -175,11 +176,11 @@ export class ScoreViewer {
       this.renderedWidth = natural.width * scale;
       this.stage.scrollTo(position.left * this.renderedWidth,position.top * this.renderedWidth);
       this.viewPosition = position;
-      this.status.textContent = `Page ${this.page} sur ${this.count}`;
+      this.status.textContent = t('Page {page} sur {count}',{page:this.page,count:this.count});
       this.onChange(this.snapshot());
     } catch (error) {
       if (error.name === 'RenderingCancelledException' || generation !== this.generation || renderId !== this.renderId) return;
-      this.message('Impossible d’afficher cette page.',true);
+      this.message(t('Impossible d’afficher cette page.'),true);
     } finally {
       requestAnimationFrame(() => {if (renderId === this.renderId) this.rendering = false;});
     }
@@ -196,7 +197,7 @@ export class ScoreViewer {
   syncFullscreen() {
     const active = this.sidebar.classList.contains('score-expanded') || document.fullscreenElement === this.sidebar;
     const button = this.control('[data-action="fullscreen"]');
-    button.textContent = active ? 'Quitter le plein écran' : 'Plein écran';button.setAttribute('aria-pressed',String(active));
+    button.textContent = active ? t('Quitter le plein écran') : t('Plein écran');button.setAttribute('aria-pressed',String(active));
     document.dispatchEvent(new CustomEvent('reader-fullscreen',{detail:{active}}));
     if (!document.body.classList.contains('mobile-reading')) button.focus({preventScroll:true});
     this.render();

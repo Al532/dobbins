@@ -1,10 +1,17 @@
+import {t, localizeMarkup as h, language, mountLanguageSelector} from './i18n.mjs';
 import {compact, normalize, scoreForAudio, scoreTitle, clamp} from './reader-utils.mjs';
 import {ScoreViewer} from './score-viewer.js';
 import {StudyAudio} from './audio-player.js';
 import {MobileControls} from './mobile-controls.js';
 
 const content = document.getElementById('content'), sidebar = document.getElementById('sidebar');
-const source = content.dataset.textSource === 'texte-relecture.html' ? 'texte-relecture.html' : 'texte.html';
+const proofreading = content.dataset.textSource === 'texte-relecture.html';
+const source = proofreading ? 'texte-relecture.html' : language === 'en' ? 'texte-en.html' : 'texte.html';
+document.documentElement.lang = language;
+document.title = t('Dobbins : Arrangement jazz');
+content.lang = proofreading ? 'fr' : language;
+sidebar.setAttribute('aria-label',t('Partitions et illustrations'));
+document.getElementById('toc').setAttribute('aria-label',t('Sommaire'));
 const storageKey = `dobbins:lecture:${source}:v1`;
 let saved;
 try {saved = JSON.parse(localStorage.getItem(storageKey));} catch {saved = null;}
@@ -13,24 +20,42 @@ let currentChapter, saveTimer, scrollFrame, viewer, lastReading = {anchor:'',off
 history.scrollRestoration = 'manual';
 
 const header = document.createElement('header');header.className = 'reader-bar';
-header.innerHTML = `<a class="skip-link" href="#content">Aller au texte</a><div class="reader-actions"><span class="brand">Dobbins<span>ARRANGEMENT JAZZ</span></span><button type="button" id="open-toc" aria-haspopup="dialog">Sommaire</button><button type="button" id="open-search" aria-haspopup="dialog">Rechercher</button></div><div class="reading-context"><span id="current-chapter">Une approche linéaire</span><div><button type="button" id="resume-reading" hidden>Reprendre ma lecture</button><button type="button" id="copy-passage">Partager ce passage</button></div></div>`;
+header.innerHTML = h(`<a class="skip-link" href="#content">Aller au texte</a><div class="reader-actions"><span class="brand">Dobbins<span>ARRANGEMENT JAZZ</span></span><button type="button" id="open-toc" aria-haspopup="dialog">Sommaire</button><button type="button" id="open-search" aria-haspopup="dialog">Rechercher</button></div><div class="reading-context"><span id="current-chapter">Une approche linéaire</span><div><button type="button" id="resume-reading" hidden>Reprendre ma lecture</button><button type="button" id="copy-passage">Partager ce passage</button></div></div>`);
 document.body.prepend(header);
+if (!proofreading) mountLanguageSelector(header.querySelector('.reader-actions'), nextLanguage => {
+  savePosition();
+  const state = snapshot(), url = new URL(location.href);
+  // Chapter/section IDs and audio IDs are shared; paragraph IDs belong to one text.
+  const target = document.getElementById(state.anchor);
+  let anchor = target?.closest('.audio-player')?.id;
+  if (!anchor) {
+    const top = content.getBoundingClientRect().top;
+    for (const heading of headings.filter(el => !el.id.startsWith('discography-') && !el.id.startsWith('exemple-'))) {
+      if (heading.getBoundingClientRect().top <= top + 48) anchor = heading.id;
+      else break;
+    }
+  }
+  anchor ||= 'préface';
+  url.searchParams.set('lang',nextLanguage);url.hash = anchor;
+  try {sessionStorage.setItem('dobbins:language-transfer',JSON.stringify({language:nextLanguage,anchor,score:state.score,split:state.split,splits:state.splits}));} catch { /* The shared anchor still works. */ }
+  return url;
+});
 const workspace = document.createElement('div');workspace.id = 'workspace';workspace.className = 'workspace';
 workspace.dataset.mode = 'both';
 content.before(workspace);workspace.append(content);
-const divider = document.createElement('div');divider.className = 'divider';divider.tabIndex = 0;divider.setAttribute('role','separator');divider.setAttribute('aria-label','Répartition du texte et de la partition');divider.setAttribute('aria-orientation','vertical');divider.setAttribute('aria-valuemin','25');divider.setAttribute('aria-valuemax','75');divider.setAttribute('aria-valuenow','48');
+const divider = document.createElement('div');divider.className = 'divider';divider.tabIndex = 0;divider.setAttribute('role','separator');divider.setAttribute('aria-label',t('Répartition du texte et de la partition'));divider.setAttribute('aria-orientation','vertical');divider.setAttribute('aria-valuemin','25');divider.setAttribute('aria-valuemax','75');divider.setAttribute('aria-valuenow','48');
 workspace.append(divider,sidebar);content.tabIndex = -1;
 const announcement = document.createElement('div');announcement.className = 'sr-only';announcement.setAttribute('role','status');document.body.append(announcement);
 const announce = text => {announcement.textContent = text;};
 function createDialog(label) {
   const dialog = document.createElement('dialog');dialog.className = 'reader-dialog';dialog.setAttribute('aria-label',label);
-  dialog.innerHTML = `<div class="dialog-top"><strong>${label}</strong><button type="button" class="close-dialog">Fermer</button></div>`;
+  dialog.innerHTML = h(`<div class="dialog-top"><strong>${label}</strong><button type="button" class="close-dialog">Fermer</button></div>`);
   document.body.append(dialog);dialog.querySelector('button').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {if (event.target === dialog) {const r = dialog.getBoundingClientRect();if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();}});
   return dialog;
 }
-const navigation = createDialog('Parcourir le cours');
-navigation.insertAdjacentHTML('beforeend','<label class="search-label" for="course-search">Rechercher un chapitre, un exemple ou une notion</label><input id="course-search" type="search" placeholder="Exemple 22, voicing, Minor D…" autocomplete="off"><p id="search-status" role="status"></p><div id="search-results" hidden></div><nav id="toc-tree" aria-label="Chapitres et sous-sections"></nav>');
+const navigation = createDialog(t('Parcourir le cours'));
+navigation.insertAdjacentHTML('beforeend',h('<label class="search-label" for="course-search">Rechercher un chapitre, un exemple ou une notion</label><input id="course-search" type="search" placeholder="Exemple 22, voicing, Minor D…" autocomplete="off"><p id="search-status" role="status"></p><div id="search-results" hidden></div><nav id="toc-tree" aria-label="Chapitres et sous-sections"></nav>'));
 const search = navigation.querySelector('#course-search');
 document.getElementById('open-toc').addEventListener('click', () => {
   search.value = '';navigation.querySelector('#search-results').hidden = true;navigation.querySelector('#toc-tree').hidden = false;navigation.querySelector('#search-status').textContent = '';
@@ -39,10 +64,10 @@ document.getElementById('open-toc').addEventListener('click', () => {
   navigation.querySelector('.close-dialog').focus();
 });
 document.getElementById('open-search').addEventListener('click', () => {navigation.showModal();search.focus();});
-const glossary = createDialog('Définition');
+const glossary = createDialog(t('Définition'));
 const definition = document.createElement('div');definition.className = 'definition';glossary.append(definition);
-const shareDialog = createDialog('Partager ce passage');
-shareDialog.insertAdjacentHTML('beforeend','<p>Copiez ce lien pour retrouver exactement ce passage.</p><label for="share-url">Lien du passage</label><input id="share-url" readonly>');
+const shareDialog = createDialog(t('Partager ce passage'));
+shareDialog.insertAdjacentHTML('beforeend',h('<p>Copiez ce lien pour retrouver exactement ce passage.</p><label for="share-url">Lien du passage</label><input id="share-url" readonly>'));
 
 header.querySelector('.skip-link').addEventListener('click', event => {event.preventDefault();content.focus({preventScroll:true});});
 const mobileQuery = matchMedia('(max-width:700px), (max-width:1000px) and (max-height:500px)');
@@ -164,12 +189,12 @@ window.addEventListener('popstate', event => {
 });
 function decodeHash() {try {return decodeURIComponent(location.hash.slice(1));} catch {return '';}}
 document.getElementById('resume-reading').addEventListener('click', async () => {
-  savePosition();await restore(saved,true);history.pushState({reader:snapshot()},'',`#${encodeURIComponent(saved.anchor)}`);savePosition();announce('Votre passage de lecture a été retrouvé.');
+  savePosition();await restore(saved,true);history.pushState({reader:snapshot()},'',`#${encodeURIComponent(saved.anchor)}`);savePosition();announce(t('Votre passage de lecture a été retrouvé.'));
 });
 document.getElementById('copy-passage').addEventListener('click', async () => {
   if (!ready) return;
   const state = snapshot(), url = new URL(location.href);url.hash = state.anchor;
-  try {await navigator.clipboard.writeText(url.href);announce('Lien du passage copié.');const b = document.getElementById('copy-passage');b.textContent = 'Lien copié';setTimeout(() => b.textContent = 'Partager ce passage',2500);}
+  try {await navigator.clipboard.writeText(url.href);announce(t('Lien du passage copié.'));const b = document.getElementById('copy-passage');b.textContent = t('Lien copié');setTimeout(() => b.textContent = t('Partager ce passage'),2500);}
   catch {shareDialog.querySelector('#share-url').value = url.href;shareDialog.showModal();shareDialog.querySelector('input').select();}
 });
 
@@ -188,8 +213,8 @@ function openDefinition(id, trigger) {
     while (next && !/^H[123]$/.test(next.tagName)) {const clone = next.cloneNode(true);clone.removeAttribute('id');clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));definition.append(clone);next = next.nextElementSibling;}
   } else if (id === 'straight-ahead' || id === 'shuffle') {
     title.textContent = id === 'shuffle' ? 'Shuffle' : 'Straight ahead';definition.append(title);
-    const p = document.createElement('p');p.textContent = id === 'shuffle' ? 'Le rythme « shuffle » est décrit dans le commentaire de l’exemple 11.' : 'Pulsation régulière à quatre temps — indication donnée dans le cours.';definition.append(p);
-    const link = document.createElement('a');link.href = id === 'shuffle' ? '#exemple-11' : '#lécriture-de-la-section-rythmique';link.textContent = 'Consulter le passage du cours';definition.append(link);
+    const p = document.createElement('p');p.textContent = id === 'shuffle' ? t('Le rythme « shuffle » est décrit dans le commentaire de l’exemple 11.') : t('Pulsation régulière à quatre temps — indication donnée dans le cours.');definition.append(p);
+    const link = document.createElement('a');link.href = id === 'shuffle' ? '#exemple-11' : '#lécriture-de-la-section-rythmique';link.textContent = t('Consulter le passage du cours');definition.append(link);
   } else return;
   glossary.setAttribute('aria-labelledby','definition-title');glossary.showModal();
   glossary.addEventListener('close', () => {if (!glossary.dataset.navigating) trigger.focus({preventScroll:true});delete glossary.dataset.navigating;},{once:true});
@@ -201,11 +226,11 @@ function buildNavigation(book) {
   const tree = navigation.querySelector('#toc-tree');tree.replaceChildren();let group;
   for (const heading of headings) {
     if (heading.tagName === 'H2') {const details = document.createElement('details'), summary = document.createElement('summary');summary.textContent = compact(heading.textContent);details.append(summary);group = document.createElement('div');group.className = 'toc-links';details.append(group);tree.append(details);}
-    const link = document.createElement('a');link.href = `#${heading.id}`;link.textContent = heading.tagName === 'H2' ? 'Lire ce chapitre →' : compact(heading.textContent);link.classList.toggle('toc-subsection',heading.tagName === 'H4');group?.append(link);
+    const link = document.createElement('a');link.href = `#${heading.id}`;link.textContent = heading.tagName === 'H2' ? t('Lire ce chapitre →') : compact(heading.textContent);link.classList.toggle('toc-subsection',heading.tagName === 'H4');group?.append(link);
   }
   navigation.addEventListener('click', event => {const link = event.target.closest('a[href^="#"]');if (link) {event.preventDefault();navigateTo(decodeURIComponent(link.hash.slice(1)));}});
   const toc = document.getElementById('toc');if (headings[0]) headings[0].before(toc);
-  toc.innerHTML = '<h2>Sommaire</h2><div class="toc-overview"></div>';
+  toc.innerHTML = h('<h2>Sommaire</h2><div class="toc-overview"></div>');
   for (const h of headings.filter(h=>h.tagName === 'H2')) {const a = document.createElement('a');a.href = `#${h.id}`;a.textContent = compact(h.textContent);toc.lastElementChild.append(a);}
 }
 let searchTimer;
@@ -213,27 +238,27 @@ search.addEventListener('input', () => {clearTimeout(searchTimer);searchTimer = 
   const words = normalize(search.value).split(/\s+/).filter(Boolean), results = navigation.querySelector('#search-results'), tree = navigation.querySelector('#toc-tree');results.replaceChildren();results.hidden = !words.length;tree.hidden = !!words.length;
   if (!words.length) {navigation.querySelector('#search-status').textContent = '';return;}
   const matches = searchItems.filter(item=>words.every(word=>item.normalized.includes(word)));
-  navigation.querySelector('#search-status').textContent = matches.length ? `${matches.length} résultat${matches.length > 1 ? 's' : ''}${matches.length > 30 ? ' — 30 premiers affichés, précisez votre recherche.' : ''}` : 'Aucun résultat. Essayez un numéro d’exemple ou un autre terme.';
+  navigation.querySelector('#search-status').textContent = matches.length ? t(matches.length === 1 ? '{count} résultat' : '{count} résultats',{count:matches.length}) + (matches.length > 30 ? t(' — 30 premiers affichés, précisez votre recherche.') : '') : t('Aucun résultat. Essayez un numéro d’exemple ou un autre terme.');
   for (const item of matches.slice(0,30)) {const a = document.createElement('a');a.href = `#${item.id}`;const strong = document.createElement('strong');strong.textContent = item.title;const excerpt = document.createElement('span');const start = Math.max(0,item.normalized.indexOf(words[0])-45);excerpt.textContent = (start ? '…' : '') + item.text.slice(start,start+190) + (item.text.length>start+190 ? '…' : '');a.append(strong,excerpt);results.append(a);}
 },120);});
 
 async function loadBook() {
   document.getElementById('initial-status')?.remove();
   let book = document.getElementById('book');if (!book) {book = document.createElement('article');book.id = 'book';content.append(book);}
-  book.innerHTML = '<p role="status">Chargement du cours…</p>';
+  book.innerHTML = h('<p role="status">Chargement du cours…</p>');
   try {
     const response = await fetch(source);if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const html = await response.text();if (!html.includes('<h1')) throw new Error('Texte indisponible');
+    const html = await response.text();if (!html.includes('<h1')) throw new Error(t('Texte indisponible'));
     book.innerHTML = html;document.getElementById('initial-status')?.remove();searchItems = [];
     buildNavigation(book);
     let passageNumber = 0, chapter = '', section = null;
     const originals = [...book.querySelectorAll('h1,h2,h3,h4,p,figure')].filter(el=>!el.closest('.revision-before') && !el.closest('#toc'));
-    for (const element of originals) {if (!element.id) element.id = `passage-${++passageNumber}`;if (element.tagName === 'H2') chapter = compact(element.textContent);const text = compact(element.textContent);if (text) searchItems.push({id:element.id,title:chapter || 'Préface',text,normalized:normalize(text)});}
+    for (const element of originals) {if (!element.id) element.id = `passage-${++passageNumber}`;if (element.tagName === 'H2') chapter = compact(element.textContent);const text = compact(element.textContent);if (text) searchItems.push({id:element.id,title:chapter || t('Préface'),text,normalized:normalize(text)});}
     const glossaryStart = book.querySelector('#glossaire-anglais-français');
-    const glossaryTerms = new Set([...book.querySelectorAll('h3')].filter(h => glossaryStart.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING).map(h=>h.id));
+    const glossaryTerms = new Set([...book.querySelectorAll('h3')].filter(h => glossaryStart && glossaryStart.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING).map(h=>h.id));
     for (const link of book.querySelectorAll('a[href^="#"]')) {
       let id = link.getAttribute('href').slice(1);if (id === 'glossaire-anglais-français') id = glossaryId(link);
-      if (id && (glossaryTerms.has(id) || ['straight-ahead','shuffle'].includes(id))) {link.dataset.definition = id;link.href = `#${id === 'shuffle' ? 'exemple-11' : id === 'straight-ahead' ? 'lécriture-de-la-section-rythmique' : id}`;link.setAttribute('aria-haspopup','dialog');link.setAttribute('aria-label',`Définition : ${compact(document.getElementById(id)?.textContent || (id === 'shuffle' ? 'Shuffle' : 'Straight ahead'))}`);}
+      if (id && (glossaryTerms.has(id) || ['straight-ahead','shuffle'].includes(id))) {link.dataset.definition = id;link.href = `#${id === 'shuffle' ? 'exemple-11' : id === 'straight-ahead' ? 'lécriture-de-la-section-rythmique' : id}`;link.setAttribute('aria-haspopup','dialog');link.setAttribute('aria-label',t('Définition : {title}',{title:compact(document.getElementById(id)?.textContent || (id === 'shuffle' ? 'Shuffle' : 'Straight ahead'))}));}
     }
     for (const element of book.querySelectorAll('h2,h3,h4,a')) {
       if (element.closest('.revision-before') || element.closest('#toc')) continue;
@@ -241,7 +266,7 @@ async function loadBook() {
       const href = element.getAttribute('href') || '';
       if (/\.mp3(?:[?#]|$)/i.test(href)) {
         const score = scoreForAudio(href,section?.querySelector('a')?.getAttribute('href')), context = section ? compact(section.textContent) : '';
-        const record = audio.add(element,score,context);searchItems.push({id:record.id,title:score?.title || 'Écoute',text:record.name,normalized:normalize(record.name)});
+        const record = audio.add(element,score,context);searchItems.push({id:record.id,title:score?.title || t('Écoute'),text:record.name,normalized:normalize(record.name)});
       } else if (/\.(pdf|jpe?g|png|svg)([?#]|$)/i.test(href)) {
         const n = href.match(/^(\d+)\.(pdf|jpg)/)?.[1];if (n && !document.getElementById(`exemple-${n}`)) element.id = `exemple-${n}`;
         element.dataset.scoreTitle = scoreTitle(href);element.dataset.scoreContext = section ? compact(section.textContent) : '';
@@ -249,7 +274,7 @@ async function loadBook() {
     }
     for (const img of book.querySelectorAll('img')) {
       img.decoding = 'async';if (img.closest('a')) continue;
-      const button = document.createElement('button');button.type = 'button';button.className = 'enlarge-illustration';button.setAttribute('aria-label',`Agrandir : ${img.alt}`);img.before(button);button.append(img);
+      const button = document.createElement('button');button.type = 'button';button.className = 'enlarge-illustration';button.setAttribute('aria-label',t('Agrandir : {title}',{title:img.alt}));img.before(button);button.append(img);
       button.addEventListener('click', () => {viewer.open({url:img.getAttribute('src'),title:img.alt});});
     }
     passages = [...book.querySelectorAll('h1,h2,h3,h4,p,figure,.audio-player')].filter(el=>el.id&&!el.closest('.revision-before')&&!el.closest('#toc'));
@@ -257,10 +282,19 @@ async function loadBook() {
     await Promise.race([Promise.all([...book.querySelectorAll('img')].map(img=>img.decode().catch(()=>{}))),new Promise(resolve=>setTimeout(resolve,4000))]);
     ready = true;
     if (saved?.anchor && document.getElementById(saved.anchor)) document.getElementById('resume-reading').hidden = false;
-    const id = decodeHash();if (history.state?.reader) await restore(history.state.reader);else if (id && document.getElementById(id)) navigateTo(id,{push:false});else history.replaceState({reader:snapshot()},'');
+    let transfer;
+    try {transfer = JSON.parse(sessionStorage.getItem('dobbins:language-transfer'));sessionStorage.removeItem('dobbins:language-transfer');} catch { /* Optional transfer. */ }
+    const id = decodeHash();
+    if (transfer?.language === language && transfer.anchor === id) {
+      if (transfer.score?.url) transfer.score = {...transfer.score,title:scoreTitle(transfer.score.url),context:''};
+      await restore(transfer);history.replaceState({reader:snapshot()},'');
+    } else if (history.state?.reader) await restore(history.state.reader);
+    else if (id && document.getElementById(id)) navigateTo(id,{push:false});
+    else history.replaceState({reader:snapshot()},'');
     updateChapter();
   } catch (error) {
-    book.innerHTML = '<div class="load-error" role="alert"><h2>Le cours n’a pas pu être chargé.</h2><p>Vérifiez votre connexion puis réessayez.</p><button type="button" id="retry-book">Réessayer</button><a href="texte.html">Ouvrir le texte directement</a></div>';
+    book.innerHTML = h('<div class="load-error" role="alert"><h2>Le cours n’a pas pu être chargé.</h2><p>Vérifiez votre connexion puis réessayez.</p><button type="button" id="retry-book">Réessayer</button><a href="texte.html">Ouvrir le texte directement</a></div>');
+    book.querySelector('a').href = source;
     book.querySelector('#retry-book').addEventListener('click',loadBook);
   }
 }

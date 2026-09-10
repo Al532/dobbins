@@ -1,3 +1,4 @@
+import {t, localizeMarkup as h} from './i18n.mjs';
 export const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 export const compact = value => String(value || '').replace(/\s+/g, ' ').trim();
 export const normalize = value => compact(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’']/g, ' ');
@@ -23,9 +24,9 @@ export function scoreTitle(href) {
   const stem = mediaFile(href).replace(/\.[^.]+$/, '');
   if (/^\d+$/.test(stem)) {
     const n = Number(stem);
-    return `Exemple ${n} · ${n === 30 ? 'Suite for Swee’ Pea' : minorExamples.has(n) ? 'Minor D' : 'Blues for Barry'}`;
+    return t('Exemple {number} · {title}',{number:n,title:n === 30 ? 'Suite for Swee’ Pea' : minorExamples.has(n) ? 'Minor D' : 'Blues for Barry'});
   }
-  return pieces[stem] || ({appendix:'Appendice', discographies:'Discographies'}[stem]) || `Illustration · ${stem}`;
+  return pieces[stem] || ({appendix:t('Appendice'), discographies:t('Discographies')}[stem]) || t('Illustration · {title}',{title:stem});
 }
 export function scoreForAudio(href, sectionHref = '') {
   const stem = mediaFile(href).replace(/\.mp3$/i, '');
