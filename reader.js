@@ -162,6 +162,10 @@ function navigateTo(id, options = {}) {
   const target = document.getElementById(id);if (!target || !content.contains(target)) return;
   savePosition();navigation.close();glossary.close();
   mobileControls.close(false);
+  if (mobileQuery.matches) {
+    scoreOpened = false;
+    updateLayout();
+  }
   target.scrollIntoView({block:'start'});target.tabIndex = -1;target.focus({preventScroll:true});
   const next = snapshot();next.anchor = id;next.offset = target.getBoundingClientRect().top-content.getBoundingClientRect().top;
   if (options.push !== false) history.pushState({reader:next},'',`#${encodeURIComponent(id)}`);

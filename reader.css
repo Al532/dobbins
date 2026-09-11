@@ -1004,6 +1004,20 @@ hr {
   -webkit-user-select:none;
 }
 .mobile-reading .score-stage>img { -webkit-user-drag:none; }
+.score-page-hint {
+  display:none;
+}
+.mobile-reading .score-page-hint {
+  display:block;
+  flex:none;
+  padding:5px 12px;
+  border-top:1px solid var(--line);
+  background:var(--paper);
+  color:var(--accent-dark);
+  text-align:center;
+  font-size:.75rem;
+  line-height:1.4;
+}
 @media print {
   body {
     height:auto;
@@ -1068,4 +1082,3 @@ hr {
   max-width:100%;
   font-size:.8rem;
 }
-

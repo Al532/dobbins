@@ -76,6 +76,7 @@ export default {
   'Lancer une écoute affiche automatiquement la partition correspondante.': 'Playing an excerpt automatically displays its score.',
   'Page précédente': 'Previous page',
   'Page suivante': 'Next page',
+  'Balayez ↔': 'Swipe ↔',
   'Partition musicale': 'Musical score',
   'Chargement de la partition…': 'Loading the score…',
   'Impossible de charger la partition.': 'Unable to load the score.',

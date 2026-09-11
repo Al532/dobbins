@@ -40,6 +40,11 @@ export class ScoreViewer {
       </div>
       <footer class="score-pages" hidden><button type="button" data-action="prev" aria-label="Page précédente">←</button><label for="score-page">Page</label><input id="score-page" type="number" min="1" value="1" inputmode="numeric"><output id="page-count"></output><button type="button" data-action="next" aria-label="Page suivante">→</button><span id="score-status" role="status"></span></footer>`);
     this.stage = sidebar.querySelector('.score-stage');
+    this.pageHint = document.createElement('div');
+    this.pageHint.className = 'score-page-hint';
+    this.pageHint.hidden = true;
+    this.pageHint.setAttribute('role','status');
+    this.stage.after(this.pageHint);
     this.heading = sidebar.querySelector('.score-heading');
     this.tools = sidebar.querySelector('.score-tools');
     this.footer = sidebar.querySelector('.score-pages');
@@ -151,6 +156,7 @@ export class ScoreViewer {
     this.control('#score-title').textContent = item.title || t('Partition');
     this.tools.hidden = false;
     this.footer.hidden = true;
+    this.pageHint.hidden = true;
     this.message(t('Chargement de la partition…'));
     try {
       if (/\.pdf(?:[?#]|$)/i.test(item.url)) {
@@ -175,6 +181,7 @@ export class ScoreViewer {
     }
   }
   message(text, retry = false) {
+    this.pageHint.hidden = true;
     const box = document.createElement('div'); box.className = 'score-message'; box.setAttribute('role', retry ? 'alert' : 'status');
     const p = document.createElement('p'); p.textContent = text; box.append(p);
     if (retry) {
@@ -232,6 +239,8 @@ export class ScoreViewer {
       this.stage.scrollTo(position.left * this.renderedWidth,position.top * this.renderedWidth);
       this.viewPosition = position;
       this.status.textContent = t('Page {page} sur {count}',{page:this.page,count:this.count});
+      this.pageHint.textContent = `${this.status.textContent} · ${t('Balayez ↔')}`;
+      this.pageHint.hidden = !this.doc || this.count <= 1;
       this.onChange(this.snapshot());
     } catch (error) {
       if (error.name === 'RenderingCancelledException' || generation !== this.generation || renderId !== this.renderId) return;
