@@ -240,6 +240,31 @@ li {
 ul,ol {
   padding-left:1.5rem
 }
+.content :is(ul,ol) {
+  margin:.9rem 0;
+  padding-inline-start:1.75rem;
+  padding-inline-end:0;
+  list-style-position:outside
+}
+.content ol {
+  list-style-type:decimal
+}
+.content ul {
+  list-style-type:disc
+}
+.content li {
+  margin:.65rem 0;
+  padding-inline-start:.2rem
+}
+.content li > p {
+  margin:.65rem 0
+}
+.content li > :first-child {
+  margin-top:0
+}
+.content li > :last-child {
+  margin-bottom:0
+}
 hr {
   border:0;
   border-top:1px solid var(--line);
