@@ -358,6 +358,7 @@ hr {
   flex:1;
   min-height:0;
   overflow:auto;
+  scrollbar-gutter:stable;
   display:flex;
   padding:16px;
   overscroll-behavior:contain;

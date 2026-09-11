@@ -63,7 +63,15 @@ export class ScoreViewer {
       if (event.key === '+' || event.key === '=') {event.preventDefault();this.zoom = clamp(this.zoom * 1.25,.5,4);this.render();}
       if (event.key === '-') {event.preventDefault();this.zoom = clamp(this.zoom * .8,.5,4);this.render();}
     });
-    new ResizeObserver(() => {clearTimeout(this.resizeTimer);this.resizeTimer = setTimeout(() => this.render(),80);}).observe(this.stage);
+    // Scrollbars change the content box, not the space allocated to the viewer.
+    // Observing that content box feeds our own fitted render back into itself.
+    new ResizeObserver(() => {
+      const {width,height} = this.stage.getBoundingClientRect();
+      if (width === this.stageWidth && height === this.stageHeight) return;
+      this.stageWidth = width; this.stageHeight = height;
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => this.render(),80);
+    }).observe(this.stage,{box:'border-box'});
     this.bindTouch();
   }
   bindTouch() {
@@ -195,7 +203,9 @@ export class ScoreViewer {
     this.control('[data-action="next"]').disabled = this.page >= this.count;
     const padding = getComputedStyle(this.stage);
     const width = Math.max(1,this.stage.clientWidth - parseFloat(padding.paddingLeft) - parseFloat(padding.paddingRight));
-    const height = Math.max(1,this.stage.clientHeight - parseFloat(padding.paddingTop) - parseFloat(padding.paddingBottom));
+    // Fit against the full height, even if the previous zoom needed a horizontal
+    // scrollbar. The stable vertical gutter keeps the width independent as well.
+    const height = Math.max(1,this.stage.getBoundingClientRect().height - parseFloat(padding.borderTopWidth) - parseFloat(padding.borderBottomWidth) - parseFloat(padding.paddingTop) - parseFloat(padding.paddingBottom));
     try {
       const page = this.doc ? await this.doc.getPage(this.page) : null;
       if (generation !== this.generation || renderId !== this.renderId) return;
