@@ -48,7 +48,7 @@ export class StudyAudio {
     wrapper.innerHTML = h('<button type="button" class="play-btn">Écouter</button><span class="audio-label"></span><button type="button" class="mobile-excerpt"></button><button type="button" class="replay-btn" title="Rejouer cet extrait">↺</button>');
     wrapper.querySelector('.audio-label').textContent = record.label;
     const mobileExcerpt = wrapper.querySelector('.mobile-excerpt');
-    mobileExcerpt.textContent = t('{action} — {title}',{action:t('Écouter'),title:record.label});
+    mobileExcerpt.textContent = '▶';
     mobileExcerpt.setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:record.name}));
     mobileExcerpt.addEventListener('click', () => this.toggle(record));
     wrapper.querySelector('.play-btn').setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:record.name}));
@@ -106,7 +106,7 @@ export class StudyAudio {
     for (const selector of ['.play-btn','.mobile-excerpt']) {
       const button = record.element.querySelector(selector);
       button.textContent = selector === '.mobile-excerpt'
-        ? t('{action} — {title}',{action:playing ? t('Pause') : t('Écouter'),title:record.label})
+        ? (playing ? '⏸' : '▶')
         : playing ? t('Pause') : t('Écouter');
       button.setAttribute('aria-label',t('{action} — {title}',{action,title:record.name}));
     }
