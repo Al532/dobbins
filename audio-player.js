@@ -1,6 +1,15 @@
 import {t, localizeMarkup as h} from './i18n.mjs';
 import {clamp, compact, timeLabel} from './reader-utils.mjs';
 
+const audioIcon = name => {
+  const shapes = {
+    play:'<path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/>',
+    pause:'<path d="M8 5v14M16 5v14" stroke-width="3"/>',
+    restart:'<path d="M3 10a9 9 0 1 1 2.5 8M3 4v6h6"/>'
+  };
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="display:block;margin:auto">${shapes[name]}</svg>`;
+};
+
 export class StudyAudio {
   constructor(onScore, onLocate) {
     this.onScore = onScore; this.onLocate = onLocate;
@@ -48,7 +57,8 @@ export class StudyAudio {
     wrapper.innerHTML = h('<button type="button" class="play-btn">Écouter</button><span class="audio-label"></span><button type="button" class="mobile-excerpt"></button><button type="button" class="replay-btn" title="Rejouer cet extrait">↺</button>');
     wrapper.querySelector('.audio-label').textContent = record.label;
     const mobileExcerpt = wrapper.querySelector('.mobile-excerpt');
-    mobileExcerpt.textContent = '▶';
+    mobileExcerpt.innerHTML = audioIcon('play');
+    wrapper.querySelector('.replay-btn').innerHTML = audioIcon('restart');
     mobileExcerpt.setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:record.name}));
     mobileExcerpt.addEventListener('click', () => this.toggle(record));
     wrapper.querySelector('.play-btn').setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:record.name}));
@@ -85,12 +95,20 @@ export class StudyAudio {
   }
   replay(record) {
     if (!record) return;
+    // Compare the file, since several excerpts can point into the same audio.
+    const keepPlaying = this.current?.url === record.url && !this.audio.paused && !this.audio.ended;
+    ++this.request;
     if (this.current === record) this.onScore(record);
     this.select(record);
+    if (!keepPlaying) this.audio.pause();
     const start = record.start;
-    if (this.audio.readyState >= 1) this.audio.currentTime = start;
-    else this.pendingPosition = start;
-    this.play();
+    this.positions.set(record.id,start);
+    if (this.audio.readyState >= 1) {
+      this.audio.currentTime = start;
+      this.pendingPosition = null;
+    } else this.pendingPosition = start;
+    if (keepPlaying) this.play();
+    else {this.state.textContent = t('Prêt à écouter');this.update();}
   }
   async play() {
     const request = ++this.request;
@@ -105,9 +123,8 @@ export class StudyAudio {
     const action = playing ? t('Mettre en pause') : t('Écouter');
     for (const selector of ['.play-btn','.mobile-excerpt']) {
       const button = record.element.querySelector(selector);
-      button.textContent = selector === '.mobile-excerpt'
-        ? (playing ? '⏸' : '▶')
-        : playing ? t('Pause') : t('Écouter');
+      if (selector === '.mobile-excerpt') button.innerHTML = audioIcon(playing ? 'pause' : 'play');
+      else button.textContent = playing ? t('Pause') : t('Écouter');
       button.setAttribute('aria-label',t('{action} — {title}',{action,title:record.name}));
     }
   }
