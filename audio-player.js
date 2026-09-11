@@ -45,12 +45,12 @@ export class StudyAudio {
     url.searchParams.delete('start');record.url = url.href;
     record.name = [...new Set([score?.title,context,record.label].filter(Boolean))].filter((part,i,parts) => !parts.some((other,j) => j < i && other.toLowerCase().includes(part.toLowerCase()))).join(' · ');
     const wrapper = document.createElement('span');wrapper.className = 'audio-player';wrapper.id = record.id;wrapper.dataset.start = record.start;
-    wrapper.innerHTML = h('<button type="button" class="play-btn">Écouter</button><span class="audio-label"></span><button type="button" class="mobile-excerpt" aria-haspopup="dialog" aria-controls="mobile-controls"></button><button type="button" class="replay-btn" title="Rejouer cet extrait">↺</button>');
+    wrapper.innerHTML = h('<button type="button" class="play-btn">Écouter</button><span class="audio-label"></span><button type="button" class="mobile-excerpt"></button><button type="button" class="replay-btn" title="Rejouer cet extrait">↺</button>');
     wrapper.querySelector('.audio-label').textContent = record.label;
     const mobileExcerpt = wrapper.querySelector('.mobile-excerpt');
     mobileExcerpt.textContent = t('{action} — {title}',{action:t('Écouter'),title:record.label});
-    mobileExcerpt.setAttribute('aria-label',t('{action} — {title}',{action:t('Commandes audio'),title:record.name}));
-    mobileExcerpt.addEventListener('click', () => {this.select(record);document.dispatchEvent(new Event('reader-audio-controls'));});
+    mobileExcerpt.setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:record.name}));
+    mobileExcerpt.addEventListener('click', () => this.toggle(record));
     wrapper.querySelector('.play-btn').setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:record.name}));
     wrapper.querySelector('.replay-btn').setAttribute('aria-label',t('{action} — {title}',{action:t('Rejouer'),title:record.name}));
     wrapper.querySelector('.play-btn').addEventListener('click', () => this.toggle(record));
@@ -64,7 +64,7 @@ export class StudyAudio {
     if (this.current) {
       this.positions.set(this.current.id,this.audio.currentTime);
       this.audio.pause();this.current.element.classList.remove('is-active');
-      const previous = this.current.element.querySelector('.play-btn');previous.textContent = t('Écouter');previous.setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:this.current.name}));
+      this.updateExcerpt(this.current,false);
     }
     this.current = record;this.panel.hidden = false;record.element.classList.add('is-active');
     this.panel.querySelector('#audio-locate').textContent = record.name;
@@ -101,13 +101,24 @@ export class StudyAudio {
     this.panel.querySelector('.audio-error').hidden = false;this.state.textContent = t('Lecture impossible');this.update();
     document.dispatchEvent(new Event('reader-audio-error'));
   }
+  updateExcerpt(record, playing) {
+    const action = playing ? t('Mettre en pause') : t('Écouter');
+    for (const selector of ['.play-btn','.mobile-excerpt']) {
+      const button = record.element.querySelector(selector);
+      button.textContent = selector === '.mobile-excerpt'
+        ? t('{action} — {title}',{action:playing ? t('Pause') : t('Écouter'),title:record.label})
+        : playing ? t('Pause') : t('Écouter');
+      button.setAttribute('aria-label',t('{action} — {title}',{action,title:record.name}));
+    }
+  }
   update() {
     if (!this.current) return;
     const ready = Number.isFinite(this.audio.duration) && this.audio.readyState >= 1;
     const elapsed = Math.max(0,this.audio.currentTime - this.current.start);
     const duration = ready ? Math.max(0,this.audio.duration - this.current.start) : NaN;
     const playing = !this.audio.paused && !this.audio.ended;
-    for (const button of [this.playButton,this.current.element.querySelector('.play-btn')]) {
+    this.updateExcerpt(this.current,playing);
+    for (const button of [this.playButton]) {
       button.textContent = playing ? t('Pause') : t('Écouter');button.setAttribute('aria-label',t('{action} — {title}',{action:playing ? t('Mettre en pause') : t('Écouter'),title:this.current.name}));
     }
     this.seek.disabled = !ready;this.seek.max = ready ? duration : 1;this.seek.value = Math.min(elapsed,duration || 0);
