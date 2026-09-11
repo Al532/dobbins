@@ -9,8 +9,8 @@ export class MobileControls {
     this.dialog.setAttribute('aria-label',t('Commandes de lecture'));
     this.dialog.innerHTML = h('<div class="dialog-top"><strong>Commandes</strong><button type="button" class="close-controls">Reprendre la lecture</button></div><div class="mobile-navigation"></div><section class="mobile-score-controls" aria-label="Partition"></section><div class="mobile-audio-controls"></div>');
     this.launcher = document.createElement('div');this.launcher.className = 'mobile-launcher';
-    this.launcher.innerHTML = h('<button type="button" class="mobile-pause" hidden>Pause</button><button type="button" class="mobile-menu" aria-label="Afficher les commandes" title="Afficher les commandes" aria-haspopup="dialog" aria-controls="mobile-controls" aria-expanded="false">•••</button>');
-    this.toggle = this.launcher.querySelector('.mobile-menu');this.pause = this.launcher.querySelector('.mobile-pause');
+    this.launcher.innerHTML = h('<button type="button" class="mobile-menu" aria-label="Afficher les commandes" title="Afficher les commandes" aria-haspopup="dialog" aria-controls="mobile-controls" aria-expanded="false">•••</button>');
+    this.toggle = this.launcher.querySelector('.mobile-menu');
     document.body.append(this.dialog,this.launcher);
     const slots = [this.dialog.querySelector('.mobile-navigation'),this.dialog.querySelector('.mobile-score-controls'),this.dialog.querySelector('.mobile-audio-controls')];
     this.portals = [header,viewer.heading,viewer.footer,audio.panel].map((node,index) => {
@@ -29,8 +29,6 @@ export class MobileControls {
       if (event.target.closest('#open-toc,.skip-link')) this.close(false);
     },true);
     audio.panel.querySelector('#audio-locate').addEventListener('click', () => this.close(false),true);
-    this.pause.addEventListener('click', () => {++audio.request;audio.audio.pause();this.toggle.focus({preventScroll:true});});
-    for (const event of ['play','pause','ended','emptied']) audio.audio.addEventListener(event, () => this.syncAudio());
     document.addEventListener('reader-audio-controls', () => this.open());
     document.addEventListener('reader-audio-error', () => {if (this.mobile) this.open();});
   }
@@ -42,7 +40,6 @@ export class MobileControls {
       if (mobile) {if (node.parentElement !== slot) slot.append(node);}
       else if (node.previousSibling !== anchor) anchor.after(node);
     }
-    this.syncAudio();
   }
   open() {
     if (!this.mobile || this.dialog.open) return;
@@ -53,9 +50,5 @@ export class MobileControls {
     if (!this.dialog.open) return;
     this.dialog.close();
     if (focus && this.mobile) this.toggle.focus({preventScroll:true});
-  }
-  syncAudio() {
-    this.pause.hidden = this.audio.audio.paused || this.audio.audio.ended;
-    this.pause.setAttribute('aria-label',t('{action} — {title}',{action:t('Mettre en pause'),title:this.audio.current?.name || t('extrait audio')}));
   }
 }
