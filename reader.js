@@ -70,6 +70,16 @@ const layoutKey = () => mobileQuery.matches ? (innerHeight >= innerWidth ? 'port
 const splits = {portrait:48,landscape:48,desktop:48};
 for (const key of Object.keys(splits)) if (Number.isFinite(saved?.splits?.[key])) splits[key] = clamp(saved.splits[key],25,75);
 let layout = layoutKey(), split = splits[layout];
+let scoreOpened = false;
+function openScore(item) {
+  if (!item?.url) return;
+  if (!scoreOpened) {
+    if (ready) snapshot();
+    scoreOpened = true;
+    updateLayout();
+  }
+  return viewer.open(item);
+}
 if (!saved?.splits && Number.isFinite(saved?.split)) splits[layout] = split = clamp(saved.split,25,75);
 function setSplit(value) {
   const position = ready && content.clientHeight ? snapshot() : lastReading;
@@ -92,7 +102,7 @@ divider.addEventListener('pointerup', event => {if (divider.hasPointerCapture(ev
 viewer = new ScoreViewer(sidebar, () => {if (ready && !restoring) savePosition();});
 const audio = new StudyAudio(record => {
   if (!record?.score) return;
-  viewer.open({...record.score,context:record.context});
+  openScore({...record.score,context:record.context});
 }, record => {if (record) navigateTo(record.element.id);});
 const mobileControls = new MobileControls(header,viewer,audio);
 let layoutWidth = innerWidth;
@@ -105,6 +115,8 @@ function updateLayout() {
   layout = layoutKey();split = splits[layout];
   workspace.style.setProperty('--text-share',`${split}%`);
   workspace.dataset.layout = layout;
+  // Restoring a previous score must not open the mobile panel on launch.
+  workspace.dataset.mode = mobileQuery.matches && !scoreOpened ? 'text' : 'both';
   divider.setAttribute('aria-valuenow',String(Math.round(split)));
   divider.setAttribute('aria-orientation',layout === 'portrait' ? 'horizontal' : 'vertical');
   mobileControls.sync(mobileQuery.matches);
@@ -254,7 +266,7 @@ async function loadBook() {
     for (const img of book.querySelectorAll('img')) {
       img.decoding = 'async';if (img.closest('a')) continue;
       const button = document.createElement('button');button.type = 'button';button.className = 'enlarge-illustration';button.setAttribute('aria-label',t('Agrandir : {title}',{title:img.alt}));img.before(button);button.append(img);
-      button.addEventListener('click', () => {viewer.open({url:img.getAttribute('src'),title:img.alt});});
+      button.addEventListener('click', () => {openScore({url:img.getAttribute('src'),title:img.alt});});
     }
     passages = [...book.querySelectorAll('h1,h2,h3,h4,p,figure,.audio-player')].filter(el=>el.id&&!el.closest('.revision-before')&&!el.closest('#toc'));
     // Layout must settle before restoring a position inside the long article.
@@ -281,6 +293,6 @@ content.addEventListener('click', event => {
   if (link.dataset.definition) {event.preventDefault();openDefinition(link.dataset.definition,link);return;}
   const href = link.getAttribute('href') || '';
   if (href.startsWith('#')) {event.preventDefault();navigateTo(decodeURIComponent(href.slice(1)));return;}
-  if (/\.(pdf|jpe?g|png|svg)([?#]|$)/i.test(href)) {event.preventDefault();viewer.open({url:href,title:link.dataset.scoreTitle || compact(link.textContent),context:link.dataset.scoreContext});}
+  if (/\.(pdf|jpe?g|png|svg)([?#]|$)/i.test(href)) {event.preventDefault();openScore({url:href,title:link.dataset.scoreTitle || compact(link.textContent),context:link.dataset.scoreContext});}
 });
 loadBook();
