@@ -13,9 +13,9 @@ export class MobileControls {
     this.toggle = this.launcher.querySelector('.mobile-menu');this.pause = this.launcher.querySelector('.mobile-pause');
     document.body.append(this.dialog,this.launcher);
     const slots = [this.dialog.querySelector('.mobile-navigation'),this.dialog.querySelector('.mobile-score-controls'),this.dialog.querySelector('.mobile-audio-controls')];
-    this.portals = [header,viewer.heading,viewer.tools,viewer.footer,audio.panel].map((node,index) => {
+    this.portals = [header,viewer.heading,viewer.footer,audio.panel].map((node,index) => {
       const anchor = document.createComment('desktop controls');node.before(anchor);
-      return {node,anchor,slot:slots[index === 0 ? 0 : index === 4 ? 2 : 1]};
+      return {node,anchor,slot:slots[index === 0 ? 0 : index === 3 ? 2 : 1]};
     });
     this.toggle.addEventListener('click', () => this.open());
     this.dialog.querySelector('.close-controls').addEventListener('click', () => this.close());
@@ -26,10 +26,7 @@ export class MobileControls {
       if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) this.close();
     });
     header.addEventListener('click', event => {
-      if (event.target.closest('#open-toc,#open-search,.skip-link')) this.close(false);
-    },true);
-    viewer.tools.addEventListener('click', event => {
-      if (event.target.closest('[data-action="fullscreen"]')) this.close(false);
+      if (event.target.closest('#open-toc,.skip-link')) this.close(false);
     },true);
     audio.panel.querySelector('#audio-locate').addEventListener('click', () => this.close(false),true);
     this.pause.addEventListener('click', () => {++audio.request;audio.audio.pause();this.toggle.focus({preventScroll:true});});
@@ -45,7 +42,7 @@ export class MobileControls {
       if (mobile) {if (node.parentElement !== slot) slot.append(node);}
       else if (node.previousSibling !== anchor) anchor.after(node);
     }
-    this.syncFullscreen();this.syncAudio();
+    this.syncAudio();
   }
   open() {
     if (!this.mobile || this.dialog.open) return;
@@ -60,17 +57,5 @@ export class MobileControls {
   syncAudio() {
     this.pause.hidden = this.audio.audio.paused || this.audio.audio.ended;
     this.pause.setAttribute('aria-label',t('{action} — {title}',{action:t('Mettre en pause'),title:this.audio.current?.name || t('extrait audio')}));
-  }
-  syncFullscreen() {
-    const expanded = this.viewer.sidebar.classList.contains('score-expanded');
-    const parent = expanded ? this.viewer.sidebar : document.body;
-    if (this.mobile) {
-      if (this.dialog.parentElement !== parent) {this.close(false);parent.append(this.dialog);}
-      if (this.launcher.parentElement !== parent) parent.append(this.launcher);
-    } else {
-      document.body.append(this.dialog,this.launcher);
-      (expanded ? this.viewer.sidebar : this.portals[4].anchor.parentNode).append(this.audio.panel);
-    }
-    this.dialog.classList.toggle('controls-fullscreen',expanded);
   }
 }

@@ -1,47 +1,33 @@
 import {t, localizeMarkup as h} from './i18n.mjs';
-import {clamp, compact, timeLabel, validLoop} from './reader-utils.mjs';
+import {clamp, compact, timeLabel} from './reader-utils.mjs';
 
 export class StudyAudio {
   constructor(onScore, onLocate) {
     this.onScore = onScore; this.onLocate = onLocate;
     this.records = []; this.positions = new Map(); this.request = 0;
     this.panel = document.createElement('section');this.panel.className = 'study-audio';this.panel.hidden = true;
-    this.panel.setAttribute('aria-label',t('Lecteur audio et outils d’étude'));
+    this.panel.setAttribute('aria-label',t('Lecteur audio'));
     this.panel.innerHTML = h(`
       <div class="now-playing"><button type="button" id="audio-locate" title="Revenir à cet extrait dans le cours"></button><span id="audio-state" role="status"></span></div>
-      <div class="transport"><button type="button" id="audio-play">Écouter</button><button type="button" id="audio-replay">Rejouer</button><label for="audio-seek" class="sr-only">Position dans l’extrait</label><input id="audio-seek" type="range" min="0" max="1" step="0.1" value="0" disabled><output id="audio-time">0:00 / —:—</output><button type="button" id="audio-score">Partition</button><details id="study-tools"><summary>Outils d’étude</summary><div class="study-options"><label for="audio-speed">Vitesse</label><select id="audio-speed"><option value="0.5">0,5×</option><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select><button type="button" id="loop-a" disabled>Début A</button><button type="button" id="loop-b" disabled>Fin B</button><label class="loop-toggle"><input id="audio-loop" type="checkbox" disabled> Boucle A–B</label><output id="loop-range">Choisissez le début puis la fin.</output><button type="button" id="loop-clear">Effacer</button></div></details></div>
-      <div class="audio-error" role="alert" hidden><span>Lecture impossible.</span><button type="button" id="audio-retry">Réessayer</button><a id="audio-original" target="_blank" rel="noopener">Ouvrir l’audio séparément ↗</a></div><audio preload="none"></audio>`);
+      <div class="transport"><button type="button" id="audio-play">Écouter</button><button type="button" id="audio-replay">Rejouer</button><label for="audio-seek" class="sr-only">Position dans l’extrait</label><input id="audio-seek" type="range" min="0" max="1" step="0.1" value="0" disabled><output id="audio-time">0:00 / —:—</output></div>
+      <div class="audio-error" role="alert" hidden><span>Lecture impossible.</span><button type="button" id="audio-retry">Réessayer</button></div><audio preload="none"></audio>`);
     document.body.append(this.panel);
     this.audio = this.panel.querySelector('audio');this.seek = this.panel.querySelector('#audio-seek');
     this.state = this.panel.querySelector('#audio-state');this.playButton = this.panel.querySelector('#audio-play');
-    this.loop = this.panel.querySelector('#audio-loop');
     this.panel.querySelector('#audio-play').addEventListener('click', () => this.toggle(this.current));
     this.panel.querySelector('#audio-replay').addEventListener('click', () => this.replay(this.current));
-    this.panel.querySelector('#audio-score').addEventListener('click', () => this.onScore(this.current,true));
     this.panel.querySelector('#audio-locate').addEventListener('click', () => this.onLocate(this.current));
-    this.panel.querySelector('#audio-speed').addEventListener('change', event => {this.audio.playbackRate = Number(event.target.value);});
     this.seek.addEventListener('input', () => {
       const position = this.current.start + Number(this.seek.value);
-      if (this.loop.checked && (position < this.a || position > this.b)) this.loop.checked = false;
       this.audio.currentTime = position;this.update();
     });
-    this.panel.querySelector('#loop-a').addEventListener('click', () => {this.a = this.audio.currentTime;this.b = null;this.loop.checked = false;this.updateLoop();});
-    this.panel.querySelector('#loop-b').addEventListener('click', () => {
-      const b = this.audio.currentTime;
-      if (!validLoop(this.a,b,this.current.start,this.audio.duration)) {this.state.textContent = t('Placez B après A pour définir une boucle.');return;}
-      this.b = b;this.updateLoop();this.loop.checked = true;
-      if (this.audio.currentTime >= this.b) this.audio.currentTime = this.a;
-    });
-    this.panel.querySelector('#loop-clear').addEventListener('click', () => this.clearLoop());
-    this.loop.addEventListener('change', () => {if (this.loop.checked && (this.audio.currentTime < this.a || this.audio.currentTime >= this.b)) this.audio.currentTime = this.a;});
     this.panel.querySelector('#audio-retry').addEventListener('click', () => {this.audio.load();this.pendingPosition = this.positions.get(this.current.id) ?? this.current.start;this.play();});
     this.audio.addEventListener('loadedmetadata', () => {
       if (!this.current) return;
       this.audio.currentTime = clamp(this.pendingPosition ?? this.current.start,this.current.start,this.audio.duration);
-      this.pendingPosition = null;this.update();this.updateLoop();
+      this.pendingPosition = null;this.update();
     });
     this.audio.addEventListener('timeupdate', () => {
-      if (this.loop.checked && this.b != null && (this.audio.currentTime >= this.b || this.audio.currentTime < this.a)) this.audio.currentTime = this.a;
       this.update();
     });
     this.audio.addEventListener('play', () => this.update());
@@ -49,8 +35,7 @@ export class StudyAudio {
     this.audio.addEventListener('pause', () => {this.state.textContent = t('En pause');this.update();});
     this.audio.addEventListener('waiting', () => {this.state.textContent = t('Chargement audio…');});
     this.audio.addEventListener('ended', () => {
-      if (this.loop.checked && this.b != null) {this.audio.currentTime = this.a;this.play();}
-      else {this.state.textContent = t('Extrait terminé');this.update();}
+      this.state.textContent = t('Extrait terminé');this.update();
     });
     this.audio.addEventListener('error', () => this.error());
   }
@@ -81,31 +66,28 @@ export class StudyAudio {
       this.audio.pause();this.current.element.classList.remove('is-active');
       const previous = this.current.element.querySelector('.play-btn');previous.textContent = t('Écouter');previous.setAttribute('aria-label',t('{action} — {title}',{action:t('Écouter'),title:this.current.name}));
     }
-    this.current = record;this.panel.hidden = false;record.element.classList.add('is-active');this.clearLoop();
+    this.current = record;this.panel.hidden = false;record.element.classList.add('is-active');
     this.panel.querySelector('#audio-locate').textContent = record.name;
-    this.panel.querySelector('#audio-score').disabled = !record.score;
-    this.panel.querySelector('#audio-original').href = record.url + `#t=${record.start}`;
     this.panel.querySelector('.audio-error').hidden = true;
     this.state.textContent = t('Prêt à écouter');
     this.pendingPosition = this.positions.get(record.id) ?? record.start;
     if (this.audio.src !== record.url || this.audio.error) {this.audio.src = record.url;this.audio.load();}
     else if (this.audio.readyState >= 1) {this.audio.currentTime = this.pendingPosition;this.pendingPosition = null;}
-    this.audio.playbackRate = Number(this.panel.querySelector('#audio-speed').value);
-    this.onScore(record,false);this.update();
+    this.onScore(record);this.update();
   }
   toggle(record) {
     if (!record) return;
     if (this.current === record && !this.audio.paused) {++this.request;this.audio.pause();return;}
-    if (this.current === record) this.onScore(record,false);
+    if (this.current === record) this.onScore(record);
     this.select(record);
-    if (this.audio.ended || this.audio.currentTime >= this.audio.duration - .05) this.audio.currentTime = this.loop.checked ? this.a : record.start;
+    if (this.audio.ended || this.audio.currentTime >= this.audio.duration - .05) this.audio.currentTime = record.start;
     this.play();
   }
   replay(record) {
     if (!record) return;
-    if (this.current === record) this.onScore(record,false);
+    if (this.current === record) this.onScore(record);
     this.select(record);
-    const start = this.loop.checked ? this.a : record.start;
+    const start = record.start;
     if (this.audio.readyState >= 1) this.audio.currentTime = start;
     else this.pendingPosition = start;
     this.play();
@@ -131,12 +113,6 @@ export class StudyAudio {
     this.seek.disabled = !ready;this.seek.max = ready ? duration : 1;this.seek.value = Math.min(elapsed,duration || 0);
     this.seek.setAttribute('aria-valuetext',t('{elapsed} sur {duration}',{elapsed:timeLabel(elapsed),duration:timeLabel(duration)}));
     this.panel.querySelector('#audio-time').textContent = `${timeLabel(elapsed)} / ${timeLabel(duration)}`;
-    this.panel.querySelector('#loop-a').disabled = !ready;this.panel.querySelector('#loop-b').disabled = !ready;
     if (ready) this.positions.set(this.current.id,this.audio.currentTime);
-  }
-  clearLoop() {this.a = this.current?.start ?? 0;this.b = null;this.loop.checked = false;this.updateLoop();}
-  updateLoop() {
-    this.loop.disabled = !validLoop(this.a,this.b,this.current?.start,this.audio.duration);
-    this.panel.querySelector('#loop-range').textContent = this.b == null ? t('A : {time} · Placez la fin B.',{time:timeLabel(this.a - (this.current?.start || 0))}) : `A : ${timeLabel(this.a - this.current.start)} → B : ${timeLabel(this.b - this.current.start)}`;
   }
 }

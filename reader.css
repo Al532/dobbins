@@ -147,18 +147,6 @@ a:hover {
   text-overflow:ellipsis;
   min-width:0
 }
-.reading-context>div {
-  display:flex;
-  flex-shrink:0;
-  gap:8px
-}
-.reading-context button {
-  border:0;
-  background:transparent;
-  font-size:.8rem;
-  padding:6px;
-  min-height:36px
-}
 .workspace {
   flex:1;
   min-height:0;
@@ -327,36 +315,6 @@ hr {
 .muted {
   color:var(--muted)
 }
-.score-heading {
-  padding:14px 18px 10px;
-  background:var(--paper);
-  flex:none
-}
-.score-heading h2 {
-  font-size:1.05rem;
-  margin:3px 0 0;
-  padding:0;
-  border:0
-}
-.score-heading p {
-  font-size:.8rem;
-  color:var(--muted);
-  margin:4px 0 0
-}
-.score-heading p:empty {
-  display:none
-}
-.score-tools {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  flex-wrap:wrap;
-  padding:8px 12px;
-  border-bottom:1px solid var(--line);
-  background:var(--paper);
-  flex:none;
-  font-size:.8rem
-}
 .tool-group {
   display:flex;
   align-items:center;
@@ -370,9 +328,6 @@ hr {
 .tool-group output {
   min-width:48px;
   text-align:center
-}
-.score-tools a {
-  padding:8px 4px
 }
 .score-stage {
   flex:1;
@@ -437,17 +392,6 @@ hr {
   height:1px;
   overflow:hidden;
   clip-path:inset(50%)
-}
-.sidebar.score-expanded,.sidebar:fullscreen {
-  position:fixed;
-  inset:0;
-  z-index:50;
-  width:100%;
-  height:100%;
-  display:flex!important
-}
-.score-expanded .score-stage,:fullscreen .score-stage {
-  background:#e6ddd5
 }
 .audio-player {
   display:flex;
@@ -536,51 +480,6 @@ hr {
   font-variant-numeric:tabular-nums;
   white-space:nowrap;
   min-width:85px
-}
-#study-tools>summary {
-  font-size:.82rem;
-  min-height:44px;
-  display:flex;
-  align-items:center;
-  border:1px solid var(--line);
-  padding:8px 12px;
-  border-radius:7px
-}
-#study-tools>summary:after {
-  content:'▴';
-  margin-left:10px
-}
-.study-options {
-  position:absolute;
-  bottom:calc(100% + 8px);
-  right:0;
-  max-width:min(580px,calc(100vw - 24px));
-  background:#fff;
-  box-shadow:0 4px 26px #39251a24;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:16px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:10px;
-  font-size:.85rem
-}
-#loop-range {
-  flex-basis:100%;
-  font-size:.8rem;
-  color:var(--muted)
-}
-.loop-toggle {
-  display:flex;
-  align-items:center;
-  min-height:44px;
-  gap:6px
-}
-.loop-toggle input {
-  width:20px;
-  height:20px;
-  accent-color:var(--accent)
 }
 .audio-error {
   display:flex;
@@ -714,18 +613,6 @@ hr {
   .transport {
     gap:6px
   }
-  .score-heading {
-    padding:10px 12px
-  }
-  .score-tools {
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    white-space:nowrap;
-    min-height:60px
-  }
-  .score-tools>* {
-    flex-shrink:0
-  }
 }
 @media(max-width:700px) {
   .reader-bar {
@@ -752,13 +639,6 @@ hr {
     font-size:.73rem;
     min-height:34px
   }
-  .reading-context button {
-    font-size:.72rem
-  }
-  .reading-context #resume-reading {
-    max-width:95px;
-    line-height:1.2
-  }
   .content {
     padding:24px 20px;
     font-size:1rem
@@ -768,24 +648,6 @@ hr {
   }
   .content h2 {
     font-size:1.4rem
-  }
-  #copy-passage {
-    max-width:94px;
-    line-height:1.2
-  }
-  .score-heading .eyebrow {
-    display:none
-  }
-  .score-heading h2 {
-    font-size:.9rem;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis
-  }
-  .score-heading p {
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis
   }
   .score-pages {
     min-height:48px
@@ -816,26 +678,9 @@ hr {
     min-height:38px;
     font-size:.78rem
   }
-  #study-tools {
-    flex:1
-  }
-  #study-tools>summary {
-    min-height:38px;
-    font-size:.76rem;
-    padding:6px
-  }
-  .study-options {
-    bottom:calc(100% + 4px);
-    left:0;
-    right:0
-  }
   .reader-dialog {
     padding:18px;
     max-height:calc(100dvh - 24px)
-  }
-  .score-tools {
-    padding:5px 8px;
-    min-height:54px
   }
   .score-tools button,.score-tools select {
     min-height:40px
@@ -876,16 +721,6 @@ hr {
   .reading-context {
     display:none
   }
-  .score-heading {
-    padding:5px 12px
-  }
-  .score-heading .eyebrow,.score-heading p {
-    display:none
-  }
-  .score-tools {
-    min-height:46px;
-    padding:2px 8px
-  }
   .score-tools button,.score-tools select {
     min-height:36px
   }
@@ -908,18 +743,11 @@ hr {
   .score-stage {
     padding:8px
   }
-  .study-options {
-    max-height:calc(100dvh - 110px);
-    overflow:auto
-  }
 }
 /* Keep room for the score on short, narrow phones. */
 @media (max-width: 360px) {
   .reader-actions {
     flex-wrap: nowrap;
-  }
-  #open-search {
-    display: none;
   }
   .reader-actions > button {
     flex: 0 0 auto;
@@ -934,46 +762,15 @@ hr {
     font-size: .72rem;
     padding: 6px;
   }
-  .score-heading > div {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .score-heading h2 {
-    flex: 1;
-    min-width: 0;
-  }
-  .score-heading p {
-    max-width: 85px;
-  }
   .transport > button {
     flex: 0 1 auto;
     padding: 6px 8px;
     font-size: .72rem;
   }
-  #study-tools {
-    flex: 1;
-  }
-  #study-tools > summary {
-    padding: 6px 8px;
-    font-size: .7rem;
-  }
-  #study-tools > summary:after {
-    display: none;
-  }
 }
 @media (max-width: 700px) {
-  .score-tools {
-    scrollbar-width: thin;
-  }
-  .score-tools [data-action="fullscreen"] {
-    order: 1;
-  }
   #score-fit {
     order: 2;
-  }
-  #score-original {
-    order: 3;
   }
 }
 /* Mobile reading: only the reading surfaces occupy space. All controls are
@@ -1061,7 +858,7 @@ hr {
 .mobile-controls .reader-bar {
   padding:12px;
 }
-.mobile-controls .brand,.mobile-controls #open-search,.controls-fullscreen .mobile-navigation {
+.mobile-controls .brand {
   display:none;
 }
 .mobile-controls .reader-actions {
@@ -1078,34 +875,6 @@ hr {
   gap:4px;
   padding-top:8px;
   font-size:.8rem;
-}
-.mobile-controls .reading-context>div {
-  flex-wrap:wrap;
-  justify-content:space-between;
-}
-.mobile-controls .reading-context button {
-  max-width:none!important;
-  min-height:44px;
-  font-size:.78rem;
-}
-.mobile-controls .score-heading {
-  padding:12px 12px 4px;
-}
-.mobile-controls .score-heading>div {
-  display:block;
-}
-.mobile-controls .score-heading h2,.mobile-controls .score-heading p {
-  white-space:normal;
-  max-width:none;
-}
-.mobile-controls .score-heading .eyebrow {
-  display:none;
-}
-.mobile-controls .score-tools {
-  min-height:0;
-  flex-wrap:wrap;
-  overflow:visible;
-  padding:8px 12px 12px;
 }
 .mobile-controls .score-tools button,.mobile-controls .score-tools select {
   min-height:44px;
@@ -1148,22 +917,6 @@ hr {
 }
 .mobile-controls #audio-time {
   order:6;
-}
-.mobile-controls #study-tools {
-  flex-basis:100%;
-  order:7;
-}
-.mobile-controls #study-tools>summary {
-  min-height:44px;
-  font-size:.85rem;
-}
-.mobile-controls .study-options {
-  position:static;
-  max-height:none;
-  max-width:none;
-  margin-top:8px;
-  box-shadow:none;
-  padding:10px;
 }
 .mobile-reading .audio-player {
   padding:0;
@@ -1219,4 +972,39 @@ hr {
   h2,h3,h4 {
     break-after:avoid
   }
+}
+/* One compact title row; controls wrap only when the panel is too narrow. */
+.score-heading {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:4px 12px;
+  padding:6px 12px;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+  flex:none;
+  min-width:0;
+}
+.score-heading h2 {
+  flex:1 1 auto;
+  min-width:0;
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:.95rem;
+  line-height:1.3;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.score-tools {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-left:auto;
+  padding:0;
+  min-width:0;
+  max-width:100%;
+  font-size:.8rem;
 }

@@ -20,7 +20,7 @@ let currentChapter, saveTimer, scrollFrame, viewer, lastReading = {anchor:'',off
 history.scrollRestoration = 'manual';
 
 const header = document.createElement('header');header.className = 'reader-bar';
-header.innerHTML = h(`<a class="skip-link" href="#content">Aller au texte</a><div class="reader-actions"><span class="brand">Dobbins<span>ARRANGEMENT JAZZ</span></span><button type="button" id="open-toc" aria-haspopup="dialog">Sommaire</button><button type="button" id="open-search" aria-haspopup="dialog">Rechercher</button></div><div class="reading-context"><span id="current-chapter">Une approche linéaire</span><div><button type="button" id="resume-reading" hidden>Reprendre ma lecture</button><button type="button" id="copy-passage">Partager ce passage</button></div></div>`);
+header.innerHTML = h(`<a class="skip-link" href="#content">Aller au texte</a><div class="reader-actions"><span class="brand">Dobbins<span>ARRANGEMENT JAZZ</span></span><button type="button" id="open-toc" aria-haspopup="dialog">Sommaire</button></div><div class="reading-context"><span id="current-chapter">Une approche linéaire</span></div>`);
 document.body.prepend(header);
 if (!proofreading) mountLanguageSelector(header.querySelector('.reader-actions'), nextLanguage => {
   savePosition();
@@ -45,8 +45,6 @@ workspace.dataset.mode = 'both';
 content.before(workspace);workspace.append(content);
 const divider = document.createElement('div');divider.className = 'divider';divider.tabIndex = 0;divider.setAttribute('role','separator');divider.setAttribute('aria-label',t('Répartition du texte et de la partition'));divider.setAttribute('aria-orientation','vertical');divider.setAttribute('aria-valuemin','25');divider.setAttribute('aria-valuemax','75');divider.setAttribute('aria-valuenow','48');
 workspace.append(divider,sidebar);content.tabIndex = -1;
-const announcement = document.createElement('div');announcement.className = 'sr-only';announcement.setAttribute('role','status');document.body.append(announcement);
-const announce = text => {announcement.textContent = text;};
 function createDialog(label) {
   const dialog = document.createElement('dialog');dialog.className = 'reader-dialog';dialog.setAttribute('aria-label',label);
   dialog.innerHTML = h(`<div class="dialog-top"><strong>${label}</strong><button type="button" class="close-dialog">Fermer</button></div>`);
@@ -63,11 +61,8 @@ document.getElementById('open-toc').addEventListener('click', () => {
   const current = navigation.querySelector('[aria-current="location"]');if (current) current.closest('details').open = true;
   navigation.querySelector('.close-dialog').focus();
 });
-document.getElementById('open-search').addEventListener('click', () => {navigation.showModal();search.focus();});
 const glossary = createDialog(t('Définition'));
 const definition = document.createElement('div');definition.className = 'definition';glossary.append(definition);
-const shareDialog = createDialog(t('Partager ce passage'));
-shareDialog.insertAdjacentHTML('beforeend',h('<p>Copiez ce lien pour retrouver exactement ce passage.</p><label for="share-url">Lien du passage</label><input id="share-url" readonly>'));
 
 header.querySelector('.skip-link').addEventListener('click', event => {event.preventDefault();content.focus({preventScroll:true});});
 const mobileQuery = matchMedia('(max-width:700px), (max-width:1000px) and (max-height:500px)');
@@ -95,11 +90,10 @@ divider.addEventListener('pointermove', event => {
 });
 divider.addEventListener('pointerup', event => {if (divider.hasPointerCapture(event.pointerId)) divider.releasePointerCapture(event.pointerId);savePosition();});
 viewer = new ScoreViewer(sidebar, () => {if (ready && !restoring) savePosition();});
-const audio = new StudyAudio((record, reveal) => {
+const audio = new StudyAudio(record => {
   if (!record?.score) return;
   viewer.open({...record.score,context:record.context});
-  if (reveal && !mobileQuery.matches) viewer.stage.focus({preventScroll:true});
-}, async record => {if (sidebar.classList.contains('score-expanded')) await viewer.fullscreen();if (record) navigateTo(record.element.id);});
+}, record => {if (record) navigateTo(record.element.id);});
 const mobileControls = new MobileControls(header,viewer,audio);
 let layoutWidth = innerWidth;
 function updateLayout() {
@@ -118,12 +112,6 @@ function updateLayout() {
   viewer.render();
 }
 window.addEventListener('resize',updateLayout);updateLayout();
-document.addEventListener('reader-fullscreen', event => {
-  const active = event.detail.active;
-  mobileControls.syncFullscreen();
-  header.inert = active;divider.inert = active;content.inert = active;
-  if (mobileQuery.matches) mobileControls.toggle.focus({preventScroll:true});
-});
 
 function snapshot() {
   if (!content.clientHeight) return {...lastReading,score:viewer.snapshot(),split,splits:{...splits}};
@@ -188,15 +176,6 @@ window.addEventListener('popstate', event => {
   else {const id = decodeHash();if (id) navigateTo(id,{push:false});}
 });
 function decodeHash() {try {return decodeURIComponent(location.hash.slice(1));} catch {return '';}}
-document.getElementById('resume-reading').addEventListener('click', async () => {
-  savePosition();await restore(saved,true);history.pushState({reader:snapshot()},'',`#${encodeURIComponent(saved.anchor)}`);savePosition();announce(t('Votre passage de lecture a été retrouvé.'));
-});
-document.getElementById('copy-passage').addEventListener('click', async () => {
-  if (!ready) return;
-  const state = snapshot(), url = new URL(location.href);url.hash = state.anchor;
-  try {await navigator.clipboard.writeText(url.href);announce(t('Lien du passage copié.'));const b = document.getElementById('copy-passage');b.textContent = t('Lien copié');setTimeout(() => b.textContent = t('Partager ce passage'),2500);}
-  catch {shareDialog.querySelector('#share-url').value = url.href;shareDialog.showModal();shareDialog.querySelector('input').select();}
-});
 
 function glossaryId(link) {
   const range = document.createRange();range.setStart(link.closest('p') || link.parentElement,0);range.setEndBefore(link);
@@ -281,7 +260,6 @@ async function loadBook() {
     // Layout must settle before restoring a position inside the long article.
     await Promise.race([Promise.all([...book.querySelectorAll('img')].map(img=>img.decode().catch(()=>{}))),new Promise(resolve=>setTimeout(resolve,4000))]);
     ready = true;
-    if (saved?.anchor && document.getElementById(saved.anchor)) document.getElementById('resume-reading').hidden = false;
     let transfer;
     try {transfer = JSON.parse(sessionStorage.getItem('dobbins:language-transfer'));sessionStorage.removeItem('dobbins:language-transfer');} catch { /* Optional transfer. */ }
     const id = decodeHash();

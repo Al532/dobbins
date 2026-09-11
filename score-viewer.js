@@ -30,13 +30,11 @@ export class ScoreViewer {
     this.count = 1;
     this.viewPosition = {left:0,top:0};
     sidebar.innerHTML = h(`
-      <header class="score-heading"><div><span class="eyebrow">PARTITION</span><h2 id="score-title">Votre espace d’étude</h2><p id="score-context"></p></div></header>
+      <header class="score-heading"><h2 id="score-title">Votre espace d’étude</h2>
       <div class="score-tools" aria-label="Affichage de la partition" hidden>
         <div class="tool-group"><button type="button" data-action="out" aria-label="Réduire la partition">−</button><output id="zoom-status">100 %</output><button type="button" data-action="in" aria-label="Agrandir la partition">+</button></div>
         <label class="sr-only" for="score-fit">Ajustement de la partition</label><select id="score-fit"><option value="page">Page entière</option><option value="width">À la largeur</option></select>
-        <button type="button" data-action="fullscreen" aria-pressed="false">Plein écran</button>
-        <a id="score-original" target="_blank" rel="noopener">Ouvrir séparément ↗</a>
-      </div>
+      </div></header>
       <div class="score-stage" tabindex="0" role="region" aria-label="Partition, défilement et zoom">
         <div class="score-message"><span class="eyebrow">LIRE · ÉCOUTER · COMPARER</span><p>Ouvrez un exemple musical<br>pour étudier sa partition ici.</p><p class="muted">Lancer une écoute affiche automatiquement la partition correspondante.</p></div>
       </div>
@@ -50,7 +48,6 @@ export class ScoreViewer {
       const action = event.target.closest('[data-action]')?.dataset.action;
       if (action === 'in' || action === 'out') {this.zoom = clamp(this.zoom * (action === 'in' ? 1.25 : .8), .5, 4); this.render();}
       if (action === 'prev' || action === 'next') this.goToPage(this.page + (action === 'next' ? 1 : -1));
-      if (action === 'fullscreen') this.fullscreen();
     });
     this.stage.addEventListener('scroll', () => {
       if (!this.rendering && this.renderedWidth) {
@@ -64,15 +61,6 @@ export class ScoreViewer {
     this.stage.addEventListener('keydown', event => {
       if (event.key === '+' || event.key === '=') {event.preventDefault();this.zoom = clamp(this.zoom * 1.25,.5,4);this.render();}
       if (event.key === '-') {event.preventDefault();this.zoom = clamp(this.zoom * .8,.5,4);this.render();}
-    });
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) this.sidebar.classList.remove('score-expanded');
-      this.syncFullscreen();
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && this.sidebar.classList.contains('score-expanded') && !document.fullscreenElement) {
-        this.sidebar.classList.remove('score-expanded'); this.syncFullscreen();
-      }
     });
     new ResizeObserver(() => {clearTimeout(this.resizeTimer);this.resizeTimer = setTimeout(() => this.render(),80);}).observe(this.stage);
   }
@@ -93,8 +81,6 @@ export class ScoreViewer {
     this.viewPosition = {left:Math.max(0,Number(item.viewPosition?.left) || 0),top:Math.max(0,Number(item.viewPosition?.top) || 0)};
     this.control('#score-fit').value = this.fit;
     this.control('#score-title').textContent = item.title || t('Partition');
-    this.control('#score-context').textContent = item.context || '';
-    this.control('#score-original').href = item.url;
     this.tools.hidden = false;
     this.footer.hidden = true;
     this.message(t('Chargement de la partition…'));
@@ -125,7 +111,6 @@ export class ScoreViewer {
     const p = document.createElement('p'); p.textContent = text; box.append(p);
     if (retry) {
       const button = document.createElement('button'); button.textContent = t('Réessayer'); button.addEventListener('click', () => {this.doc = null;this.image = null;this.open(this.current);});box.append(button);
-      const link = document.createElement('a');link.textContent = t('Ouvrir la partition séparément ↗');link.href = this.current.url;link.target = '_blank';link.rel = 'noopener';box.append(link);
     }
     this.stage.replaceChildren(box);
   }
@@ -184,22 +169,5 @@ export class ScoreViewer {
     } finally {
       requestAnimationFrame(() => {if (renderId === this.renderId) this.rendering = false;});
     }
-  }
-  async fullscreen() {
-    if (document.fullscreenElement === this.sidebar) await document.exitFullscreen();
-    else if (this.sidebar.classList.contains('score-expanded')) this.sidebar.classList.remove('score-expanded');
-    else {
-      this.sidebar.classList.add('score-expanded');
-      try {await this.sidebar.requestFullscreen();} catch { /* Full-window fallback, including browsers without the fullscreen API. */ }
-    }
-    this.syncFullscreen();
-  }
-  syncFullscreen() {
-    const active = this.sidebar.classList.contains('score-expanded') || document.fullscreenElement === this.sidebar;
-    const button = this.control('[data-action="fullscreen"]');
-    button.textContent = active ? t('Quitter le plein écran') : t('Plein écran');button.setAttribute('aria-pressed',String(active));
-    document.dispatchEvent(new CustomEvent('reader-fullscreen',{detail:{active}}));
-    if (!document.body.classList.contains('mobile-reading')) button.focus({preventScroll:true});
-    this.render();
   }
 }

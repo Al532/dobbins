@@ -33,7 +33,7 @@ export default {
   'Vérifiez votre connexion puis réessayez.': 'Check your connection and try again.',
   'Réessayer': 'Try again',
   'Ouvrir le texte directement': 'Open the text directly',
-  'Lecteur audio et outils d’étude': 'Audio player and study tools',
+  'Lecteur audio': 'Audio player',
   'Revenir à cet extrait dans le cours': 'Find this excerpt in the course',
   'Écouter': 'Play',
   'Rejouer': 'Replay',

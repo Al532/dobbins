@@ -38,6 +38,3 @@ export function scoreForAudio(href, sectionHref = '') {
   const page = sectionHref && mediaFile(sectionHref) === file ? pdfPage(sectionHref) : 1;
   return {url: encodeURI(file).replace(/#/g, '%23') + (page > 1 ? `#page=${page}` : ''), title:scoreTitle(file)};
 }
-export function validLoop(a, b, start, end) {
-  return [a, b, start, end].every(Number.isFinite) && a >= start && b > a + .1 && b <= end;
-}
