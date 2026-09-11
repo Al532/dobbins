@@ -136,7 +136,7 @@ export class StudyAudio {
     const playing = !this.audio.paused && !this.audio.ended;
     this.updateExcerpt(this.current,playing);
     for (const button of [this.playButton]) {
-      button.textContent = playing ? t('Pause') : t('Écouter');button.setAttribute('aria-label',t('{action} — {title}',{action:playing ? t('Mettre en pause') : t('Écouter'),title:this.current.name}));
+      button.innerHTML = audioIcon(playing ? 'pause' : 'play');button.setAttribute('aria-label',t('{action} — {title}',{action:playing ? t('Mettre en pause') : t('Écouter'),title:this.current.name}));
     }
     this.seek.disabled = !ready;this.seek.max = ready ? duration : 1;this.seek.value = Math.min(elapsed,duration || 0);
     this.seek.setAttribute('aria-valuetext',t('{elapsed} sur {duration}',{elapsed:timeLabel(elapsed),duration:timeLabel(duration)}));
@@ -144,3 +144,4 @@ export class StudyAudio {
     if (ready) this.positions.set(this.current.id,this.audio.currentTime);
   }
 }
+

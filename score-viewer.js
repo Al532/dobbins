@@ -56,13 +56,72 @@ export class ScoreViewer {
         this.scrollSaveTimer = setTimeout(() => this.onChange(this.snapshot()),150);
       }
     });
-    sidebar.querySelector('#score-fit').addEventListener('change', event => {this.fit = event.target.value; this.zoom = 1; this.render();});
+    sidebar.querySelector('#score-fit').addEventListener('change', event => {this.fit = event.target.value; this.zoom = 1; this.viewPosition = {left:0,top:0}; this.render();});
     sidebar.querySelector('#score-page').addEventListener('change', event => this.goToPage(Number(event.target.value)));
     this.stage.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {event.preventDefault();this.goToPage(this.page + (event.key === 'ArrowRight' ? 1 : -1));}
       if (event.key === '+' || event.key === '=') {event.preventDefault();this.zoom = clamp(this.zoom * 1.25,.5,4);this.render();}
       if (event.key === '-') {event.preventDefault();this.zoom = clamp(this.zoom * .8,.5,4);this.render();}
     });
     new ResizeObserver(() => {clearTimeout(this.resizeTimer);this.resizeTimer = setTimeout(() => this.render(),80);}).observe(this.stage);
+    this.bindTouch();
+  }
+  bindTouch() {
+    const points = new Map();
+    let drag, pinch, multiple = false;
+    const midpoint = () => {
+      const [a,b] = [...points.values()];
+      return {x:(a.x+b.x)/2,y:(a.y+b.y)/2,d:Math.hypot(a.x-b.x,a.y-b.y)};
+    };
+    const startDrag = point => ({...point,left:this.stage.scrollLeft,top:this.stage.scrollTop,
+      right:this.stage.scrollWidth-this.stage.clientWidth-this.stage.scrollLeft,time:performance.now()});
+    this.cancelTouch = () => {points.clear();drag = pinch = null;multiple = false;};
+    this.stage.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'touch' || !document.body.classList.contains('mobile-reading') || this.rendering || !this.stage.querySelector('canvas,img')) return;
+      event.preventDefault();this.stage.setPointerCapture(event.pointerId);
+      points.set(event.pointerId,{x:event.clientX,y:event.clientY});
+      if (points.size === 1) {multiple = false;drag = startDrag(points.get(event.pointerId));}
+      else if (points.size === 2) {
+        multiple = true;
+        const middle = midpoint(), node = this.stage.firstElementChild, rect = node.getBoundingClientRect();
+        pinch = {distance:Math.max(1,middle.d),zoom:this.zoom,width:rect.width,height:rect.height,
+          x:(middle.x-rect.left)/rect.width,y:(middle.y-rect.top)/rect.height,node};
+      }
+    });
+    this.stage.addEventListener('pointermove', event => {
+      if (!points.has(event.pointerId)) return;
+      event.preventDefault();points.set(event.pointerId,{x:event.clientX,y:event.clientY});
+      if (points.size >= 2 && pinch) {
+        const middle = midpoint();this.zoom = clamp(pinch.zoom*middle.d/pinch.distance,.5,4);
+        const ratio = this.zoom/pinch.zoom;
+        pinch.node.style.width = `${pinch.width*ratio}px`;pinch.node.style.height = `${pinch.height*ratio}px`;
+        const rect = pinch.node.getBoundingClientRect();
+        this.stage.scrollLeft += rect.left+pinch.x*rect.width-middle.x;
+        this.stage.scrollTop += rect.top+pinch.y*rect.height-middle.y;
+        this.renderedWidth = rect.width;
+      } else if (drag) {
+        this.stage.scrollLeft = drag.left+drag.x-event.clientX;
+        this.stage.scrollTop = drag.top+drag.y-event.clientY;
+      }
+      this.viewPosition = {left:this.stage.scrollLeft/this.renderedWidth,top:this.stage.scrollTop/this.renderedWidth};
+    });
+    const finish = event => {
+      if (!points.has(event.pointerId)) return;
+      points.delete(event.pointerId);
+      if (this.stage.hasPointerCapture(event.pointerId)) this.stage.releasePointerCapture(event.pointerId);
+      if (points.size) {drag = startDrag([...points.values()][0]);return;}
+      const dx = event.clientX-drag.x, dy = event.clientY-drag.y;
+      const swipe = event.type === 'pointerup' && !multiple && Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5 && performance.now()-drag.time<700;
+      if (swipe && ((dx<0 && drag.right<=2) || (dx>0 && drag.left<=2))) this.goToPage(this.page+(dx<0 ? 1 : -1));
+      else if (pinch) this.render();
+      else this.onChange(this.snapshot());
+      this.cancelTouch();
+    };
+    this.stage.addEventListener('pointerup',finish);
+    this.stage.addEventListener('pointercancel',finish);
+    this.stage.addEventListener('lostpointercapture', event => {
+      if (points.has(event.pointerId)) {this.cancelTouch();this.render();}
+    });
   }
   control(selector) {return this.heading.querySelector(selector) || this.tools.querySelector(selector) || this.footer.querySelector(selector);}
   snapshot() {return this.current ? {...this.current, page:this.page, fit:this.fit, zoom:this.zoom,viewPosition:{...this.viewPosition}} : null;}
@@ -71,6 +130,7 @@ export class ScoreViewer {
     const same = this.current?.url === item.url && this.current?.context === item.context && (this.doc || this.image);
     if (same && this.page === pdfPage(item.url) && item.page == null && item.zoom == null && item.fit == null && item.viewPosition == null) return;
     this.current = {...item};
+    this.cancelTouch();
     const generation = ++this.generation;
     this.renderId = (this.renderId || 0) + 1;
     this.rendering = true;

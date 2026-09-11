@@ -7,7 +7,7 @@ export class MobileControls {
     this.dialog = document.createElement('dialog');
     this.dialog.id = 'mobile-controls';this.dialog.className = 'reader-dialog mobile-controls';
     this.dialog.setAttribute('aria-label',t('Commandes de lecture'));
-    this.dialog.innerHTML = h('<div class="dialog-top"><strong>Commandes</strong><button type="button" class="close-controls">Reprendre la lecture</button></div><div class="mobile-navigation"></div><section class="mobile-score-controls" aria-label="Partition"></section><div class="mobile-audio-controls"></div>');
+    this.dialog.innerHTML = h('<div class="dialog-top"><button type="button" class="close-controls" aria-label="Fermer" title="Fermer">×</button></div><div class="mobile-navigation"></div><section class="mobile-score-controls" aria-label="Partition"></section><div class="mobile-audio-controls"></div>');
     this.launcher = document.createElement('div');this.launcher.className = 'mobile-launcher';
     this.launcher.innerHTML = h('<button type="button" class="mobile-menu" aria-label="Afficher les commandes" title="Afficher les commandes" aria-haspopup="dialog" aria-controls="mobile-controls" aria-expanded="false">•••</button>');
     this.toggle = this.launcher.querySelector('.mobile-menu');
@@ -52,3 +52,4 @@ export class MobileControls {
     if (focus && this.mobile) this.toggle.focus({preventScroll:true});
   }
 }
+
